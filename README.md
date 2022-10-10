@@ -1,5 +1,5 @@
 # Planes-For-Trains
-This project seeks to use demand for short haul flights (between 75 and 550 miles) to determine which cities in the United States are best positioned to become major high speed rail hubs. 
+This project seeks to use 2019 demand for short haul flights (between 75 and 550 miles) to determine which cities in the United States are best positioned to become major high speed rail hubs.
 
 # Data Collection and Setup
 
@@ -57,13 +57,15 @@ LIMIT 20
 ```
 # Query Data to Setup City Specific Analysis in R.
 
-While the last query gave us a list of the 20 cities with the most short haul domestic flights, this query is meant to determine where these fligths are actually going. 
+While the last query gave us a list of the 20 cities with the most short haul domestic flights, this query is meant to determine where these flights are actually going. This will be key to determining 
 
 ```
-WITH temp_table as (SELECT
+WITH temp_table as 
+  (SELECT
     OriginCityMarketID, DestCityMarketID, Sum(Passengers) as Sum_of_Passengers, AVG(Distance) AS Distance
   FROM `cycling-case-study-362219.us_air_passenger.unioned_and_filtered_table3`
   GROUP BY OriginCityMarketID, DestCityMarketID)
+  
 SELECT a.*,b.Metro_Area_Name_Origin_,c.Metro_Area_Name_Dest_,d.Latitude as OriginLat,d.Longitude as OriginLon,e.Latitude as DestLat, e.Longitude as DestLon, 
 from temp_table as a
 LEFT JOIN `cycling-case-study-362219.us_air_passenger.Metro_Area_Data` as b
@@ -74,7 +76,7 @@ LEFT JOIN `cycling-case-study-362219.us_air_passenger.Metro_Area_Data` as d
 ON a.OriginCityMarketID= d.OriginCityMarketID
 LEFT JOIN `cycling-case-study-362219.us_air_passenger.Metro_Area_Data` as e
 ON a.DestCityMarketID = e.DestCityMarketID
-WHERE b.Metro_Area_Name_Origin_ is not null AND a.Distance BETWEEN 75 AND 500
+WHERE a.Distance BETWEEN 75 AND 550 AND Sum_of_Passengers > 15000
 ORDER BY b.Metro_Area_Name_Origin_, a.Sum_of_Passengers DESC
 ```
 
