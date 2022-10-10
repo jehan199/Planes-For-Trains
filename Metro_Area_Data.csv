@@ -1,0 +1,21 @@
+OriginCityMarketID,DestCityMarketID, Sum_of_Passengers ,Metro_Area_Name_Origin,Metro_Area_Name_Dest,Main_City _Name,State,Full_Name,Latitude,Longitude
+30397,30397," 1,550,916.00 ",Atlanta,Atlanta,Atlanta,GA,"Atlanta, GA",33.7628,-84.422
+32575,32575," 1,307,190.00 ",LA/Inland Empire,LA/Inland Empire,Los Angeles,CA,"Los Angeles, CA",34.1141,-118.4068
+30852,30852," 1,248,484.00 ",Washington D.C.,Washington D.C.,Washington,DC,"Washington, DC",38.9047,-77.0163
+32457,32457," 1,072,246.00 ",Bay Area,Bay Area,San Francisco,CA,"San Francisco, CA",37.7558,-122.4449
+31057,31057," 1,008,128.00 ",Charlotte ,Charlotte ,Charlotte,NC,"Charlotte, NC",35.2083,-80.8303
+30977,30977," 970,452.00 ",Chicago,Chicago,Chicago,IL,"Chicago, IL",41.8375,-87.6866
+30194,30194," 855,011.00 ",Dallas,Dallas,Dallas,TX,"Dallas, TX",32.7935,-96.7667
+32211,32211," 736,505.00 ",Las Vegas,Las Vegas,Las Vegas,NV,"Las Vegas, NV",36.2333,-115.2654
+31703,31703," 681,855.00 ",New York,New York,New York,NY,"New York, NY",40.6943,-73.9249
+31295,31295," 550,230.00 ",Detroit,Detroit,Detroit,MI,"Detroit, MI",42.3834,-83.1024
+30721,30721," 535,399.00 ",Boston/Providence,Boston/Providence,Boston,MA,"Boston, MA",42.3188,-71.0852
+30466,30466," 490,399.00 ",Phoenix,Phoenix,Phoenix,AZ,"Phoenix, AZ",33.5722,-112.0892
+31453,31453," 484,598.00 ",Houston,Houston,Houston,TX,"Houston, TX",29.786,-95.3885
+33570,33570," 431,918.00 ",San Diego,San Diego,San Diego,CA,"San Diego, CA",32.8313,-117.1222
+34100,34100," 371,566.00 ",Philadelphia,Philadelphia,Philadelphia,PA,"Philadelphia, PA",40.0077,-75.1339
+31650,31650," 356,497.00 ",Minneapolis/St.Paul,Minneapolis/St.Paul,Minneapolis,MN,"Minneapolis, MN",44.9635,-93.2678
+33192,33192," 303,467.00 ",Sacremento,Sacremento,Sacramento,CA,"Sacramento, CA",38.5677,-121.4685
+30693,30693," 294,947.00 ",Nashville,Nashville,Nashville,TN,"Nashville, TN",36.1715,-86.7842
+30325,30325," 293,731.00 ",Denver,Denver,Denver,CO,"Denver, CO",39.762,-104.8758
+34492,34492," 283,171.00 ",Raleigh,Raleigh,Raleigh,NC,"Raleigh, NC",35.8324,-78.6429
