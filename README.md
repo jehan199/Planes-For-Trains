@@ -214,16 +214,16 @@ mapview(Charlotte_dest, zcol = 'Passengers_Recieved',map.types = "OpenStreetMap"
 
 # Links to Visualizations
 
-Top 20 Cities with Most Short Haul Flights:file:///Users/jeremyhandy/Trains_for_planes_cars/Short-Haul-Flight-Cities.html
+Top 20 Cities with Most Short Haul Flights:  file:///Users/jeremyhandy/Trains_for_planes_cars/Short-Haul-Flight-Cities.html
 
-Atlanta as a Hub:file:///Users/jeremyhandy/Trains_for_planes_cars/Atlanta-Visual.html
+Atlanta as a Hub:  file:///Users/jeremyhandy/Trains_for_planes_cars/Atlanta-Visual.html
 
-LA/Inland Empure as a Hub:file:///Users/jeremyhandy/Trains_for_planes_cars/LA_Inland-Empire-as-a-Hub.html
+LA/Inland Empure as a Hub:  file:///Users/jeremyhandy/Trains_for_planes_cars/LA_Inland-Empire-as-a-Hub.html
 
-Washington D.C. as a Hub:file:///Users/jeremyhandy/Trains_for_planes_cars/Washington-D.C.-as-a-Hub.html
+Washington D.C. as a Hub:  file:///Users/jeremyhandy/Trains_for_planes_cars/Washington-D.C.-as-a-Hub.html
 
-The Bay Area as a Hub:file:///Users/jeremyhandy/Trains_for_planes_cars/Bay-Area-as-a-Hub.html
+The Bay Area as a Hub:  file:///Users/jeremyhandy/Trains_for_planes_cars/Bay-Area-as-a-Hub.html
 
-Charlotte as a Hub:file:///Users/jeremyhandy/Trains_for_planes_cars/Charlotte-as-a-Hub..html
+Charlotte as a Hub:  file:///Users/jeremyhandy/Trains_for_planes_cars/Charlotte-as-a-Hub..html
 
 
