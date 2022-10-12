@@ -162,7 +162,7 @@ my.sf.point_dest$Passengers_Recieved <- city_data.pt2$Sum_of_Passengers
 
 # Top 20 Metros Mapview Function
 
-Now we can start actaully generating the maps. This first map plots each of the metro area and ranks them by color based on the passenger volume. To view these visualizations click the following link: 
+Now we can start actaully generating the maps. This first map plots each of the metro area and ranks them by color based on the passenger volume.
 
 ```
 mapview(Top_20_Candidates.,zcol ='Total_Passengers_Flying_From', at = c(250000,500000,750000,1000000,1300000,1600000))
@@ -211,5 +211,14 @@ mapview(Charlotte_dest, zcol = 'Passengers_Recieved',map.types = "OpenStreetMap"
   mapview(roads,color = 'grey', legend = FALSE) +
   mapview(Charlotte,zcol = 'Metro_Area_Name', color ="red", legend = FALSE)
 ```
+
+# Links to Visualizations
+
+Top 20 Cities with Most Short Haul Flights:file:///Users/jeremyhandy/Trains_for_planes_cars/Short-Haul-Flight-Cities.html
+Atlanta as a Hub:file:///Users/jeremyhandy/Trains_for_planes_cars/Atlanta-Visual.html
+LA/Inland Empure as a Hub:file:///Users/jeremyhandy/Trains_for_planes_cars/LA_Inland-Empire-as-a-Hub.html
+Washington D.C. as a Hub:file:///Users/jeremyhandy/Trains_for_planes_cars/Washington-D.C.-as-a-Hub.html
+The Bay Area as a Hub:file:///Users/jeremyhandy/Trains_for_planes_cars/Bay-Area-as-a-Hub.html
+Charlotte as a Hub:file:///Users/jeremyhandy/Trains_for_planes_cars/Charlotte-as-a-Hub..html
 
 
