@@ -57,7 +57,7 @@ LIMIT 20
 ```
 # Query Data in SQL to Setup City Specific Analysis in R
 
-While the last query gave us a list of the 20 cities with the most short haul domestic flights, this query is meant to determine where these flights are actually going. This will be key to determining 
+While the last query gave us a list of the 20 cities with the most short haul domestic flights, this query is meant to determine where these flights are actually going. This will be important for our visualizations in R. 
 
 ```
 WITH temp_table as 
