@@ -3,7 +3,7 @@ This project seeks to use 2019 demand for short haul flights (between 75 and 550
 
 # Data Collection and Setup
 
-The dataset I am using for this project comes from the US Bureau of Transportation Statistics Origin and Destination Survey : DB1BCoupon. This is a report that is released quarterly that includes every domestic flight itinerary for a given period. Since the report is issued quarterly, I decided to take the 4 quarterly reports from 2019 and consolidate them into one table for analysis. I also downloaded a list of US domestic airport codes that I then joined with the source data to provide more descriptive infomortion 
+The dataset I am using for this project comes from the US Bureau of Transportation Statistics Origin and Destination Survey : DB1BCoupon. This is a report that is released quarterly that includes every domestic flight itinerary for a given period. Since the report is issued quarterly, I decided to take the 4 quarterly reports from 2019 and consolidate them into one table for analysis. I also downloaded a list of US domestic airport codes that I then joined with the source data to provide more descriptive information.
 
 ```
 CREATE TABLE us_air_passenger.unioned_and_filtered_table AS
