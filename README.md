@@ -1,5 +1,5 @@
 # Planes-For-Trains
-This project seeks to use 2019 demand for short haul flights (between 75 and 550 miles) to determine which cities in the United States are best positioned to pivot towards high speed rail as an alternative to short flights.
+This project seeks to use 2019 demand for short haul flights (between 75 and 500 miles) to determine which cities in the United States are best positioned to pivot towards high speed rail as an alternative to short flights.
 
 # Data Collection and Setup
 
