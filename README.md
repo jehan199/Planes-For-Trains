@@ -35,7 +35,7 @@ LEFT JOIN `high-speed-rail-1029201.us_air_passenger.Airport_Codes` AS a2 ON full
 ```
 
 # Query Data to Determine the Top 20 Metros
-Next I run a query that takes the consolidated table and groups it by the Sum of Passengers for each origin city and then sorts the values in descending order with the output limited to 20 rows. This gives us a list of the metro areas that have the most passengers departing from their airports on short haul flights. A table with the latitude and longitude of these metro areas is also used to provide the spatial data that is needed for the subisquent visualization in R. 
+Next I run a query that takes the consolidated table and groups it by the Sum of Passengers for each origin city and then sorts the values in descending order with the output limited to 20 rows. This gives us a list of the metro areas that have the most passengers departing from their airports. This sum is filtered to flights with a distance is between 75-500 miles and it excluded flights with an origin or destination in Hawaii because these flights cannot be replaced with a rail connection. A table with the latitude and longitude of these metro areas is also used to provide the spatial data that is needed for the subsequent visualization in R. 
 
 ```
 SELECT  
