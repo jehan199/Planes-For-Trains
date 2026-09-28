@@ -141,7 +141,29 @@ used in the project.
 
 ---
 
-## 6. Airport Code Lookup
+## 6. Joining Market and Geographic Data
+
+After identifying the highest-volume eligible markets, the passenger
+aggregation was joined to `Metro_Data_Table` using `OriginCityMarketID`.
+
+The join added the following geographic and analytical fields:
+
+- `Metro_Area_Name`
+- `State`
+- `Latitude`
+- `Longitude`
+
+The resulting dataset contained the passenger totals and geographic
+information needed for the subsequent analysis.
+
+The original query used a `LEFT JOIN` on `OriginCityMarketID` and retained
+the 20 highest-volume markets.
+
+The SQL used for this step is preserved in the repository.
+
+---
+
+## 7. Airport Code Lookup
 
 The original BigQuery workflow used an `Airport_Codes` lookup table to add
 airport names to the DB1B records.
@@ -156,7 +178,7 @@ pipeline.
 
 ---
 
-## 7. Historical vs. Reproducibility Workflow
+## 8. Historical vs. Reproducibility Workflow
 
 This project distinguishes between the original 2022 analysis and the
 2026 reproducibility revision.
