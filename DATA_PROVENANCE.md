@@ -168,3 +168,14 @@ documentation of selected components.
 
 Where a source is replaced, the original source and the reason for the
 replacement will be documented.
+
+
+| Source / Object | Type | Role | Status |
+|---|---|---|---|
+| BTS DB1B Coupon 2019 Q1–Q4 | Official source data | Primary flight data | Historical source |
+| `2019_Q1`–`2019_Q4` | BigQuery tables | Raw imported data | Reproducible |
+| `unioned_and_filtered_table3` | BigQuery table | Combined DB1B data | Reproducible |
+| `Airport_Codes` | Lookup table | Airport names | To be reviewed |
+| SimpleMaps U.S. Cities v1.75 | Geographic dataset | City/geographic attributes | Historical source |
+| `Metro_Data_Table` | Derived table | Selected-market enrichment | Reproducible |
+| `Metro_Area_Name` | Manual classification | Metro grouping | Original analytical decision |
