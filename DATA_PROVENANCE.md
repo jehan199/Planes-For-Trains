@@ -102,7 +102,7 @@ This produced the 20 markets used in the subsequent analysis.
 
 ---
 
-## 5. Metro_Data_Table
+## 5. Metro_Data_Table and Metro_Area_Data
 
 `Metro_Data_Table` was created as a geographic enrichment table for the
 20 selected markets.
@@ -138,6 +138,23 @@ the v1.75 dataset and matched exactly for all 20 selected markets.
 `Metro_Area_Name` was a manually created classification used by the
 original analysis to group individual cities into the metropolitan markets
 used in the project.
+
+### Metro_Area_Data
+
+`Metro_Area_Data` was created in Excel from `Metro_Data_Table`.
+
+The underlying market and geographic information was unchanged. The
+`Metro_Area_Name` field was represented as two fields:
+
+- `Metro_Area_Name_Origin_`
+- `Metro_Area_Name_Dest_`
+
+Both fields contain the same metro-area classification for a given
+CityMarketID.
+
+This restructuring allowed the market lookup information to be used
+explicitly for both the origin and destination of an origin–destination
+market pair.
 
 ---
 
