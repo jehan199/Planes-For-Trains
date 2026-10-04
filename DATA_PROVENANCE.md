@@ -1,4 +1,4 @@
- Data Provenance
+# Data Provenance
 
 This document describes the sources and transformations used in the original
 2022 version of the project and identifies changes made during the
@@ -17,13 +17,13 @@ rail.
 
 The original workflow was:
 
-BTS DB1B 2019 Q1-Q4
-→ combine quarterly data
-→ filter flights by distance and geography
-→ aggregate passengers by OriginCityMarketID
-→ identify the 20 highest-volume eligible markets
-→ add geographic and metro-area information
-→ conduct the subsequent analysis.
+BTS DB1B 2019 Q1-Q4  
+→ combine quarterly data  
+→ identify the 20 highest-volume eligible origin markets  
+→ add geographic and metro-area information  
+→ aggregate passenger volume by origin-destination market pair  
+→ identify the highest-volume destination routes for each selected origin  
+→ prepare route-level data for subsequent analysis and visualization.
 
 ---
 
@@ -94,11 +94,14 @@ The original project selected markets using the following criteria:
 4. Markets were ranked by total passengers.
 5. The 20 highest-volume eligible markets were selected.
 
-The relevant SQL can be found in the the SQL queries folder
+The relevant SQL can be found in the SQL queries folder.
 
 [insert link to SQL file]
 
 This produced the 20 markets used in the subsequent analysis.
+
+The resulting 20 `OriginCityMarketID` values were used to identify the
+origin markets for the route-level analysis.
 
 ---
 
@@ -153,34 +156,181 @@ Both fields contain the same metro-area classification for a given
 CityMarketID.
 
 This restructuring allowed the market lookup information to be used
-explicitly for both the origin and destination of an origin–destination
+explicitly for both the origin and destination of an origin-destination
 market pair.
 
 ---
 
-## 6. Joining Market and Geographic Data
+## 6. Route-Level Passenger Aggregation
 
-After identifying the highest-volume eligible markets, the passenger
-aggregation was joined to `Metro_Data_Table` using `OriginCityMarketID`.
+After identifying the 20 highest-volume origin markets, the original
+analysis aggregated passenger volume by origin-destination market pair.
 
-The join added the following geographic and analytical fields:
+The relevant query aggregated:
 
-- `Metro_Area_Name`
-- `State`
-- `Latitude`
-- `Longitude`
+- `OriginCityMarketID`
+- `DestCityMarketID`
+- `Sum_of_Passengers`
 
-The resulting dataset contained the passenger totals and geographic
-information needed for the subsequent analysis.
+The route-level data was then joined to `Metro_Area_Data` to add geographic
+and metro-area information for both the origin and destination.
 
-The original query used a `LEFT JOIN` on `OriginCityMarketID` and retained
-the 20 highest-volume markets.
+The resulting route-level dataset included:
+
+- OriginCityMarketID
+- DestCityMarketID
+- Sum_of_Passengers
+- Metro_Area_Name_Origin_
+- Metro_Area_Name_Dest_
+- OriginLat
+- OriginLon
+- DestLat
+- DestLon
+- Distance
+
+The route-level data was intended to support the project's subsequent
+visualizations and analysis in R.
 
 The SQL used for this step is preserved in the repository.
 
 ---
 
-## 7. Airport Code Lookup
+## 7. Cities_as_rail_hubs.csv
+
+`Cities_as_rail_hubs.csv` is a derived route-level dataset used to identify
+the highest-volume short-haul air routes associated with the 20 selected
+origin markets.
+
+### Initial query output
+
+The underlying BigQuery query produced an output containing 871
+origin-destination market pairs.
+
+The query aggregated passenger volume by:
+
+- `OriginCityMarketID`
+- `DestCityMarketID`
+
+and associated each route with geographic and metro-area information.
+
+The query output was exported before the final route-selection filters were
+applied.
+
+### Passenger-volume filter
+
+The exported query output was subsequently filtered to retain only
+origin-destination pairs with more than 15,000 passengers.
+
+This reduced the dataset from 871 records to 203 records.
+
+### Top-destination selection
+
+The 203 qualifying routes were then ranked by passenger volume within each
+origin market.
+
+For each of the 20 selected origin markets, up to the 10 highest-volume
+destination routes were retained.
+
+Origins with fewer than 10 qualifying destinations retained all of their
+qualifying destinations.
+
+This reduced the dataset from 203 records to 144 records.
+
+The resulting 144 origin-destination pairs comprise
+`Cities_as_rail_hubs.csv`.
+
+The selection therefore represents:
+
+> The 20 highest-volume short-haul origin markets, with up to their 10
+> highest-volume destination markets among routes carrying more than 15,000
+> passengers.
+
+### Geographic information
+
+Geographic information in `Cities_as_rail_hubs.csv` was derived from the
+SimpleMaps U.S. Cities Basic v1.75 dataset used in the original 2022 project.
+
+The following fields correspond to geographic information from the
+SimpleMaps dataset:
+
+- `OriginLat`
+- `OriginLon`
+- `DestLat`
+- `DestLon`
+- `State`
+- `FullName`
+
+The latitude and longitude values were compared against the recovered
+SimpleMaps v1.75 `uscities.csv` dataset.
+
+All 144 origin coordinate records and all 144 destination coordinate
+records matched the corresponding SimpleMaps coordinates.
+
+The `State` and `FullName` fields were also populated using the city and
+state information associated with the SimpleMaps dataset.
+
+### Metro-area information
+
+`Metro_Area_Name_Origin_` and `Metro_Area_Name_Dest_` are custom metro-area
+classifications used by the original analysis.
+
+These fields were not simply copied from SimpleMaps. They group individual
+cities into the metropolitan areas used in the project's analysis and
+visualizations.
+
+Examples include:
+
+- `Atlanta`
+- `LA/Inland Empire`
+- `Bay Area`
+- `Boston/Providence`
+- `Minneapolis/St.Paul`
+- `Washington D.C.`
+
+During the original spreadsheet preparation, destination metro-area
+information was subsequently populated for all destination records.
+
+### Additional spreadsheet preparation
+
+`Cities_as_rail_hubs.csv` contains several fields that were added or
+prepared during the original spreadsheet workflow after the BigQuery
+export.
+
+These include geographic and descriptive fields used to support the
+subsequent analysis, as well as the origin and destination ranking fields.
+
+The resulting CSV is therefore a derived analytical dataset rather than a
+raw BTS source file.
+
+---
+
+## 8. Geographic Data Source: SimpleMaps U.S. Cities
+
+The original project used the SimpleMaps U.S. Cities Basic v1.75 dataset
+for city-level geographic information.
+
+The v1.75 dataset was obtained in 2022 and the original `uscities.csv`
+file was subsequently recovered from the original project files.
+
+The recovered dataset contains 30,409 city records.
+
+The geographic values used in both `Metro_Data_Table` and
+`Cities_as_rail_hubs.csv` were compared against this recovered v1.75
+dataset.
+
+The coordinates used in the project matched the recovered dataset exactly
+for:
+
+- all 20 selected origin markets in `Metro_Data_Table`; and
+- all 144 origin and 144 destination records in
+  `Cities_as_rail_hubs.csv`.
+
+The original SimpleMaps dataset is preserved locally as historical
+provenance. It is not redistributed in the GitHub repository.
+
+---
+
+## 9. Airport Code Lookup
 
 The original BigQuery workflow used an `Airport_Codes` lookup table to add
 airport names to the DB1B records.
@@ -195,7 +345,7 @@ pipeline.
 
 ---
 
-## 8. Historical vs. Reproducibility Workflow
+## 10. Historical vs. Reproducibility Workflow
 
 This project distinguishes between the original 2022 analysis and the
 2026 reproducibility revision.
@@ -208,7 +358,6 @@ documentation of selected components.
 Where a source is replaced, the original source and the reason for the
 replacement will be documented.
 
-
 | Source / Object | Type | Role | Status |
 |---|---|---|---|
 | BTS DB1B Coupon 2019 Q1–Q4 | Official source data | Primary flight data | Historical source |
@@ -217,4 +366,6 @@ replacement will be documented.
 | `Airport_Codes` | Lookup table | Airport names | To be reviewed |
 | SimpleMaps U.S. Cities v1.75 | Geographic dataset | City/geographic attributes | Historical source |
 | `Metro_Data_Table` | Derived table | Selected-market enrichment | Reproducible |
+| `Metro_Area_Data` | Derived Excel table | Origin/destination metro lookup | Original derived data |
+| `Cities_as_rail_hubs.csv` | Derived route-level dataset | Highest-volume short-haul routes | Historical analytical output |
 | `Metro_Area_Name` | Manual classification | Metro grouping | Original analytical decision |
