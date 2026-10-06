@@ -218,7 +218,7 @@ Top 20 Cities with Most Short Haul Flights:  file:///Users/jeremyhandy/Trains_fo
 
 Atlanta as a Hub:  file:///Users/jeremyhandy/Trains_for_planes_cars/Atlanta-Visual.html
 
-LA/Inland Empure as a Hub:  file:///Users/jeremyhandy/Trains_for_planes_cars/LA_Inland-Empire-as-a-Hub.html
+LA/Inland Empire as a Hub:  file:///Users/jeremyhandy/Trains_for_planes_cars/LA_Inland-Empire-as-a-Hub.html
 
 Washington D.C. as a Hub:  file:///Users/jeremyhandy/Trains_for_planes_cars/Washington-D.C.-as-a-Hub.html
 
