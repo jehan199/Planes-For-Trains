@@ -1,0 +1,19 @@
+* This query pivots the same consolidated 2019 DoT data and orders the sum of passengers on short haul flights between 75 and 500 miles (excluding Hawaii) by the largest sum to the smallest.
+It also pulls in the same gegraphic data from the Metro_Data_Table. The output of this query is labelled as Cities_with_most_short_flights_geo_data.csv and this is the basis for one of the data visualizations in R.*
+
+SELECT  
+  b.Metro_Area_Name,b.State,a.Sum_of_Passengers,b.Latitude,b.Longitude
+FROM 
+  (WITH temp_table AS
+    (SELECT 
+      origin_name,Passengers, Distance, OriginState,destination_name, OriginCityMarketID, DestCityMarketID
+    FROM `cycling-case-study-362219.us_air_passenger.unioned_and_filtered_table3`
+    WHERE  Distance BETWEEN 75 and 500 and OriginState != 'HI')
+      SELECT
+        OriginCityMarketID,Sum(Passengers) as Sum_of_Passengers
+      FROM temp_table
+      GROUP BY OriginCityMarketID) as a
+LEFT JOIN `cycling-case-study-362219.us_air_passenger.Metro_Data_Table` as b
+ON a.OriginCityMarketID = b.OriginCityMarketID
+Order BY Sum_of_Passengers DESC
+LIMIT 20
