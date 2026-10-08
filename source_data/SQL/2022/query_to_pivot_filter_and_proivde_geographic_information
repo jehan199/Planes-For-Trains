@@ -3,17 +3,17 @@ It also applies filters to the data to limit the records pivoted to only flights
 
 WITH temp_table as (SELECT
     OriginCityMarketID, DestCityMarketID, Sum(Passengers) as Sum_of_Passengers, AVG(Distance) AS Distance
-  FROM `cycling-case-study-362219.us_air_passenger.unioned_and_filtered_table3`
+  FROM `rail-as-alt-travel-362219.us_air_passenger.unioned_and_filtered_table3`
   GROUP BY OriginCityMarketID, DestCityMarketID)
 SELECT a.*,b.Metro_Area_Name_Origin_,c.Metro_Area_Name_Dest_,d.Latitude as OriginLat,d.Longitude as OriginLon,e.Latitude as DestLat, e.Longitude as DestLon, 
 from temp_table as a
-LEFT JOIN `cycling-case-study-362219.us_air_passenger.Metro_Area_Data` as b
+LEFT JOIN `rail-as-alt-travel-362219.us_air_passenger.Metro_Area_Data` as b
 ON a.OriginCityMarketID = b.OriginCityMarketID
-LEFT JOIN `cycling-case-study-362219.us_air_passenger.Metro_Area_Data` as c
+LEFT JOIN `rail-as-alt-travel-362219.us_air_passenger.Metro_Area_Data` as c
 ON a.DestCityMarketID = c.DestCityMarketID
-LEFT JOIN `cycling-case-study-362219.us_air_passenger.Metro_Area_Data` as d
+LEFT JOIN `rail-as-alt-travel-362219.us_air_passenger.Metro_Area_Data` as d
 ON a.OriginCityMarketID= d.OriginCityMarketID
-LEFT JOIN `cycling-case-study-362219.us_air_passenger.Metro_Area_Data` as e
+LEFT JOIN `rail-as-alt-travel-362219.us_air_passenger.Metro_Area_Data` as e
 ON a.DestCityMarketID = e.DestCityMarketID
 WHERE b.Metro_Area_Name_Origin_ is not null AND a.Distance BETWEEN 75 AND 500
 ORDER BY b.Metro_Area_Name_Origin_, a.Sum_of_Passengers DESC
