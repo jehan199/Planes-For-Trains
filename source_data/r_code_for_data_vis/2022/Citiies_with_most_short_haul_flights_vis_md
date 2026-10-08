@@ -1,0 +1,70 @@
+
+
+
+
+---
+title: "Cities with Most Short Haul Flights"
+author: "Jeremy Handy"
+date: "2022-10-12"
+output: html_document
+---
+```{r, echo=FALSE, include=FALSE}
+library('tmap')
+library('classInt')
+library('sf')
+library('spData')
+library('mapview')
+library('maps')
+library('tidyverse')
+roads <- st_read("/Users/jeremyhandy/Trains_for_planes_cars/US Transport Data/tl_2016_us_primaryroads/tl_2016_us_primaryroads.shp")
+city_data.pt1 <- read_csv('/Users/jeremyhandy/Trains_for_planes_cars/US Transport Data/SQL Outputs for Use in R/Cities_with_most_short_flights_geo_data.csv')
+city_data.pt2<- read_csv('/Users/jeremyhandy/Trains_for_planes_cars/US Transport Data/SQL Outputs for Use in R/Cities_as_rail_hubs.csv')
+Rank <- c(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20)
+geographic_data <- city_data.pt1 %>% 
+  select(Latitude, Longitude)
+geographic_data_pt.2 <- city_data.pt2 %>% 
+  select(OriginLat, OriginLon)
+geographic_data_pt.3 <- city_data.pt2 %>% 
+  select(DestLat, DestLon)
+proj <- "+proj=lcc +lat_1=31.41666666666667 +lat_2=34.28333333333333 +lat_0=0 +lon_0=-83.5 +x_0=0 +y_0=0 +ellps=GRS80 +datum=NAD83 +to_meter=0.3048006096012192 +no_defs"
+roads <- st_transform(roads, proj)
+Top_20_Candidates. <- st_as_sf(x = geographic_data, 
+                          coords = c("Longitude", "Latitude"),
+                          crs = "+proj=longlat +datum=WGS84 +ellps=WGS84 +towgs84=0,0,0")
+Top_20_Candidates.$Rank <- Rank
+Top_20_Candidates.$Metro_Area_Name <-city_data.pt1$Metro_Area_Name
+Top_20_Candidates.$Total_Passengers_Flying_From <-city_data.pt1$Sum_of_Passengers
+my.sf.point <- st_as_sf(x = geographic_data, 
+                             coords = c("Longitude", "Latitude"),
+                             crs = "+proj=longlat +datum=WGS84 +ellps=WGS84 +towgs84=0,0,0")
+my.sf.point$Metro_Area_Name <-city_data.pt1$Metro_Area_Name
+my.sf.point$Passengers <-city_data.pt1$Sum_of_Passengers
+my.sf.point_dest <- st_as_sf(x = geographic_data_pt.3, 
+                             coords = c("DestLon", "DestLat"),
+                             crs = "+proj=longlat +datum=WGS84 +ellps=WGS84 +towgs84=0,0,0")
+my.sf.point_dest$Destination_Rank <- city_data.pt2$`Destination Rank`
+my.sf.point_dest$Flight_Origin_City <- city_data.pt2$Metro_Area_Name_Origin_
+my.sf.point_dest$City_Name <- city_data.pt2$Metro_Area_Name_Dest_
+my.sf.point_dest$Passengers_Recieved <- city_data.pt2$Sum_of_Passengers
+
+Atlanta <- filter(Top_20_Candidates., Metro_Area_Name == 'Atlanta')
+Atlanta_dest <- filter(my.sf.point_dest, Flight_Origin_City  == 'Atlanta')
+
+LA_Inland_Empire <- filter(Top_20_Candidates., Metro_Area_Name =='LA/Inland Empire')
+LA_Inland_Empire_dest <- filter(my.sf.point_dest, Flight_Origin_City  == 'LA/Inland Empire')
+
+Washington_D.C. <- filter(Top_20_Candidates., Metro_Area_Name == 'Washington D.C.')
+Washington_D.C_Dest <- filter(my.sf.point_dest, Flight_Origin_City  == 'Washington D.C.')
+
+Bay_Area <- filter(Top_20_Candidates., Metro_Area_Name =='Bay Area')
+Bay_Area_dest <- filter(my.sf.point_dest, Flight_Origin_City  == 'Bay Area')
+
+Charlotte <- filter(Top_20_Candidates., Metro_Area_Name =='Charlotte')
+Charlotte_dest <- filter(my.sf.point_dest, Flight_Origin_City  == 'Charlotte')
+```
+
+```{r,echo=FALSE}
+mapview(Top_20_Candidates.,zcol ='Total_Passengers_Flying_From', at = c(250000,500000,750000,1000000,1300000,1600000))
+
+```
+
