@@ -16,9 +16,9 @@ A separate 2026 revision of the project may subsequently update selected data so
 
 # 1. Primary Source Data
 
-## 1.1 BTS DB1B Coupon Data
+## 1.1 BTS DB1B Coupon Data and Lookup Table
 
-The primary analytical dataset was the U.S. Department of Transportation Bureau of Transportation Statistics (BTS) Origin and Destination Survey DB1B Coupon dataset.
+The primary analytical dataset was the U.S. Department of Transportation Bureau of Transportation Statistics (BTS) Origin and Destination Survey DB1B Coupon dataset. A secondary Lookup Table Dataset was also sourced from BTS to provide a Metro Area Name to each OriginCityMarketID and DestCityMarketID. 
 
 The analysis used the four quarterly DB1B Coupon files from **2019**:
 
@@ -40,6 +40,10 @@ BTS TranStats DB1B Coupon data:
 The DB1B Coupon field-selection page used during the project was:
 
 <https://www.transtats.bts.gov/DL_SelectFields.aspx?gnoyr_VQ=FLM&QO_fu146_anzr=b4vtv0%20n0q%20Qr56v0n6v10%20f748rB>
+
+The BTS Lookup Table 
+
+  
 
 ### Archived source files
 
