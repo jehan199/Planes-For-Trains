@@ -96,13 +96,22 @@ The next stage identified the U.S. city markets with the largest number of passe
 The original query applied the following conditions:
 
 ```sql
-WHERE Distance BETWEEN 75 AND 500
+WHERE Distance BETWEEN 100 AND 500
   AND OriginState != 'HI'
 ```
 
-Passenger totals were then grouped by `OriginCityMarketID` and ordered from highest to lowest.
+Passenger totals were then grouped by `Origin_City_Market` and ordered from highest to lowest.
 
 The analysis retained the top 20 markets.
+
+### Why Filter Flights to Between 100 and 500 Miles?
+
+While there is some debate on what exactly constitutes the "sweet spot" for high speed rail distance, the general idea is that there exists a distance range where the door to door travel time from one city to another is lowest when high speed rail is used as the method of transit. 
+
+When a trip is below 100 miles, it is generally quicker to drive considering that you wouldn't have to go to a central train station to catch a train to go from one city to another. When the a trip exceeds, 500
+
+<img width="768" height="462" alt="image" src="https://github.com/user-attachments/assets/c0cbce78-5dfc-4940-839b-a0a31e81d376" />
+
 
 ### Why exclude Hawaii?
 
