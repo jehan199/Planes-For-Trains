@@ -65,13 +65,11 @@ Each quarterly DB1B Coupon file was loaded into BigQuery as a separate table:
 - `2019_Q3`
 - `2019_Q4`
 
-The original workflow then combined the four quarterly tables using `UNION ALL`.
+The original workflow then combined the four quarterly tables using `UNION ALL` and left joined to the BTS Lookup table on fields 'OriginCityMarketID' and 'DestCityMarketID' in columns labelled as 'Origin_City_Market' and 'Dest_City_Market'.
 
 The resulting table was named:
 
-`unioned_and_filtered_table3`
-
-Despite the table name, the original query that created this table **does not itself perform the later 75–500 mile distance filter or the Hawaii exclusion**.
+`BTS_Destination_Survey_DB1B_Coupon_unioned`
 
 Instead, the query:
 
