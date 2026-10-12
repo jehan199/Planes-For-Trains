@@ -89,7 +89,7 @@ The original SQL used to create this table has been recovered and should be pres
 
 ---
 
-# 3. Identification of the 20 Highest-Volume Origin Markets
+# 3. Identification of the 20 Highest-Volume Origin Markets for Short-Haul Flights
 
 The next stage identified the U.S. city markets with the largest number of passengers on eligible short-haul flights.
 
