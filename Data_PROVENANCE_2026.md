@@ -41,9 +41,9 @@ The DB1B Coupon field-selection page used during the project was:
 
 <https://www.transtats.bts.gov/DL_SelectFields.aspx?gnoyr_VQ=FLM&QO_fu146_anzr=b4vtv0%20n0q%20Qr56v0n6v10%20f748rB>
 
-The BTS Lookup Table 
+The BTS Lookup Table can be downloaded here:
 
-  
+<https://transtats.bts.gov/Download_Lookup.asp?Y11x72=Y_PVgl_ZNeXRg_VQ>
 
 ### Archived source files
 
