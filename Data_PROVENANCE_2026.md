@@ -65,30 +65,25 @@ Each quarterly DB1B Coupon file was loaded into BigQuery as a separate table:
 - `2019_Q3`
 - `2019_Q4`
 
-The original workflow then combined the four quarterly tables using `UNION ALL` and left joined to the BTS Lookup table on fields 'OriginCityMarketID' and 'DestCityMarketID' in columns labelled as 'Origin_City_Market' and 'Dest_City_Market'.
+The original workflow then combined the four quarterly tables using `UNION ALL` and left joined to the BTS Lookup table on fields `OriginCityMarketID` and `DestCityMarketID` in columns labelled as `Origin_City_Market` and `Dest_City_Market`.
 
 The resulting table was named:
 
 `BTS_Destination_Survey_DB1B_Coupon_unioned`
 
-Instead, the query:
-
-1. unions the four quarterly datasets;
-2. retains selected DB1B fields;
-3. joins airport-code information to the origin and destination airport codes; and
-4. creates a combined working table for subsequent analysis.
+The query performs the following steps:
 
 The resulting dataset contains, among other fields:
 
-- origin airport
-- destination airport
-- origin state
-- destination state
+
+- Origin City Market (Name of the Market)
+- Destination City Market (Name of the Market)
 - origin city market ID
 - destination city market ID
 - passengers
 - distance
-- airport names
+- origin state
+- destination state
 
 The original SQL used to create this table has been recovered and should be preserved in the project's SQL archive.
 
