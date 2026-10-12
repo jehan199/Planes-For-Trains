@@ -108,7 +108,7 @@ The analysis retained the top 20 markets.
 
 While there is some debate on what exactly constitutes the "sweet spot" for high speed rail distance, the general idea is that there exists a distance range where the door to door travel time from one city to another is lowest when high speed rail is used as the method of transit. 
 
-When a trip is below 100 miles, it is generally quicker to drive considering that you wouldn't have to go to a central train station to catch a train to go from one city to another. When the a trip exceeds, 500
+When a trip is below 100 miles, it is generally quicker to drive considering that you wouldn't have to go to a central train station to catch a train to go from one city to another. When the a trip exceeds 500 miles, it is generally quicker to fly when you consider the faster transportation speed. When a trip is between these two distances, high speed rail is generally considered to be more time competitive.  
 
 <img width="768" height="462" alt="image" src="https://github.com/user-attachments/assets/c0cbce78-5dfc-4940-839b-a0a31e81d376" />
 
