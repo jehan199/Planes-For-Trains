@@ -113,6 +113,7 @@ When a trip is below 100 miles, it is generally quicker to drive considering tha
 <img width="768" height="462" alt="image" src="https://github.com/user-attachments/assets/c0cbce78-5dfc-4940-839b-a0a31e81d376" />
 
 Source: Adapted from Commission for Integrated Transport, London (2004) High-speed rails: international comparisons, Steer Davies Gleave.
+https://transportgeography.org/contents/applications/high-speed-rail-systems/breakeven-distances-rail-air-transport/
 
 
 ### Why exclude Hawaii?
