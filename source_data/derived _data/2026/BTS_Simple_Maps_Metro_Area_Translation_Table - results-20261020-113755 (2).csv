@@ -1,0 +1,51 @@
+OriginCityMarketID,Origin_City_Market,DestCityMarketID,Dest_City_Market,Sum_of_Passengers,Simple_Maps_City_Name,Simple_Maps_City_State,Simple_Maps_City_and_State,Simple_Maps_lat,Simple_maps_lng
+30397,"Atlanta, GA (Metropolitan Area)",30397,"Atlanta, GA (Metropolitan Area)","1,550,916",Atlanta,GA,"Atlanta, GA",33.7628,-84.422
+32575,"Los Angeles, CA (Metropolitan Area)",32575,"Los Angeles, CA (Metropolitan Area)","1,307,190",Los Angeles,CA,"Los Angeles, CA",34.1141,-118.4068
+32457,"San Francisco, CA (Metropolitan Area)",32457,"San Francisco, CA (Metropolitan Area)","1,072,246",San Francisco,CA,"San Francisco, CA",37.7558,-122.4449
+30852,"Washington, DC (Metropolitan Area)",30852,"Washington, DC (Metropolitan Area)","1,028,675",Washington,DC,"Washington, DC",38.9047,-77.0163
+31057,"Charlotte, NC",31057,"Charlotte, NC","988,508",Charlotte,NC,"Charlotte, NC",35.2083,-80.8303
+30977,"Chicago, IL",30977,"Chicago, IL","970,452",Chicago,IL,"Chicago, IL",41.8375,-87.6866
+30194,"Dallas/Fort Worth, TX",30194,"Dallas/Fort Worth, TX","855,011",Dallas,TX,"Dallas, TX",32.7935,-96.7667
+32211,"Las Vegas, NV",32211,"Las Vegas, NV","736,505",Las Vegas,NV,"Las Vegas, NV",36.2333,-115.2654
+31703,"New York City, NY (Metropolitan Area)",31703,"New York City, NY (Metropolitan Area)","661,379",New York,NY,"New York, NY",40.6943,-73.9249
+31295,"Detroit, MI",31295,"Detroit, MI","537,118",Detroit,MI,"Detroit, MI",42.3834,-83.1024
+30721,"Boston, MA (Metropolitan Area)",30721,"Boston, MA (Metropolitan Area)","510,783",Boston,MA,"Boston, MA",42.3188,-71.0852
+30466,"Phoenix, AZ",30466,"Phoenix, AZ","490,399",Phoenix,AZ,"Phoenix, AZ",33.5722,-112.0892
+31453,"Houston, TX",31453,"Houston, TX","484,598",Houston,TX,"Houston, TX",29.786,-95.3885
+33570,"San Diego, CA",33570,"San Diego, CA","431,918",San Diego,CA,"San Diego, CA",32.8313,-117.1222
+34100,"Philadelphia, PA",34100,"Philadelphia, PA","371,253",Philadelphia,PA,"Philadelphia, PA",40.0077,-75.1339
+31650,"Minneapolis/St. Paul, MN",31650,"Minneapolis/St. Paul, MN","356,497",Minneapolis,MN,"Minneapolis, MN",44.9635,-93.2678
+33192,"Sacramento, CA",33192,"Sacramento, CA","303,467",Sacramento,CA,"Sacramento, CA",38.5677,-121.4685
+30693,"Nashville, TN",30693,"Nashville, TN","294,947",Nashville,TN,"Nashville, TN",36.1715,-86.7842
+30325,"Denver, CO",30325,"Denver, CO","293,731",Denver,CO,"Denver, CO",39.762,-104.8758
+34492,"Raleigh/Durham, NC",34492,"Raleigh/Durham, NC","274,633",Raleigh,NC,"Raleigh, NC",35.8324,-78.6429
+30559,"Seattle, WA",30559,"Seattle, WA","267,049",Seattle,WA,"Seattle, WA",47.6211,-122.3244
+34614,"Salt Lake City, UT",34614,"Salt Lake City, UT","260,550",Salt Lake City,UT,"Salt Lake City, UT",40.7776,-111.9311
+31454,"Orlando, FL",31454,"Orlando, FL","254,658",Orlando,FL,"Orlando, FL",28.4773,-81.337
+33495,"New Orleans, LA",33495,"New Orleans, LA","236,911",New Orleans,LA,"New Orleans, LA",30.0687,-89.9288
+31123,"St. Louis, MO",31123,"St. Louis, MO","234,997",St. Louis,MO,"St. Louis, MO",38.6359,-90.2451
+31066,"Columbus, OH",31066,"Columbus, OH","204,847",Columbus,OH,"Columbus, OH",39.9862,-82.9855
+30647,"Cleveland, OH (Metropolitan Area)",30647,"Cleveland, OH (Metropolitan Area)","196,326",Cleveland,OH,"Cleveland, OH",41.4764,-81.6805
+30198,"Pittsburgh, PA",30198,"Pittsburgh, PA","188,643",Pittsburgh,PA,"Pittsburgh, PA",40.4397,-79.9763
+33195,"Tampa, FL (Metropolitan Area)",33195,"Tampa, FL (Metropolitan Area)","161,670",Tampa,FL,"Tampa, FL",27.9945,-82.4447
+34057,"Portland, OR",34057,"Portland, OR","155,120",Portland,OR,"Portland, OR",45.5371,-122.65
+33198,"Kansas City, MO",33198,"Kansas City, MO","154,871",Kansas City,MO,"Kansas City, MO",39.1238,-94.5541
+30423,"Austin, TX",30423,"Austin, TX","141,993",Austin,TX,"Austin, TX",30.3005,-97.7522
+33214,"San Antonio, TX",33214,"San Antonio, TX","137,105",San Antonio,TX,"San Antonio, TX",29.4632,-98.5238
+32337,"Indianapolis, IN",32337,"Indianapolis, IN","134,324",Indianapolis,IN,"Indianapolis, IN",39.7771,-86.1458
+33105,"Cincinnati, OH",33105,"Cincinnati, OH","133,408",Cincinnati,OH,"Cincinnati, OH",39.1413,-84.506
+31136,"Jacksonville, FL",31136,"Jacksonville, FL","131,494",Jacksonville,FL,"Jacksonville, FL",30.3322,-81.6749
+34524,"Richmond, VA",34524,"Richmond, VA","130,310",Richmond,VA,"Richmond, VA",37.5295,-77.4756
+30792,"Buffalo, NY",30792,"Buffalo, NY","128,432",Buffalo,NY,"Buffalo, NY",42.9018,-78.8487
+34570,"Reno, NV",34570,"Reno, NV","122,670",Reno,NV,"Reno, NV",39.5497,-119.8483
+32467,"Miami, FL (Metropolitan Area)",32467,"Miami, FL (Metropolitan Area)","121,944",Miami,FL,"Miami, FL",25.784,-80.2101
+30994,"Charleston, SC",30994,"Charleston, SC","113,128",Charleston,SC,"Charleston, SC",32.8168,-79.9687
+33244,"Memphis, TN",33244,"Memphis, TN","107,193",Memphis,TN,"Memphis, TN",35.1087,-89.9663
+33851,"Oklahoma City, OK",33851,"Oklahoma City, OK","97,113",Oklahoma City,OK,"Oklahoma City, OK",35.4676,-97.5136
+33044,"Louisville, KY",33044,"Louisville, KY","95,447",Louisville,KY,"Louisville, KY",38.1663,-85.6485
+33667,"Norfolk, VA (Metropolitan Area)",33667,"Norfolk, VA (Metropolitan Area)","93,849",Norfolk,VA,"Norfolk, VA",36.8945,-76.259
+33316,"Omaha, NE",33316,"Omaha, NE","86,208",Omaha,NE,"Omaha, NE",41.2627,-96.0529
+30713,"Boise, ID",30713,"Boise, ID","84,957",Boise,ID,"Boise, ID",43.6005,-116.2308
+31884,"Spokane, WA",31884,"Spokane, WA","84,555",Spokane,WA,"Spokane, WA",47.6671,-117.433
+30140,"Albuquerque, NM",30140,"Albuquerque, NM","78,639",Albuquerque,NM,"Albuquerque, NM",35.1054,-106.6465
+31995,"Greensboro/High Point, NC",31995,"Greensboro/High Point, NC","74,148",Greensboro,NC,"Greensboro, NC",36.0956,-79.8271
