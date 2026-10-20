@@ -89,11 +89,11 @@ The original SQL used to create this table has been recovered and should be pres
 
 ---
 
-# 3. Identification of the 20 Highest-Volume Origin Markets for Short-Haul Flights
+# 3. Identification of the 50 Highest-Volume Origin Markets for Short-Haul Flights to Establish a Translation Table to Link `Origin_City_Market` to Geographic Data for Visualization
 
 The next stage identified the U.S. city markets with the largest number of passengers on eligible short-haul flights.
 
-The original query applied the following conditions:
+The query applied the following conditions:
 
 ```sql
 WHERE Distance BETWEEN 100 AND 500
@@ -102,7 +102,7 @@ WHERE Distance BETWEEN 100 AND 500
 
 Passenger totals were then grouped by `Origin_City_Market` and ordered from highest to lowest.
 
-The analysis retained the top 20 markets.
+The analysis retained the top 50 markets.
 
 ### Why Filter Flights to Between 100 and 500 Miles?
 
@@ -122,42 +122,17 @@ Hawaii was excluded because the project's research question concerns potential s
 
 The Hawaii exclusion is therefore a methodological choice specific to this project rather than a property of the underlying BTS data.
 
-### Top-20 selection
+### Top-50 selection
 
-The resulting 20 `OriginCityMarketID` values were:
-
-| Rank | OriginCityMarketID | Passengers |
-|---:|---:|---:|
-| 1 | 30397 | 1,550,916 |
-| 2 | 32575 | 1,307,190 |
-| 3 | 30852 | 1,248,484 |
-| 4 | 32457 | 1,072,246 |
-| 5 | 31057 | 1,008,128 |
-| 6 | 30977 | 970,452 |
-| 7 | 30194 | 855,011 |
-| 8 | 32211 | 736,505 |
-| 9 | 31703 | 681,855 |
-| 10 | 31295 | 550,230 |
-| 11 | 30721 | 535,399 |
-| 12 | 30466 | 490,399 |
-| 13 | 31453 | 484,598 |
-| 14 | 33570 | 431,918 |
-| 15 | 34100 | 371,566 |
-| 16 | 31650 | 356,497 |
-| 17 | 33192 | 303,467 |
-| 18 | 30693 | 294,947 |
-| 19 | 30325 | 293,731 |
-| 20 | 34492 | 283,171 |
-
-These totals represent passengers associated with each origin city market after applying the original 75–500 mile and non-Hawaii criteria.
+The query that was used to create a list of the top 50 markets is saved under source_data > SQL > 2026 > 02_top_5O_market_for_translation_table. 
 
 ---
 
-# 4. Geographic Data for the 20 Origin Markets
+# 4. Geographic Data for the 50 Origin Markets
 
 ## 4.1 SimpleMaps U.S. Cities Basic v1.75
 
-Geographic information for the 20 selected markets was derived from the **SimpleMaps U.S. Cities Basic v1.75** dataset.
+Geographic information for the 50 selected markets was derived from the **SimpleMaps U.S. Cities Basic v1.75** dataset.
 
 The version used by the original project was released by SimpleMaps in 2022 and was obtained by the project author in September 2022.
 
@@ -165,51 +140,48 @@ The historical copy of the dataset contains **30,409 records**.
 
 The original project used the city-level latitude and longitude values from this dataset.
 
-The geographic coordinates in the resulting `Metro_Data_Table` have been checked against the preserved v1.75 dataset and match the original values for all 20 selected markets.
-
 Because SimpleMaps licensing restricts redistribution of the underlying database, the complete SimpleMaps dataset is **not redistributed in this repository**. Instead, this project documents the specific historical version used and preserves the derived values necessary to understand the original analysis.
 
 The SimpleMaps dataset should therefore be treated as a historical source dependency rather than as a file that can necessarily be regenerated from the repository alone.
 
 ---
 
-# 5. `Metro_Data_Table`
+# 5. `BTS_Simple_Maps_Metro_Area_Translation_Table`
 
-The 20 selected city markets were combined with geographic information to create the BigQuery table:
+The 50 selected city markets were combined with geographic information to create the BigQuery table:
 
-`Metro_Data_Table`
+`BTS_Simple_Maps_Metro_Area_Translation_Table`
 
 The table contains:
 
 - `OriginCityMarketID`
+- `Origin_City_Market`
+- `DestCityMarketID`
+- `Dest_City_Market`
 - `_Sum_of_Passengers_`
-- `Metro_Area_Name`
-- `Main_City__Name`
-- `State`
-- `Full_Name`
-- `Latitude`
-- `Longitude`
+- `Simple_Maps_City_Name`
+- `Simple_Maps_City_State`
+- `Simple_Maps_City_and_State`
+- `Simple_Maps_lat`
+- `Simple_Maps_lng`
 
 The BTS-derived fields are:
 
 - `OriginCityMarketID`
+- `Origin_City_Market`
+- `DestCityMarketID`
+- `Dest_City_Market`
 - `_Sum_of_Passengers_`
 
-The geographic fields were derived from SimpleMaps v1.75.
+The SimpleMaps v1.75 fields are:
 
-The `Metro_Area_Name` field was **manually defined for the purposes of this project**. It does not represent a directly sourced SimpleMaps field.
+- `Simple_Maps_City_Name`
+- `Simple_Maps_City_State`
+- `Simple_Maps_City_and_State` *This field is a concatenate of `Simple_Maps_City_Name` and `Simple_Maps_City_State`*
+- `Simple_Maps_lat`
+- `Simple_Maps_lng`
 
-Examples include:
-
-- `LA/Inland Empire`
-- `Bay Area`
-- `Boston/Providence`
-- `Washington D.C.`
-- `Minneapolis/St.Paul`
-
-The `Full_Name` field was constructed from the city/state information.
-
-This distinction is important because the metro-area terminology used throughout the visualizations represents the project's analytical grouping rather than an independently sourced metropolitan-area classification.
+The connection between these two data sets was established by manually connecting the `Origin_City_Market` field with a representative city in the SimpleMaps dataset. Representative cities in the SimpleMaps dataset where chosen on the basis of which city is the most populous within a given metro area. For example, if `Origin_City_Market` for a given record reads "Minneapolis/St. Paul, MN", the representative city that is chosen to represent that metro area is will be "Minneapolis, MN". This allows us to bring in geospatial data from the SimpleMaps dataset that allows us to plot a point in our visualization that will represent the metro area. Note that this geospatial data is not directly involved in the analysis and is only used for visualization purposes. 
 
 ---
 
