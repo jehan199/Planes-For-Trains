@@ -85,7 +85,7 @@ The resulting dataset contains, among other fields:
 - origin state
 - destination state
 
-The original SQL used to create this table has been recovered and should be preserved in the project's SQL archive.
+The original SQL used to create this table is saved in the following location within the repository : source_data > SQL >2026 > 01_union_quarterly_data_sql
 
 ---
 
@@ -181,7 +181,7 @@ The SimpleMaps v1.75 fields are:
 - `Simple_Maps_lat`
 - `Simple_Maps_lng`
 
-The connection between these two data sets was established by manually connecting the `Origin_City_Market` field with a representative city in the SimpleMaps dataset. Representative cities in the SimpleMaps dataset where chosen on the basis of which city is the most populous within a given metro area. For example, if `Origin_City_Market` for a given record reads "Minneapolis/St. Paul, MN", the representative city that is chosen to represent that metro area is will be "Minneapolis, MN". This allows us to bring in geospatial data from the SimpleMaps dataset that allows us to plot a point in our visualization that will represent the metro area. Note that this geospatial data is not directly involved in the analysis and is only used for visualization purposes. 
+The connection between these two data sets was established by manually connecting the `Origin_City_Market` field with a representative city in the SimpleMaps dataset. Representative cities in the SimpleMaps dataset where chosen on the basis of which city is the most populous within a given metro area. For example, if `Origin_City_Market` for a given record reads "Minneapolis/St. Paul, MN", the representative city that is chosen to represent that metro area will be "Minneapolis, MN". This allows us to bring in geospatial data from the SimpleMaps dataset which then allows us to plot a point in our visualization that will represent the metro area. Note that this geospatial data is not directly involved in the analysis and is only used for visualization purposes. 
 
 ---
 
