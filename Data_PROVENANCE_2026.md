@@ -73,8 +73,11 @@ The resulting table was named:
 
 The query performs the following steps:
 
-The resulting dataset contains, among other fields:
+- Uses a union operator to append the four quarterly files together
+- Left joins to the BTS lookup table to provide a City_Market name for both the Origin and Destination using `OriginCityMarketID` and `DestCityMarketID`
+- Selects specific relevant fields from the 2019 BTS DB1BCoupon Source Data
 
+The resulting dataset contains, among other fields:
 
 - Origin City Market (Name of the Market)
 - Destination City Market (Name of the Market)
@@ -85,7 +88,8 @@ The resulting dataset contains, among other fields:
 - origin state
 - destination state
 
-The original SQL used to create this table is saved in the following location within the repository : source_data > SQL >2026 > 01_union_quarterly_data_sql
+The original SQL used to create this table is saved in the following location within the repository : 
+source_data/SQL/2026/01_union_quarterly_data_sql.md
 
 It was discovered that in the 2022 version of this query that a join to an Airport Codes table resulted in duplicate records and inflated passenger totals when the records were summed by a pivot. 
 
@@ -96,6 +100,10 @@ The record count in the 2022 unioned BTS table was 44,156,578 and the sum of pas
 # 3. Identification of the 50 Highest-Volume Origin Markets for Short-Haul Flights to Establish a Translation Table to Link `Origin_City_Market` to Geographic Data for Visualization
 
 The next stage identified the U.S. city markets with the largest number of passengers on eligible short-haul flights.
+
+The query that was used for this step is saved in the following location:
+
+source_data/SQL/2026/02_top_50_markets.md
 
 The query applied the following conditions:
 
@@ -125,16 +133,11 @@ https://transportgeography.org/contents/applications/high-speed-rail-systems/bre
 Hawaii was excluded because the project's research question concerns potential substitution of short-haul flights with rail. Hawaii cannot be connected to the continental U.S. passenger rail network.
 
 The Hawaii exclusion is therefore a methodological choice specific to this project rather than a property of the underlying BTS data.
-
-### Top-50 selection
-
-The query that was used to create a list of the top 50 markets is saved under source_data > SQL > 2026 > 02_top_5O_market_for_translation_table. 
-
 ---
 
 # 4. Geographic Data for the 50 Origin Markets
 
-## 4.1 SimpleMaps U.S. Cities Basic v1.75
+## SimpleMaps U.S. Cities Basic v1.75
 
 Geographic information for the 50 selected markets was derived from the **SimpleMaps U.S. Cities Basic v1.75** dataset.
 
