@@ -24,6 +24,6 @@
   OriginCityMarketID, DestCityMarketID, 
   Passengers, Distance
   FROM temp_table AS full_data
-  LEFT JOIN `rail-as-alt-travel-362219.us_air_passenger.CityMarketID_Lookup_Table` AS a1 ON full_data.OriginCityMarketID = a1.Description
-  LEFT JOIN `rail-as-alt-travel-362219.us_air_passenger.CityMarketID_Lookup_Table` AS a2 ON full_data.DestCityMarketID = a2.Description)
+  LEFT JOIN `rail-as-alt-travel-362219.us_air_passenger.CityMarketID_Lookup_Table` AS a1 ON full_data.OriginCityMarketID = a1.code
+  LEFT JOIN `rail-as-alt-travel-362219.us_air_passenger.CityMarketID_Lookup_Table` AS a2 ON full_data.DestCityMarketID = a2.code)
 ```
