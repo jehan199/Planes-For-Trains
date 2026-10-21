@@ -1,30 +1,29 @@
 *This is the query I used to create a consolidated table containing the U.S. DoT data for 2019. This version of the query uses a pair of left joins to pull in the column "Description" from a BTS auxillary table. This fields offers a unique name for each OriginCityMarketID and DestCityMarketID so we are able to better identify which metro area is linked to each OriginCityMarketID and DestCityMarketID.The previous iteration of this query joined in Airport Codes in an attempt to provide more descriptive information on the origin and destination. It was determined that this was sub-optimal considering that airport codes are subject to change overtime.*
 
 ```sql
-
-CREATE TABLE us_air_passenger.unioned AS
-(WITH temp_table AS
-(SELECT
-  Origin, OriginStateName, Dest, DestStateName, Passengers, Distance, OriginState, DestState, OriginCityMarketID, DestCityMarketID
-FROM `rail-as-alt-travel-362219.us_air_passenger.2019_Q1`
-UNION ALL
-SELECT
-  Origin, OriginStateName, Dest, DestStateName, Passengers, Distance, OriginState, DestState, OriginCityMarketID, DestCityMarketID
-FROM `rail-as-alt-travel-362219.us_air_passenger.2019_Q2`
-UNION ALL
-SELECT 
-  Origin, OriginStateName, Dest, DestStateName, Passengers, Distance, OriginState , DestState, OriginCityMarketID, DestCityMarketID
-FROM `rail-as-alt-travel-362219.us_air_passenger.2019_Q3`
-UNION ALL
-SELECT
-  Origin, OriginStateName, Dest, DestStateName, Passengers, Distance, OriginState, DestState, OriginCityMarketID, DestCityMarketID
-FROM `rail-as-alt-travel-362219.us_air_passenger.2019_Q4`)
-SELECT 
-a1.Description AS Origin_City_Market,
-a2.Description AS Dest_City_Market, 
-OriginCityMarketID, DestCityMarketID, 
-Passengers, Distance
-FROM temp_table AS full_data
-LEFT JOIN `rail-as-alt-travel-362219.us_air_passenger.CityMarketID_Lookup_Table` AS a1 ON full_data.OriginCityMarketID = a1.Description
-LEFT JOIN `rail-as-alt-travel-362219.us_air_passenger.CityMarketID_Lookup_Table` AS a2 ON full_data.DestCityMarketID = a2.Description)
+  CREATE TABLE us_air_passenger.unioned AS
+  (WITH temp_table AS
+  (SELECT
+    Origin, OriginStateName, Dest, DestStateName, Passengers, Distance, OriginState, DestState, OriginCityMarketID, DestCityMarketID
+  FROM `rail-as-alt-travel-362219.us_air_passenger.2019_Q1`
+  UNION ALL
+  SELECT
+    Origin, OriginStateName, Dest, DestStateName, Passengers, Distance, OriginState, DestState, OriginCityMarketID, DestCityMarketID
+  FROM `rail-as-alt-travel-362219.us_air_passenger.2019_Q2`
+  UNION ALL
+  SELECT 
+    Origin, OriginStateName, Dest, DestStateName, Passengers, Distance, OriginState , DestState, OriginCityMarketID, DestCityMarketID
+  FROM `rail-as-alt-travel-362219.us_air_passenger.2019_Q3`
+  UNION ALL
+  SELECT
+    Origin, OriginStateName, Dest, DestStateName, Passengers, Distance, OriginState, DestState, OriginCityMarketID, DestCityMarketID
+  FROM `rail-as-alt-travel-362219.us_air_passenger.2019_Q4`)
+  SELECT 
+  a1.Description AS Origin_City_Market,
+  a2.Description AS Dest_City_Market, 
+  OriginCityMarketID, DestCityMarketID, 
+  Passengers, Distance
+  FROM temp_table AS full_data
+  LEFT JOIN `rail-as-alt-travel-362219.us_air_passenger.CityMarketID_Lookup_Table` AS a1 ON full_data.OriginCityMarketID = a1.Description
+  LEFT JOIN `rail-as-alt-travel-362219.us_air_passenger.CityMarketID_Lookup_Table` AS a2 ON full_data.DestCityMarketID = a2.Description)
 ```
