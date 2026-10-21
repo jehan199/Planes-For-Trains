@@ -2,19 +2,20 @@
 
 ```sql
 SELECT  
-  b.Metro_Area_Name,b.State,a.Sum_of_Passengers,b.Latitude,b.Longitude
+  b.Origin_City_Market,b.Simple_Maps_City_State,a.Sum_of_Passengers,b.Simple_Maps_lat,b.Simple_maps_lng
 FROM 
   (WITH temp_table AS
     (SELECT 
-      origin_name,Passengers, Distance, OriginState,destination_name, OriginCityMarketID, DestCityMarketID
-    FROM `rail-as-alt-travel-362219.us_air_passenger.unioned_and_filtered_table3`
+      Origin_City_Market, Passengers, Distance, OriginState,Dest_City_Market, OriginCityMarketID, DestCityMarketID
+    FROM `cycling-case-study-362219.us_air_passenger.BTS_Destination_Survey_DB1B_Coupon_unioned`
     WHERE  Distance BETWEEN 75 and 500 and OriginState != 'HI')
       SELECT
         OriginCityMarketID,Sum(Passengers) as Sum_of_Passengers
       FROM temp_table
       GROUP BY OriginCityMarketID) as a
-LEFT JOIN `rail-as-alt-travel-362219.us_air_passenger.Metro_Data_Table` as b
+LEFT JOIN `cycling-case-study-362219.us_air_passenger.BTS_Simple_Maps_Metro_Area_Translation_Table` as b
 ON a.OriginCityMarketID = b.OriginCityMarketID
 Order BY Sum_of_Passengers DESC
 LIMIT 20
+
 ```
