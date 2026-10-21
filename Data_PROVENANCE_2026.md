@@ -87,6 +87,10 @@ The resulting dataset contains, among other fields:
 
 The original SQL used to create this table is saved in the following location within the repository : source_data > SQL >2026 > 01_union_quarterly_data_sql
 
+It was discovered that in the 2022 version of this query that a join to an Airport Codes table resulted in duplicate records and inflated passenger totals when the records were summed by a pivot. 
+
+The record count in the 2022 unioned BTS table was 44,156,578 and the sum of passenger count across all records totaled to 76,960,036. This issue was corrected in the 2026 query and subsequent data table. As a result of this correction, the new table contained 43,259,853 records and a total passenger count of 75,658,628.
+
 ---
 
 # 3. Identification of the 50 Highest-Volume Origin Markets for Short-Haul Flights to Establish a Translation Table to Link `Origin_City_Market` to Geographic Data for Visualization
