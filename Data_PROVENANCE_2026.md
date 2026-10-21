@@ -100,7 +100,7 @@ The next stage identified the U.S. city markets with the largest number of passe
 The query applied the following conditions:
 
 ```sql
-WHERE Distance BETWEEN 100 AND 500
+WHERE Distance BETWEEN 75 AND 500
   AND OriginState != 'HI'
 ```
 
@@ -108,7 +108,7 @@ Passenger totals were then grouped by `Origin_City_Market` and ordered from high
 
 The analysis retained the top 50 markets.
 
-### Why Filter Flights to Between 100 and 500 Miles?
+### Why Filter Flights to Between 75 and 500 Miles?
 
 While there is some debate on what exactly constitutes the "sweet spot" for high speed rail distance, the general idea is that there exists a distance range where the door to door travel time from one city to another is lowest when high speed rail is used as the method of transit. 
 
@@ -168,6 +168,7 @@ The table contains:
 - `Simple_Maps_City_and_State`
 - `Simple_Maps_lat`
 - `Simple_Maps_lng`
+- `Top_20`
 
 The BTS-derived fields are:
 
@@ -185,7 +186,13 @@ The SimpleMaps v1.75 fields are:
 - `Simple_Maps_lat`
 - `Simple_Maps_lng`
 
-The connection between these two data sets was established by manually connecting the `Origin_City_Market` field with a representative city in the SimpleMaps dataset. Representative cities in the SimpleMaps dataset where chosen on the basis of which city is the most populous within a given metro area. For example, if `Origin_City_Market` for a given record reads "Minneapolis/St. Paul, MN", the representative city that is chosen to represent that metro area will be "Minneapolis, MN". This allows us to bring in geospatial data from the SimpleMaps dataset which then allows us to plot a point in our visualization that will represent the metro area. Note that this geospatial data is not directly involved in the analysis and is only used for visualization purposes. 
+The connection between these two data sets was established by manually connecting the `Origin_City_Market` field with a representative city in the SimpleMaps dataset. Representative cities in the SimpleMaps dataset where chosen on the basis of which city is the most populous within a given metro area. For example, if `Origin_City_Market` for a given record reads "Minneapolis/St. Paul, MN", the representative city that is chosen to represent that metro area will be "Minneapolis, MN". This allows us to bring in geospatial data from the SimpleMaps dataset which then allows us to plot a point in our visualization that will represent the metro area. Note that this geospatial data is not directly involved in the analysis and is only used for visualization purposes.
+
+User Derived Field(s):
+
+- `Top_20`
+
+This field was used to provide a filter criteria for subsequent queries. The 2022 iteration of this project had a similar derived file titled "Metro_Area_Table" and it contained 20 records that represented the geographic data for the top 20 metro areas where short haul flights originated. Although my final visualization for Cities with the Most Short Haul Flights only visualizes 20 City Markets, this project also generated visualization where the 5 biggest markets where give their own interactive map that shows where these flights ended up going. Creating a translation table with 50 metro areas meant that I could ensure that my destination metros for the 5 largest hubs all had geospatial information in the source data that was uploaded into R to create the visualizations, even if these cities weren't a top 20 origin metro. 
 
 ---
 
