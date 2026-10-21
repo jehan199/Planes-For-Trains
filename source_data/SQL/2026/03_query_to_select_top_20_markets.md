@@ -7,13 +7,13 @@ FROM
   (WITH temp_table AS
     (SELECT 
       Origin_City_Market, Passengers, Distance, OriginState,Dest_City_Market, OriginCityMarketID, DestCityMarketID
-    FROM `cycling-case-study-362219.us_air_passenger.BTS_Destination_Survey_DB1B_Coupon_unioned`
+    FROM `rail-as-alt-travel-362219.us_air_passenger.BTS_Destination_Survey_DB1B_Coupon_unioned`
     WHERE  Distance BETWEEN 75 and 500 and OriginState != 'HI')
       SELECT
         OriginCityMarketID,Sum(Passengers) as Sum_of_Passengers
       FROM temp_table
       GROUP BY OriginCityMarketID) as a
-LEFT JOIN `cycling-case-study-362219.us_air_passenger.BTS_Simple_Maps_Metro_Area_Translation_Table` as b
+LEFT JOIN `rail-as-alt-travel-362219.us_air_passenger.BTS_Simple_Maps_Metro_Area_Translation_Table` as b
 ON a.OriginCityMarketID = b.OriginCityMarketID
 Order BY Sum_of_Passengers DESC
 LIMIT 20
