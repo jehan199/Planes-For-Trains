@@ -1,0 +1,26 @@
+OriginCityMarketID,Origin_City_Market,DestCityMarketID,Dest_City_Market,Sum_of_Passengers,Distance,OriginLat,OriginLon,DestLat,DestLon,Origin_Rank,Destination_Rank
+30397,"Atlanta, GA (Metropolitan Area)",31454,"Orlando, FL","133,045",404,33.7628,-84.422,28.4773,-81.337,1,1
+30397,"Atlanta, GA (Metropolitan Area)",33195,"Tampa, FL (Metropolitan Area)","98,719",406,33.7628,-84.422,27.9945,-82.4447,1,2
+30397,"Atlanta, GA (Metropolitan Area)",31136,"Jacksonville, FL","69,706",270,33.7628,-84.422,30.3322,-81.6749,1,3
+30397,"Atlanta, GA (Metropolitan Area)",33495,"New Orleans, LA","67,437",425,33.7628,-84.422,30.0687,-89.9288,1,4
+30397,"Atlanta, GA (Metropolitan Area)",34492,"Raleigh/Durham, NC","62,347",356,33.7628,-84.422,35.8324,-78.6429,1,5
+32575,"Los Angeles, CA (Metropolitan Area)",32457,"San Francisco, CA (Metropolitan Area)","592,659",337.5604293,34.1141,-118.4068,37.7558,-122.4449,2,1
+32575,"Los Angeles, CA (Metropolitan Area)",32211,"Las Vegas, NV","238,582",229.3989368,34.1141,-118.4068,36.2333,-115.2654,2,2
+32575,"Los Angeles, CA (Metropolitan Area)",30466,"Phoenix, AZ","202,450",350.7352767,34.1141,-118.4068,33.5722,-112.0892,2,3
+32575,"Los Angeles, CA (Metropolitan Area)",33192,"Sacramento, CA","158,216",377.8580728,34.1141,-118.4068,38.5677,-121.4685,2,4
+32575,"Los Angeles, CA (Metropolitan Area)",33570,"San Diego, CA","28,110",106.8619344,34.1141,-118.4068,32.8313,-117.1222,2,5
+32457,"San Francisco, CA (Metropolitan Area)",32575,"Los Angeles, CA (Metropolitan Area)","591,741",337.3896755,37.7558,-122.4449,34.1141,-118.4068,3,1
+32457,"San Francisco, CA (Metropolitan Area)",32211,"Las Vegas, NV","187,554",405.6580164,37.7558,-122.4449,36.2333,-115.2654,3,2
+32457,"San Francisco, CA (Metropolitan Area)",33570,"San Diego, CA","184,494",437.8997724,37.7558,-122.4449,32.8313,-117.1222,3,3
+32457,"San Francisco, CA (Metropolitan Area)",34570,"Reno, NV","24,268",188.4526537,37.7558,-122.4449,39.5497,-119.8483,3,4
+32457,"San Francisco, CA (Metropolitan Area)",34262,"Palm Springs, CA","17,959",420.8613389,37.7558,-122.4449,33.8017,-116.5382,3,5
+30852,"Washington, DC (Metropolitan Area)",30721,"Boston, MA (Metropolitan Area)","230,224",377.0643358,38.9047,-77.0163,42.3188,-71.0852,4,1
+30852,"Washington, DC (Metropolitan Area)",31057,"Charlotte, NC","101,680",341.3773642,38.9047,-77.0163,35.2083,-80.8303,4,2
+30852,"Washington, DC (Metropolitan Area)",31703,"New York City, NY (Metropolitan Area)","99,879",214.0386304,38.9047,-77.0163,40.6943,-73.9249,4,3
+30852,"Washington, DC (Metropolitan Area)",31295,"Detroit, MI","73,592",401.5077447,38.9047,-77.0163,42.3834,-83.1024,4,4
+30852,"Washington, DC (Metropolitan Area)",34492,"Raleigh/Durham, NC","52,819",238.4707259,38.9047,-77.0163,35.8324,-78.6429,4,5
+31057,"Charlotte, NC",30852,"Washington, DC (Metropolitan Area)","102,544",341.2719812,35.2083,-80.8303,38.9047,-77.0163,5,1
+31057,"Charlotte, NC",31454,"Orlando, FL","65,631",468,35.2083,-80.8303,28.4773,-81.337,5,2
+31057,"Charlotte, NC",30397,"Atlanta, GA (Metropolitan Area)","47,453",226,35.2083,-80.8303,33.7628,-84.422,5,3
+31057,"Charlotte, NC",34100,"Philadelphia, PA","46,212",449,35.2083,-80.8303,40.0077,-75.1339,5,4
+31057,"Charlotte, NC",34492,"Raleigh/Durham, NC","36,199",130,35.2083,-80.8303,35.8324,-78.6429,5,5
