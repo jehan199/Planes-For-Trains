@@ -35,7 +35,6 @@ filtered_table AS (
     ON a.DestCityMarketID = c.DestCityMarketID
   WHERE a.Distance BETWEEN 75 AND 500
     AND b.Top_20 = TRUE
-    AND a.Sum_of_Passengers > 15000
 ),
 
 ranked_table AS (
@@ -58,8 +57,8 @@ ranked_table AS (
   )
 )
 
-SELECT *
+SELECT OriginCityMarketID, Origin_City_Market, DestCityMarketID, Dest_City_Market, Sum_of_Passengers, Distance, OriginLat, OriginLon, DestLat, DestLon, Origin_Rank, Destination_Rank
 FROM ranked_table
-WHERE Destination_Rank <= 10
+WHERE Origin_rank <=5 and Destination_Rank <= 5
 ORDER BY Origin_Rank, Destination_Rank;
 ```
