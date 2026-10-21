@@ -178,6 +178,8 @@ The BTS-derived fields are:
 - `Dest_City_Market`
 - `_Sum_of_Passengers_`
 
+In this table `OriginCityMarketID` and `DestCityMarketID` are the same for all records. Conisquentally `Origin_City_Market` and `Dest_City_Market` are also the same.  The purpose was to make it possible to join the selected markets to both the origin and destination sides of the later origin-destination analysis.
+
 The SimpleMaps v1.75 fields are:
 
 - `Simple_Maps_City_Name`
@@ -196,7 +198,7 @@ This field was used to provide a filter criteria for subsequent queries. The 202
 
 ---
 
-# 6. `Cities_with_most_short_flights_geo_data.csv`
+# 6. `Cities_with_most_short_flights_geo_data_2026.csv`
 
 The BigQuery top-20 market results were joined to `Metro_Data_Table` to produce the geographic dataset used by the visualization workflow.
 
@@ -230,35 +232,7 @@ Cities_with_most_short_flights_geo_data.csv
 
 ---
 
-# 7. `Metro_Area_Data`
-
-A second intermediate dataset, `Metro_Area_Data`, was created from `Metro_Data_Table`.
-
-This table contains the same underlying market and geographic information but restructures the metro-area name into separate origin and destination fields:
-
-- `Metro_Area_Name_Origin_`
-- `Metro_Area_Name_Dest_`
-
-The table also retains:
-
-- `OriginCityMarketID`
-- `DestCityMarketID`
-- `_Sum_of_Passengers_`
-- `Main_City__Name`
-- `State`
-- `Full_Name`
-- `Latitude`
-- `Longitude`
-
-For this table, the origin and destination city market IDs are the same for each row.
-
-This was an **Excel-based restructuring of `Metro_Data_Table`**, rather than a new external data source.
-
-The purpose was to make it possible to join the selected markets to both the origin and destination sides of the later origin-destination analysis.
-
----
-
-# 8. Origin-Destination Analysis
+# 7. Origin-Destination Analysis
 
 After identifying the 20 highest-volume origin markets, the project examined where passengers from those markets were traveling.
 
@@ -302,7 +276,7 @@ Because some origin markets had fewer than ten destinations exceeding the 15,000
 
 ---
 
-# 9. `Cities_as_rail_hubs.csv`
+# 8. `Cities_as_rail_hubs.csv`
 
 `Cities_as_rail_hubs.csv` contains the final origin-destination data used for the 2022 visualizations.
 
@@ -356,7 +330,7 @@ Cities_as_rail_hubs.csv
 
 ---
 
-# 10. R Visualization Workflow
+# 9. R Visualization Workflow
 
 The final visualization stage was performed in R.
 
@@ -386,7 +360,7 @@ The destination spatial dataset is constructed from destination coordinates and 
 
 ---
 
-# 11. Map Generation
+# 10. Map Generation
 
 The R workflow generated two types of visualizations.
 
@@ -427,7 +401,7 @@ The five city-specific maps were generated using the commands preserved in the p
 
 ---
 
-# 12. Historical 2022 Visualization Outputs
+# 11. Historical 2022 Visualization Outputs
 
 The original project produced six interactive HTML outputs:
 
@@ -452,7 +426,7 @@ This does not affect the underlying analytical data embedded in the historical o
 
 ---
 
-# 13. Roads Data
+# 12. Roads Data
 
 The R visualization workflow also loaded a 2016 U.S. primary roads shapefile:
 
@@ -475,24 +449,9 @@ It was not used to:
 The exact original source/download provenance for this roads dataset has not yet been independently reconstructed.
 
 This is therefore classified as a **minor remaining provenance item**, rather than a dependency of the analytical results.
-
 ---
 
-# 14. Airport Code Data
-
-The original workflow also used an airport-code table to associate three-letter airport codes with airport names.
-
-The historical airport-code file was reconstructed from an older airport-code reference used by the 2022 project.
-
-Because that reference contains outdated airport codes and is not considered an appropriate authoritative source for a modern reproduction, it is being treated as a **legacy 2022 dependency**.
-
-The original airport-code information will be preserved for historical reproducibility, but the 2026 revision should consider replacing it with an authoritative BTS/FAA airport reference dataset.
-
-This change should be documented as a deliberate methodological revision rather than silently replacing the original source.
-
----
-
-# 15. Historical vs. Revised Analysis
+# 14. Historical vs. Revised Analysis
 
 An important goal of the reproducibility work is to distinguish the original 2022 analysis from any subsequent revisions.
 
@@ -524,7 +483,7 @@ Instead, the project should maintain separate documentation and code for the ori
 
 ---
 
-# 16. Current Provenance Status
+# 15. Current Provenance Status
 
 As of the current reproducibility review, the major stages of the original project have been reconstructed.
 
@@ -564,7 +523,7 @@ Because this dataset was used only as a visualization layer, this does not affec
 
 ---
 
-# 17. Reproducibility Philosophy
+# 16. Reproducibility Philosophy
 
 The purpose of this documentation is not to rewrite the original project as though it had been created using a modern reproducible workflow.
 
@@ -582,9 +541,3 @@ The original project was developed in 2022 using a combination of:
 The current reconstruction documents those steps explicitly.
 
 Future improvements will be treated as revisions to the analysis rather than retroactive corrections to the historical project.
-
-
-
-
-
-
