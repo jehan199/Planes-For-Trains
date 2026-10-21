@@ -280,7 +280,7 @@ Cities_as_rail_hubs_2026.csv
 
 ---
 
-# 9. R Visualization Workflow
+# 8. R Visualization Workflow
 
 The final visualization stage was performed in R.
 
