@@ -1,5 +1,7 @@
 *This is the query I used to create a consolidated table containing the U.S. DoT data for 2019. This version of the query uses a pair of left joins to pull in the column "Description" from a BTS auxillary table. This fields offers a unique name for each OriginCityMarketID and DestCityMarketID so we are able to better identify which metro area is linked to each OriginCityMarketID and DestCityMarketID.The previous iteration of this query joined in Airport Codes in an attempt to provide more descriptive information on the origin and destination. It was determined that this was sub-optimal considering that airport codes are subject to change overtime.*
 
+```sql
+
 CREATE TABLE us_air_passenger.unioned AS
 (WITH temp_table AS
 (SELECT
@@ -25,3 +27,4 @@ Passengers, Distance
 FROM temp_table AS full_data
 LEFT JOIN `rail-as-alt-travel-362219.us_air_passenger.CityMarketID_Lookup_Table` AS a1 ON full_data.OriginCityMarketID = a1.Description
 LEFT JOIN `rail-as-alt-travel-362219.us_air_passenger.CityMarketID_Lookup_Table` AS a2 ON full_data.DestCityMarketID = a2.Description)
+```
