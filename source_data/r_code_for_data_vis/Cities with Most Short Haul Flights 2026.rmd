@@ -1,0 +1,91 @@
+---
+title: "Cities with Most Short-Haul Flights"
+author: "Jeremy Handy"
+date: "2026-10-21"
+output: html_document
+---
+  
+```{r setup, include=FALSE}
+library(readr)
+library(dplyr)
+library(sf)
+library(mapview)
+library(leaflet)
+
+# Use an explicit basemap instead of relying on defaults.
+mapview::mapviewOptions(
+  basemaps = "Esri.WorldGrayCanvas"
+)
+
+# Read the revised source data.
+city_data <- read_csv(
+  "data/Cities_with_most_short_flights_geo_data_2026.csv",
+  show_col_types = FALSE
+)
+
+# Clean passenger totals and calculate ranks.
+city_data <- city_data %>%
+  mutate(
+    Sum_of_Passengers = parse_number(
+      as.character(Sum_of_Passengers)
+    ),
+    Rank = min_rank(desc(Sum_of_Passengers))
+  ) %>%
+  arrange(Rank)
+
+# Check required fields.
+stopifnot(
+  all(!is.na(city_data$Latitude)),
+  all(!is.na(city_data$Longitude)),
+  all(!is.na(city_data$Sum_of_Passengers))
+)
+
+# Convert market coordinates into spatial points.
+Top_20_Candidates <- st_as_sf(
+  city_data,
+  coords = c("Longitude", "Latitude"),
+  crs = 4326,
+  remove = FALSE
+)
+
+# Read the 2016 U.S. primary roads shapefile.
+roads <- st_read(
+  "data/roads/tl_2016_us_primaryroads.shp",
+  quiet = TRUE
+)
+
+# Transform roads into WGS 84 to match the city coordinates.
+roads <- st_transform(roads, 4326)
+```
+
+```{r map, echo=FALSE}
+# Render markets over the basemap.
+market_map <- mapview(
+  Top_20_Candidates,
+  zcol = "Sum_of_Passengers",
+  at = c(
+    250000,
+    500000,
+    750000,
+    1000000,
+    1300000,
+    1600000
+  ),
+  layer.name = "Short-Haul Passengers by Origin Market",
+  popup = TRUE,
+  legend = TRUE
+)
+
+# Add primary roads as a separate overlay.
+roads_map <- mapview(
+  roads,
+  color = "#555555",
+  lwd = 1,
+  alpha.regions = 0,
+  legend = FALSE,
+  layer.name = "U.S. Primary Roads"
+)
+
+# Combine the two map layers.
+market_map + roads_map
+```
