@@ -284,7 +284,7 @@ Cities_as_rail_hubs_2026.csv
 
 The final visualization stage was performed in R.
 
-The recovered `Mapview.R` script loads:
+The `Mapview.R` script loads:
 
 - `Cities_with_most_short_flights_geo_data.csv`
 - `Cities_as_rail_hubs.csv`
