@@ -441,7 +441,7 @@ The 2026 version made the following changes:
 
 ---
 
-# 15. Current Provenance Status
+# 12. Current Provenance Status
 
 As of the current reproducibility review, the major stages of the original project have been reconstructed.
 
@@ -481,7 +481,7 @@ Because this dataset was used only as a visualization layer, this does not affec
 
 ---
 
-# 16. Reproducibility Philosophy
+# 13. Reproducibility Philosophy
 
 All relevant source files and project steps are documented in the `DATA_PROVENANCE_2026.md` file and this project is fully replicable by any interested party. 
 
