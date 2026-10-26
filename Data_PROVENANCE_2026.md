@@ -435,8 +435,8 @@ The 2026 version made the following changes:
 
 - removed the airport code reference data and any joins to the 2019 BTS DB1B data
 - used a lookup table published by BTS to introduce a City-Market name for each City-Market-ID
-- created a translation table to bridge the gap between BTS and SimpleMaps geographic data featuring the top 50 city markets by origin. This eliminated the need to manually input geographic data into the eventual Cities_as_rail_hubs_2026.csv document
-- rewrote "query_to_pivot_filter_and_proivde_geographic_information" SQL query to eliminate the need for any manual data transformations before Cities_as_rail_hubs_2026.csv could be produced
+- created a translation table to bridge the gap between BTS and SimpleMaps geographic data featuring the top 50 city markets by origin. This eliminated the need to manually input geographic data into the eventual `Cities_as_rail_hubs_2026.csv` document
+- rewrote "query_to_pivot_filter_and_proivde_geographic_information.sql" to eliminate the need for any manual data transformations before `Cities_as_rail_hubs_2026.csv` could be produced
 - R `mapview` visualization for `Cities-with-Most-Short-Haul-Flights-2026.html` was changed in the following ways:
     - Underlying basemap was changed from OpenStreetMap to Esri Basemap due to issues with OpenStreetMap functionality and licensing
     - Hover values for origin city markets changed from Sum of Passengers to Origin Rank.
@@ -445,11 +445,7 @@ The 2026 version made the following changes:
 - R `mapview` visualizations for `Atlanta-as-a-Rail-Hub-2026.html`, `Los-Angeles-as-a-Rail-Hub-2026.html`, `Washington-DC-as-a-Rail-Hub-2026.html`, `San-Francisco-as-a-Rail-Hub-2026.html` and `Charlotte-as-a-Rail-Hub-2026.html` were changed in the following ways:
     - Underlying basemap was changed from OpenStreetMap to Esri Basemap due to issues with OpenStreetMap functionality and licensing
     - Hover values and popup fields change to the values and fields outlined in Data_Provenance_2026 section 8.2
-    - Passenger_Band field established for each Origin-City-Makret. This was then used to generate a color coded legend unique to each of the five visualizations
-
-These changes should not overwrite the historical workflow.
-
-Instead, the project should maintain separate documentation and code for the original 2022 analysis and the revised analysis.
+    - Passenger_Band field established for each Origin-City-Makret visualiziation. This was then used to generate a color coded legend unique to each of the five visualizations. 
 
 ---
 
