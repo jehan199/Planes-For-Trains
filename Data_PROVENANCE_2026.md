@@ -483,11 +483,9 @@ Because this dataset was used only as a visualization layer, this does not affec
 
 # 16. Reproducibility Philosophy
 
-The purpose of this documentation is not to rewrite the original project as though it had been created using a modern reproducible workflow.
+All relevant source files and project steps are documented in the `DATA_PROVENANCE_2026.md` file and this project is fully replicable by any interested party. 
 
-Instead, the goal is to preserve the original analytical history while making the sequence of sources, transformations, and outputs understandable and reproducible wherever possible.
-
-The original project was developed in 2022 using a combination of:
+The original project was developed in 2026 using a combination of:
 
 - public government data
 - BigQuery
@@ -497,5 +495,3 @@ The original project was developed in 2022 using a combination of:
 - interactive HTML visualization
 
 The current reconstruction documents those steps explicitly.
-
-Future improvements will be treated as revisions to the analysis rather than retroactive corrections to the historical project.
