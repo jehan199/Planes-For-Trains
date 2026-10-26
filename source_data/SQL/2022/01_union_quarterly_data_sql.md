@@ -1,5 +1,6 @@
 *This is the query I originally used to create a consolidated table containing the U.S. DoT data for 2019*
 
+```sql
 CREATE TABLE us_air_passenger.unioned_and_filtered_table3 AS
 (WITH temp_table AS
 (SELECT
@@ -26,3 +27,4 @@ Passengers, Distance
 FROM temp_table AS full_data
 LEFT JOIN `rail-as-alt-travel-362219.us_air_passenger.Airport_Codes` AS a1 ON full_data.Origin = a1.string_field_0
 LEFT JOIN `rail-as-alt-travel-362219.us_air_passenger.Airport_Codes` AS a2 ON full_data.Dest = a2.string_field_0)
+```
