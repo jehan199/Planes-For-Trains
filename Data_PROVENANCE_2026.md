@@ -362,8 +362,6 @@ These attributes provide the destination market's passenger volume, passenger-vo
 
 - Source: U.S. Census Bureau, 2016 TIGER/Line Primary Roads. https://catalog.data.gov/dataset/tiger-line-shapefile-2016-nation-u-s-primary-roads-national-shapefile
 
--The 2016 U.S. primary-roads shapefile is loaded as a separate spatial layer and transformed to WGS 84 to match the city-market coordinates. The road network provides geographic context for interpreting the spatial relationships between origin and destination markets.
-
 ### Relationship to the Original 2022 Workflow
 
 The revised 2026 visualization workflow updates the original 2022 implementation to use the revised city-market datasets and R Markdown scripts. The national overview now generates origin rankings in R from passenger totals. The five city-market-specific maps distinguish origin and destination markers through hover labels and provide destination-level information through interactive popups.
@@ -408,6 +406,8 @@ It was not used to:
 - calculate flight distances;
 - determine potential rail routes; or
 - otherwise affect the analytical results.
+
+The 2016 U.S. primary-roads shapefile is loaded as a separate spatial layer and transformed to WGS 84 to match the city-market coordinates. The road network provides geographic context for interpreting the spatial relationships between origin and destination markets.
 
 The complete dataset was uploaded to Github via the 2016 US Primary Roads Data release: https://github.com/jehan199/Planes-For-Trains/releases#release-v.1.0-primary-roads-2016
 
