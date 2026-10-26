@@ -362,7 +362,7 @@ These attributes provide the destination market's passenger volume, passenger-vo
 
 - Source: U.S. Census Bureau, 2016 TIGER/Line Primary Roads. https://catalog.data.gov/dataset/tiger-line-shapefile-2016-nation-u-s-primary-roads-national-shapefile
 
-
+-The 2016 U.S. primary-roads shapefile is loaded as a separate spatial layer and transformed to WGS 84 to match the city-market coordinates. The road network provides geographic context for interpreting the spatial relationships between origin and destination markets.
 
 ### Relationship to the Original 2022 Workflow
 
@@ -435,11 +435,15 @@ The 2026 version made the following changes:
 - used a lookup table published by BTS to introduce a City-Market name for each City-Market-ID
 - created a translation table to bridge the gap between BTS and SimpleMaps geographic data featuring the top 50 city markets by origin. This eliminated the need to manually input geographic data into the eventual Cities_as_rail_hubs_2026.csv document
 - rewrote "query_to_pivot_filter_and_proivde_geographic_information" SQL query to eliminate the need for any manual data transformations before Cities_as_rail_hubs_2026.csv could be produced
-- R `mapview` visualization for `Cities-with-Most-Short-Haul-Flights-2026` was changed in the following ways:
-    - Underlying basemap was changed from OpenStreetMap to Esri Basemap due to issues with OpenStreetMap functionality and licensing.
+- R `mapview` visualization for `Cities-with-Most-Short-Haul-Flights-2026.html` was changed in the following ways:
+    - Underlying basemap was changed from OpenStreetMap to Esri Basemap due to issues with OpenStreetMap functionality and licensing
     - Hover values for origin city markets changed from Sum of Passengers to Origin Rank.
-    - Popup fields changed to the fields referenced in Data_Provenance_2026 Section 8.1.
-    - Esri Basemap and U.S. Primary Roads notes added to HTML output (see Section 8.3 of Data_Provenance_2026 for more details).
+    - Popup fields changed to the fields outlined in Data_Provenance_2026 section 8.1
+    - Esri Basemap and U.S. Primary Roads notes added to HTML output (see section 8.3 of Data_Provenance_2026 for more details)
+- R `mapview` visualizations for `Atlanta-as-a-Rail-Hub-2026.html`, `Los-Angeles-as-a-Rail-Hub-2026.html`, `Washington-DC-as-a-Rail-Hub-2026.html`, `San-Francisco-as-a-Rail-Hub-2026.html` and `Charlotte-as-a-Rail-Hub-2026.html` were changed in the following ways:
+    - Underlying basemap was changed from OpenStreetMap to Esri Basemap due to issues with OpenStreetMap functionality and licensing
+    - Hover values and popup fields change to the values and fields outlined in Data_Provenance_2026 section 8.2
+    - Passenger_Band field established for each Origin-City-Makret. This was then used to generate a color coded legend unique to each of the five visualizations
 
 These changes should not overwrite the historical workflow.
 
