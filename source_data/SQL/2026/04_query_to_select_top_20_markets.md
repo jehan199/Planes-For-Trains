@@ -2,7 +2,7 @@
 
 ```sql
 SELECT  
-  b.Origin_City_Market,b.Simple_Maps_City_State,a.Sum_of_Passengers,b.Simple_Maps_lat,b.Simple_maps_lng
+  b.Origin_City_Market,b.US_Census_Bureau_USPS as US_Census_Bureau_State ,a.Sum_of_Passengers,b.US_Census_Bureau_LAT,b.US_Census_Bureau_LON
 FROM 
   (WITH temp_table AS
     (SELECT 
@@ -13,7 +13,7 @@ FROM
         OriginCityMarketID,Sum(Passengers) as Sum_of_Passengers
       FROM temp_table
       GROUP BY OriginCityMarketID) as a
-LEFT JOIN `rail-as-alt-travel-362219.us_air_passenger.BTS_Simple_Maps_Metro_Area_Translation_Table` as b
+LEFT JOIN `rail-as-alt-travel-362219.us_air_passenger.BTS_US_Census_Place_City_Market_Translation_Table` as b
 ON a.OriginCityMarketID = b.OriginCityMarketID
 Order BY Sum_of_Passengers DESC
 LIMIT 20
