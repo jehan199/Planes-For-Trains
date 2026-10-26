@@ -436,11 +436,10 @@ The 2026 version made the following changes:
 - created a translation table to bridge the gap between BTS and SimpleMaps geographic data featuring the top 50 city markets by origin. This eliminated the need to manually input geographic data into the eventual Cities_as_rail_hubs_2026.csv document
 - rewrote "query_to_pivot_filter_and_proivde_geographic_information" SQL query to eliminate the need for any manual data transformations before Cities_as_rail_hubs_2026.csv could be produced
 - R `mapview` visualization for Cities-with-Most-Short-Haul-Flights-2026 was changed in the following ways:
--   Underlying basemap was changed from OpenStreetMaps to Esri Basemap due to issues with OpenStreetMaps functionality and licensing
--   Hover values for Origin City-Markets changed from Sum of Passengers to Origin Rank
--   Popup fields changed to the fields referenced in Data_Provenance_2026 section 8.1
--   Esri Basemap and US Primary Road Notes added to HTML output (see section 8.3 of Data_Provenance_2026 for more details)
-- 
+        - Underlying basemap was changed from OpenStreetMaps to Esri Basemap due to issues with OpenStreetMaps functionality and licensing
+        - Hover values for Origin City-Markets changed from Sum of Passengers to Origin Rank
+        - Popup fields changed to the fields referenced in Data_Provenance_2026 section 8.1
+        -   Esri Basemap and US Primary Road Notes added to HTML output (see section 8.3 of Data_Provenance_2026 for more details)
 
 These changes should not overwrite the historical workflow.
 
