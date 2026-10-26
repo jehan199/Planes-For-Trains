@@ -152,7 +152,7 @@ Note that the source file is in a pipe delimited text format and the file format
 
 ---
 
-# 5. `BTS_Simple_Maps_Metro_Area_Translation_Table`
+# 5. `BTS_US_Census_Place_City-Market_Translation_Table.csv`
 
 The 50 selected city markets were combined with geographic information to create the BigQuery table:
 
@@ -165,11 +165,11 @@ The table contains:
 - `DestCityMarketID`
 - `Dest_City_Market`
 - `_Sum_of_Passengers_`
-- `Simple_Maps_City_Name`
-- `Simple_Maps_City_State`
-- `Simple_Maps_City_and_State`
-- `Simple_Maps_lat`
-- `Simple_Maps_lng`
+- `US_Census_Bureau_NAME`
+- `US_Census_Bureau_USPS`
+- `US_Census_Bureau_NAME_and_USPS`
+- `US_Census_Bureau_LAT`
+- `US_Census_Bureau_LON`
 - `Top_20`
 
 The BTS-derived fields are:
@@ -182,15 +182,15 @@ The BTS-derived fields are:
 
 In this table `OriginCityMarketID` and `DestCityMarketID` are the same for all records. Conisquentally `Origin_City_Market` and `Dest_City_Market` are also the same.  The purpose was to make it possible to join the selected markets to both the origin and destination sides of the later origin-destination analysis.
 
-The SimpleMaps v1.75 fields are:
+The US Census Gazetteer Place File (2026_Gaz_place_national) fields are:
 
-- `Simple_Maps_City_Name`
-- `Simple_Maps_City_State`
-- `Simple_Maps_City_and_State` *This field is a concatenate of `Simple_Maps_City_Name` and `Simple_Maps_City_State`*
-- `Simple_Maps_lat`
-- `Simple_Maps_lng`
+- `US_Census_Bureau_NAME`
+- `US_Census_Bureau_USPS`          *This field represents the U.S. State or federal district that the city belongs to*
+- `US_Census_Bureau_NAME_and_USPS` *This field is a concatenate of `US_Census_Bureau_NAME` and `US_Census_Bureau_USPS`*
+- `US_Census_Bureau_LAT`
+- `US_Census_Bureau_LON`
 
-The connection between these two data sets was established by manually connecting the `Origin_City_Market` field with a representative city in the SimpleMaps dataset. Representative cities in the SimpleMaps dataset where chosen on the basis of which city is the most populous within a given metro area. For example, if `Origin_City_Market` for a given record reads "Minneapolis/St. Paul, MN", the representative city that is chosen to represent that metro area will be "Minneapolis, MN". This allows us to bring in geospatial data from the SimpleMaps dataset which then allows us to plot a point in our visualization that will represent the metro area. Note that this geospatial data is not directly involved in the analysis and is only used for visualization purposes.
+The connection between these two datasets was established by manually connecting the `Origin_City_Market` field with a representative city in the `2026_Gaz_place_national dataset`. Representative cities in the `2026_Gaz_place_national` dataset where chosen on the basis of which city is the most populous within a given metro area. For example, if `Origin_City_Market` for a given record reads "Minneapolis/St. Paul, MN", the representative city that is chosen to represent that city-market will be "Minneapolis city, MN". This allows us to bring in geospatial data from the `2026_Gaz_place_national` dataset which then allows us to plot a point in our visualization that will represent the city-market. Note that this geospatial data is not directly involved in the analysis and is only used for visualization purposes.
 
 User Derived Field(s):
 
@@ -228,7 +228,7 @@ This file was generate by a query saved in the following location:
 
 source_data/SQL/2026/03_query_to_pivot_filter_and_proivde_geographic_information.md
 
-`Cities_as_rail_hubs_2026.csv` contains the final origin-destination data used for the 2022 visualizations.
+`Cities_as_rail_hubs_2026.csv` contains the final origin-destination data used for the 2026 visualizations.
 
 Important fields include:
 
