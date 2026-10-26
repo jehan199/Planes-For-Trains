@@ -178,8 +178,8 @@ In this table `OriginCityMarketID` and `DestCityMarketID` are the same for all r
 The US Census Gazetteer Place File (2026_Gaz_place_national) fields are:
 
 - `US_Census_Bureau_NAME`
-- `US_Census_Bureau_USPS`          *This field represents the U.S. State or federal district that the city belongs to*
-- `US_Census_Bureau_NAME_and_USPS` *This field is a concatenate of `US_Census_Bureau_NAME` and `US_Census_Bureau_USPS`*
+- `US_Census_Bureau_USPS`          (This field represents the U.S. State or federal district that the city belongs to)
+- `US_Census_Bureau_NAME_and_USPS` (This field is a concatenate of `US_Census_Bureau_NAME` and `US_Census_Bureau_USPS`)
 - `US_Census_Bureau_LAT`
 - `US_Census_Bureau_LON`
 
