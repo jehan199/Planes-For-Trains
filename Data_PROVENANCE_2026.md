@@ -45,14 +45,7 @@ The BTS Lookup Table can be downloaded here:
 
 <https://transtats.bts.gov/Download_Lookup.asp?Y11x72=Y_PVgl_ZNeXRg_VQ>
 
-### Archived source files
-
-The four original 2019 quarterly ZIP files are preserved in the project's GitHub release:
-
-**Release:** `v1.0-data-2019`  
-**Title:** `2019 BTS DB1BCoupon Source Data`
-
-The files are retained in their original form rather than being modified during the reproducibility work.
+The U.S. Department of Transportation Bureau of Transportation Statistics (BTS) Origin and Destination Survey DB1B Coupon dataset needs to be downloaded from the sources above in order to recreate this project. Source data for these files is not hosted on this platform due to concerns about breaching rules relating to the distribtuion of the underlying datasets.
 
 ---
 
