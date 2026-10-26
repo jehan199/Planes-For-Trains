@@ -1,6 +1,6 @@
 This query pivots the BTS 2019 dataset and sums the number of passengers from each origin and destination. 
 
-It also applies filters to the data to limit the records pivoted to only flights with a distance between 75 and 500 miles, it excluded flights that have an origin or a destination in Hawaii, it assigns an `Origin_Rank` value based on the volume of passengers leaving from an metro area on short haul flights and creates an `Destination_Rank` value that ranks the volume of passengers leaving from each origin to the top destination metros areas.
+It also applies filters to the data to limit the records pivoted to only flights with a distance between 75 and 500 miles, it excluded flights that have an origin or a destination in Hawaii, it assigns an `Origin_Rank` value based on the volume of passengers leaving from a city-market on short haul flights and creates an `Destination_Rank` value that ranks the volume of passengers leaving from each origin to the top destination metros areas.
 
 Lastly the query filters to only the top 5 `Destination_Ranks` for each origin and it sorts the data first by `Origin_Rank` and then by `Destination_Rank`
 ```sql
