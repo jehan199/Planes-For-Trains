@@ -2,7 +2,7 @@
 
 This same dataset is used in both the 2022 and 2026 versions of this project. 
 
-The original 2016 US Primary Roads Source Data files aretoo large for the normal
+The original 2016 US Primary Roads Source Data files are too large for the normal
 GitHub repository and are therefore preserved as assets in the
 `2016 US Primary Roads Data` release.
 
