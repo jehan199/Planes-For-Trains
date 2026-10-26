@@ -280,103 +280,100 @@ Cities_as_rail_hubs_2026.csv
 
 ---
 
-# 8. R Visualization Workflow
+## 8. R Visualization Workflow
 
-The final visualization stage was performed in R.
+The final visualization stage of the revised 2026 workflow was performed in R using R Markdown. The workflow generates six interactive maps: one national overview of the 20 city markets with the highest short-haul flight passenger volumes and five city-market-specific analyses of the highest-volume origin markets.
 
-The `Mapview.R` script loads:
+### Source Data
 
-- `Cities_with_most_short_flights_geo_data.csv`
-- `Cities_as_rail_hubs.csv`
-- a 2016 U.S. primary roads shapefile
-- R spatial and visualization packages including `sf`, `mapview`, `tmap`, `maps`, `tidyverse`, and `leafpop`.
+The visualization workflow uses two SQL-derived CSV files:
 
-The original R script loads the roads shapefile and the two SQL-derived CSV files as source data. It also establishes the ranking vector used for the 20 selected markets.
+- `Cities_with_most_short_flights_geo_data_2026.csv` — source data for the national overview map.
+- `Cities_as_rail_hubs_2026.csv` — source data for the five city-market-specific maps.
 
-The script converts the city coordinates into spatial objects using longitude and latitude and associates the data with metro names, passenger totals, and destination rankings.
+All six maps use the 2016 U.S. primary-roads shapefile, `tl_2016_us_primaryroads.shp`, from the U.S. Census Bureau's TIGER/Line program, as a geographic reference layer.
 
-The top-20 candidate dataset is constructed from the geographic coordinates and assigned:
+The R workflows use packages including `readr`, `dplyr`, `sf`, `mapview`, and `leaflet` for data loading, transformation, spatial processing, and interactive visualization.
 
-- market rank
-- metro-area name
-- total passengers flying from the market
+### National Overview Map: Cities with Most Short-Haul Flights
 
-The destination spatial dataset is constructed from destination coordinates and assigned:
+The national overview map uses `Cities_with_most_short_flights_geo_data_2026.csv`. The workflow converts passenger totals to numeric values, sorts city markets by descending passenger volume, and generates an `Origin_Rank` field in R. Rank 1 is assigned to the market with the highest passenger total.
 
-- destination rank
-- flight origin city
-- destination city
-- passengers received
+City-market coordinates are converted into spatial point features using longitude and latitude in the WGS 84 coordinate reference system (EPSG:4326). Marker colors represent passenger volumes, and hover labels display each market's origin rank.
 
----
+The map's interactive popups contain the following fields:
 
-# 10. Map Generation
+- `Feature ID`
+- `Origin_City_Market`
+- `State`
+- `Sum_of_Passengers`
+- `Latitude`
+- `Longitude`
+- `Origin_Rank`
+- `geometry`
 
-The R workflow generated two types of visualizations.
+### City-Market-Specific Analyses
 
-## 11.1 National Top-20 Map
+The five city-market-specific maps use `Cities_as_rail_hubs_2026.csv` to examine destinations associated with the five highest-volume origin city markets.
 
-The first visualization displays the 20 selected origin markets and their total short-haul passenger volumes.
+Each map distinguishes the origin market from its destination markets. Hovering over the origin marker displays **Origin**, while hovering over a destination marker displays its **Destination Rank**.
 
-The rank and passenger totals were attached to the spatial points before visualization.
+The origin marker's interactive popup contains:
 
-The resulting map allows the 20 candidate markets to be compared geographically according to their total short-haul passenger volume.
+- `Feature ID`
+- `Origin_City_Market`
+- `OriginLat`
+- `OriginLon`
+- `Origin_Rank`
+- `geometry`
+- `Origin_Label`
 
-## 11.2 City-Specific Hub Maps
+Destination markers' interactive popups contain:
 
-The second visualization examined the top 5 origin markets by total short-haul passenger volume individually.
+- `Feature ID`
+- `Destination_City_Market`
+- `Sum of Passengers`
+- `Passenger_Band`
+- `Rank_Label`
+- `DestLat`
+- `DestLon`
+- `Distance`
+- `geometry`
 
-The project generated maps for:
+These attributes provide the destination market's passenger volume, passenger-volume band, rank label, geographic coordinates, and distance from the origin market.
 
-- Atlanta
-- LA/Inland Empire
-- Washington D.C.
-- Bay Area
-- Charlotte
+### Road Overlay and Basemap
 
-For each selected origin market, the map displays the origin location together with the destinations associated with that market.
+The 2016 U.S. primary-roads shapefile is loaded as a separate spatial layer and transformed to WGS 84 to match the city-market coordinates. The road network provides geographic context for interpreting the spatial relationships between origin and destination markets.
 
-The original R workflow filtered the destination data by origin metro area before generating each hub visualization.
+The maps use the Esri World Gray Canvas basemap through `mapview`. Basemap tiles are served online and require an internet connection to display. Esri attribution is retained in the interactive maps. The applicable Esri terms reviewed for the project are documented in the basemap notes.
 
-For example, the Atlanta workflow created an Atlanta origin object and an Atlanta destination object before displaying the destinations according to passenger volume and the Atlanta origin separately.
+### Relationship to the Original 2022 Workflow
 
-The same general workflow was used for:
+The revised 2026 visualization workflow updates the original 2022 implementation to use the revised city-market datasets and R Markdown scripts. The national overview now generates origin rankings in R from passenger totals. The five city-market-specific maps distinguish origin and destination markers through hover labels and provide destination-level information through interactive popups.
 
-- LA/Inland Empire
-- Washington D.C.
-- Bay Area
-- Charlotte
+The original 2022 maps and associated workflow are retained as historical project materials and documented separately from the revised 2026 outputs.
 
-The five city-specific maps were generated using the commands preserved in the project's original Markdown documentation.
-
----
-
-# 11. Historical 2022 Visualization Outputs
+# 9. 2026 Visualization Outputs
 
 The original project produced six interactive HTML outputs:
 
-1. `Short-Haul-Flight-Cities.html`
-2. `Atlanta-Visual.html`
-3. `LA-Inland-Empire-as-a-Hub.html`
-4. `Washington-D.C.-as-a-Hub.html`
-5. `Bay-Area-as-a-Hub.html`
-6. `Charlotte-as-a-Hub..html`
-
-These files are preserved as historical 2022 outputs.
-
-They should be considered **outputs of the original analysis**, rather than independently reproducible source data.
+1. Cities-with-Most-Short-Haul-Flights-2026.html
+2. Atlanta-as-a-Rail-Hub-2026.html
+3. Los-Angles-as-a-Rail-Hub-2026.html
+4. Washington-DC-as-a-Rail-Hub-2026.html
+5. San-Francisco-as-a-Rail-Hub-2026.html
+6. Charlotte-as-a-Rail-Hub-2026.html
 
 The HTML files preserve the coordinates, passenger values, rankings, map configuration, and visualization design used in the original project.
 
-The hub maps represent selected high-volume origin metro areas and their short-haul flight destinations.
+The hub maps represent selected high-volume origin city-markets and their short-haul flight destinations.
 
-Some external basemap providers used by the original interactive maps have changed their access policies since 2022. Consequently, certain basemaps may no longer function exactly as they did when the HTML files were originally created.
-
-This does not affect the underlying analytical data embedded in the historical outputs.
+All visualizations were uploaded to Github via the 2026 Analysis Outputs release: https://github.com/jehan199/Planes-For-Trains/releases#release-v1.0-2026-outputs
 
 ---
 
-# 12. Roads Data
+# 10. Roads Data
 
 The R visualization workflow also loaded a 2016 U.S. primary roads shapefile:
 
@@ -396,12 +393,11 @@ It was not used to:
 - determine potential rail routes; or
 - otherwise affect the analytical results.
 
-The exact original source/download provenance for this roads dataset has not yet been independently reconstructed.
+The complete dataset was uploaded to Github via the 2016 US Primary Roads Data release: https://github.com/jehan199/Planes-For-Trains/releases#release-v.1.0-primary-roads-2016
 
-This is therefore classified as a **minor remaining provenance item**, rather than a dependency of the analytical results.
 ---
 
-# 14. Historical vs. Revised Analysis
+# 11. Historical vs. Revised Analysis
 
 An important goal of the reproducibility work is to distinguish the original 2022 analysis from any subsequent revisions.
 
@@ -416,16 +412,12 @@ The historical analysis preserves:
 - the original R workflow
 - the original interactive HTML outputs
 
-Any future revisions should be documented separately.
 
-For example, a revised analysis may update:
+The 2026 version made the following changes:
 
-- airport reference data
-- geographic data
-- distance thresholds
-- route-selection methodology
-- data-processing code
-- visualization methods
+- removed the airport reference data and any joins to the 2019 BTS DB1B data
+- used 
+
 
 These changes should not overwrite the historical workflow.
 
