@@ -137,19 +137,16 @@ The Hawaii exclusion is therefore a methodological choice specific to this proje
 
 # 4. Geographic Data for the 50 Origin Markets
 
-## SimpleMaps U.S. Cities Basic v1.75
+## US Census Gazetteer Place File
 
-Geographic information for the 50 selected markets was derived from the **SimpleMaps U.S. Cities Basic v1.75** dataset.
+Geographic information for the 50 selected markets was derived from the **2026_Gaz_place_national** dataset.
 
-The version used by the original project was released by SimpleMaps in 2022 and was obtained by the project author in September 2022.
+This project used the city-level latitude and longitude values from this dataset.
 
-The historical copy of the dataset contains **30,409 records**.
+These columns are named `INTPTLAT` and `INTPTLONG` in the dataset. They are referenced in the subsequent translation table as `US_Census_Bureau_LAT` and `US_Census_Bureau_LON` respectively.
 
-The original project used the city-level latitude and longitude values from this dataset.
-
-Because SimpleMaps licensing restricts redistribution of the underlying database, the complete SimpleMaps dataset is **not redistributed in this repository**. Instead, this project documents the specific historical version used and preserves the derived values necessary to understand the original analysis.
-
-The SimpleMaps dataset should therefore be treated as a historical source dependency rather than as a file that can necessarily be regenerated from the repository alone.
+US Census Gazetteer Place File Download Link:
+https://www2.census.gov/geo/docs/maps-data/data/gazetteer/2026_Gazetteer/2026_Gaz_place_national.zip
 
 ---
 
