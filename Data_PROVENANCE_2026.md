@@ -148,6 +148,8 @@ These columns are named `INTPTLAT` and `INTPTLONG` in the dataset. They are refe
 US Census Gazetteer Place File Download Link:
 https://www2.census.gov/geo/docs/maps-data/data/gazetteer/2026_Gazetteer/2026_Gaz_place_national.zip
 
+Note that the source file is in a pipe delimited text format and the file formatting was changed to csv. 
+
 ---
 
 # 5. `BTS_Simple_Maps_Metro_Area_Translation_Table`
