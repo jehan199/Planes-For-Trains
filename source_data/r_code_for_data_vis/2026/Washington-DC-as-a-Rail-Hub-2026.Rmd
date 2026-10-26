@@ -1,0 +1,205 @@
+---
+title: "Washington, DC as a Rail Hub"
+author: "Jeremy Handy"
+date: "2026-10-23"
+output: html_document
+---
+
+## Map instructions and context
+
+The red-outlined blue marker identifies Washington, DC, the origin market being examined. The other markers represent destination markets for Washington, DC's short-haul flights in the 2019 BTS DB1B Coupon data. Marker colors indicate the number of passengers traveling from Washington, DC to each destination; hover over a destination for a quick summary and click a marker for its popup.
+
+This map uses the revised 2026 city-market analysis. City-market names and representative coordinates come from the project's derived data. These points are representative locations, not exact boundaries or geographic centroids of the BTS city markets.
+
+```{r setup, include=FALSE}
+knitr::opts_knit$set(
+  root.dir = "/Users/jeremyhandy/Trains_for_planes_cars/Trains_for_planes_2026"
+)
+library(readr)
+library(dplyr)
+library(sf)
+library(mapview)
+library(stringr)
+library(scales)
+
+# Keep map layers in latitude/longitude for web mapping.
+mapview::mapviewOptions(
+  basemaps = "Esri.WorldGrayCanvas"
+)
+
+# Paths are relative to the project root.
+hub_file <- "data/Cities_as_rail_hubs_2026.csv"
+roads_file <- "data/roads/tl_2016_us_primaryroads.shp"
+
+hub_data <- read_csv(hub_file, show_col_types = FALSE) %>%
+  mutate(
+    Sum_of_Passengers = parse_number(as.character(Sum_of_Passengers)),
+    Origin_Rank = as.integer(Origin_Rank),
+    Destination_Rank = as.integer(Destination_Rank)
+  )
+
+# Select Washington, DC using the city-market name rather than relying only on rank.
+dc_data <- hub_data %>%
+  filter(Origin_City_Market == "Washington, DC (Metropolitan Area)")
+
+if (nrow(dc_data) == 0) {
+  stop("No Washington, DC rows were found in data/Cities_as_rail_hubs_2026.csv.")
+}
+
+# The same origin coordinates repeat across Washington, DC's destination rows.
+dc_origin <- dc_data %>%
+  distinct(Origin_City_Market, OriginLat, OriginLon, Origin_Rank)
+
+dc_destinations <- dc_data %>%
+  filter(
+    !is.na(DestLat),
+    !is.na(DestLon),
+    !is.na(Sum_of_Passengers)
+  ) %>%
+  arrange(Destination_Rank) %>%
+  transmute(
+    Destination_City_Market = Dest_City_Market,
+    `Sum of Passengers` = Sum_of_Passengers,
+    `Destination Rank` = Destination_Rank,
+    DestLat,
+    DestLon,
+    Distance
+  )
+
+if (nrow(dc_destinations) == 0) {
+  stop("Washington, DC was found, but no destination rows have usable coordinates and passenger counts.")
+}
+
+# Convert origin and destination tables to point layers.
+dc_origin_sf <- st_as_sf(
+  dc_origin,
+  coords = c("OriginLon", "OriginLat"),
+  crs = 4326,
+  remove = FALSE
+)
+dc_origin_sf$Origin_Label <- "Origin"
+
+dc_destinations_sf <- st_as_sf(
+  dc_destinations,
+  coords = c("DestLon", "DestLat"),
+  crs = 4326,
+  remove = FALSE
+)
+
+dc_destinations_sf$Passenger_Band <- cut(
+  dc_destinations_sf[["Sum of Passengers"]],
+  breaks = c(-Inf, 100000,200000, Inf),
+  labels = c(
+    "0–100,000",
+    "100,001-200,000",
+    "200,001 or more"
+  ),
+  include.lowest = TRUE,
+  ordered_result = TRUE
+)
+
+dc_destinations_sf$Rank_Label <- paste(
+  "Destination Rank",
+  dc_destinations_sf[["Destination Rank"]]
+)
+dc_destinations_popup <- dc_destinations_sf %>%
+  select(
+    Destination_City_Market,
+    `Sum of Passengers`,
+    Passenger_Band,
+    Rank_Label,
+    DestLat,
+    DestLon,
+    Distance
+)
+
+# Read and transform roads to the same CRS as the map points.
+roads <- st_read(roads_file, quiet = TRUE) %>%
+  st_transform(4326)
+
+# Crop roads to the extent of Washington, DC and its listed destinations, with padding.
+# This keeps the HTML output smaller than embedding the entire national road layer.
+# Combine the origin and destination point geometries
+all_points <- st_sfc(
+  c(
+    st_geometry(dc_origin_sf),
+    st_geometry(dc_destinations_sf)
+  ),
+  crs = 4326
+)
+
+# Calculate the bounding box around all points
+point_bbox <- st_bbox(all_points)
+padding_lon <- 2
+padding_lat <- 1.5
+
+map_bbox <- st_bbox(
+  c(
+    xmin = max(-125, point_bbox["xmin"] - padding_lon),
+    ymin = max(24, point_bbox["ymin"] - padding_lat),
+    xmax = min(-66, point_bbox["xmax"] + padding_lon),
+    ymax = min(50, point_bbox["ymax"] + padding_lat)
+  ),
+  crs = st_crs(4326)
+)
+
+roads_local <- st_crop(roads, map_bbox)
+```
+
+## Visualization
+
+```{r map, echo=FALSE, message=FALSE, warning=FALSE}
+destination_map <- mapview(
+  dc_destinations_popup,
+  zcol = "Passenger_Band",
+col.regions = c(
+  "0–100,000" = "#fff7bc",
+  "100,001–200,000" = "#fec44f",
+  "200,001 or more" = "#cc4c02"
+  ),
+  layer.name = "Passengers from Washington, DC",
+  popup = TRUE,
+  legend = TRUE,
+  label = "Rank_Label"
+)
+roads_map <- mapview(
+  roads_local,
+  color = "#555555",
+  lwd = 1,
+  alpha.regions = 0,
+  legend = FALSE,
+  layer.name = "U.S. primary roads"
+)
+origin_map <- mapview(
+  dc_origin_sf,
+  color = "#d73027",
+  col.regions = "#1769aa",
+  cex = 8,
+  layer.name = "Washington, DC origin market",
+  popup = TRUE,
+  legend = FALSE,
+  label = "Origin_Label"
+)
+
+roads_map + destination_map + origin_map
+```
+
+## Esri Basemap Notes
+
+- The Esri basemap requires an internet connection when viewing the HTML file.The interactive maps use the Esri World Gray Canvas basemap, accessed online through `mapview`.
+- Esri's Web Site and Service Terms of Use permit certain noncommercial uses of Esri services, subject to applicable terms and restrictions.
+- The maps retain the basemap attribution displayed by the service. This project does not redistribute a separate copy of the basemap tile data.
+- Terms reviewed:
+    - [Esri Web Site and Service Terms of Use](https://www.esri.com/en-us/legal/terms/web-site-service)
+    - [Esri Master Agreement](https://www.esri.com/content/dam/esrisites/en-us/media/legal/ma-full/ma-full.pdf)
+- This note documents the terms reviewed for the project; it is not a legal determination that every method of publication or redistribution is authorized.
+
+## 2016 U.S. Primary Roads Notes
+
+- The maps use the 2016 U.S. Primary Roads National Shapefile from the U.S. Census Bureau's TIGER/Line program. The dataset represents primary roads, generally limited-access highways, and is used as a visual reference layer rather than as a complete road network.
+
+- The dataset is listed under the CC0 1.0 public-domain dedication. It has been cropped to the map area for visualization.
+
+- Source: U.S. Census Bureau, 2016 TIGER/Line Primary Roads. https://catalog.data.gov/dataset/tiger-line-shapefile-2016-nation-u-s-primary-roads-national-shapefile
+
+
