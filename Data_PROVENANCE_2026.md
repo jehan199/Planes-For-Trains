@@ -16,7 +16,7 @@ A separate 2026 revision of the project may subsequently update selected data so
 
 # 1. Primary Source Data
 
-## 1.1 BTS DB1B Coupon Data and Lookup Table
+## BTS DB1B Coupon Data and Lookup Table
 
 The primary analytical dataset was the U.S. Department of Transportation Bureau of Transportation Statistics (BTS) Origin and Destination Survey DB1B Coupon dataset. A secondary Lookup Table Dataset was also sourced from BTS to provide a Metro Area Name to each OriginCityMarketID and DestCityMarketID. 
 
@@ -295,7 +295,7 @@ All six maps use the 2016 U.S. primary-roads shapefile, `tl_2016_us_primaryroads
 
 The R workflows use packages including `readr`, `dplyr`, `sf`, `mapview`, and `leaflet` for data loading, transformation, spatial processing, and interactive visualization.
 
-### National Overview Map: Cities with Most Short-Haul Flights
+### 8.1 National Overview Map: Cities with Most Short-Haul Flights
 
 The national overview map uses `Cities_with_most_short_flights_geo_data_2026.csv`. The workflow converts passenger totals to numeric values, sorts city markets by descending passenger volume, and generates an `Origin_Rank` field in R. Rank 1 is assigned to the market with the highest passenger total.
 
@@ -312,7 +312,7 @@ The map's interactive popups contain the following fields:
 - `Origin_Rank`
 - `geometry`
 
-### City-Market-Specific Analyses
+### 8.2 City-Market-Specific Analyses
 
 The five city-market-specific maps use `Cities_as_rail_hubs_2026.csv` to examine destinations associated with the five highest-volume origin city markets.
 
@@ -342,11 +342,27 @@ Destination markers' interactive popups contain:
 
 These attributes provide the destination market's passenger volume, passenger-volume band, rank label, geographic coordinates, and distance from the origin market.
 
-### Road Overlay and Basemap
+## 8.3 Road Overlay and Basemap
 
-The 2016 U.S. primary-roads shapefile is loaded as a separate spatial layer and transformed to WGS 84 to match the city-market coordinates. The road network provides geographic context for interpreting the spatial relationships between origin and destination markets.
+### Esri Basemap Notes
 
-The maps use the Esri World Gray Canvas basemap through `mapview`. Basemap tiles are served online and require an internet connection to display. Esri attribution is retained in the interactive maps. The applicable Esri terms reviewed for the project are documented in the basemap notes.
+- The Esri basemap requires an internet connection when viewing the HTML file.The interactive maps use the Esri World Gray Canvas basemap, accessed online through `mapview`.
+- Esri's Web Site and Service Terms of Use permit certain noncommercial uses of Esri services, subject to applicable terms and restrictions.
+- The maps retain the basemap attribution displayed by the service. This project does not redistribute a separate copy of the basemap tile data.
+- Terms reviewed:
+    - [Esri Web Site and Service Terms of Use](https://www.esri.com/en-us/legal/terms/web-site-service)
+    - [Esri Master Agreement](https://www.esri.com/content/dam/esrisites/en-us/media/legal/ma-full/ma-full.pdf)
+- This note documents the terms reviewed for the project; it is not a legal determination that every method of publication or redistribution is authorized.
+
+### 2016 U.S. Primary Roads Notes
+
+- The maps use the 2016 U.S. Primary Roads National Shapefile from the U.S. Census Bureau's TIGER/Line program. The dataset represents primary roads, generally limited-access highways, and is used as a visual reference layer rather than as a complete road network.
+
+- The dataset is listed under the CC0 1.0 public-domain dedication. It has been cropped to the map area for visualization.
+
+- Source: U.S. Census Bureau, 2016 TIGER/Line Primary Roads. https://catalog.data.gov/dataset/tiger-line-shapefile-2016-nation-u-s-primary-roads-national-shapefile
+
+
 
 ### Relationship to the Original 2022 Workflow
 
@@ -415,9 +431,16 @@ The historical analysis preserves:
 
 The 2026 version made the following changes:
 
-- removed the airport reference data and any joins to the 2019 BTS DB1B data
-- used 
-
+- removed the airport code reference data and any joins to the 2019 BTS DB1B data
+- used a lookup table published by BTS to introduce a City-Market name for each City-Market-ID
+- created a translation table to bridge the gap between BTS and SimpleMaps geographic data featuring the top 50 city markets by origin. This eliminated the need to manually input geographic data into the eventual Cities_as_rail_hubs_2026.csv document
+- rewrote "query_to_pivot_filter_and_proivde_geographic_information" SQL query to eliminate the need for any manual data transformations before Cities_as_rail_hubs_2026.csv could be produced
+- R `mapview` visualization for Cities-with-Most-Short-Haul-Flights-2026 was changed in the following ways:
+-   Underlying basemap was changed from OpenStreetMaps to Esri Basemap due to issues with OpenStreetMaps functionality and licensing
+-   Hover values for Origin City-Markets changed from Sum of Passengers to Origin Rank
+-   Popup fields changed to the fields referenced in Data_Provenance_2026 section 8.1
+-   Esri Basemap and US Primary Road Notes added to HTML output (see section 8.3 of Data_Provenance_2026 for more details)
+- 
 
 These changes should not overwrite the historical workflow.
 
