@@ -1,3 +1,14 @@
-The data for the 2016 US Primary Roads Datast is too large to upload the repository directly and is accessable via the following release. 
+# 2016 US Primary Road Dataset
 
-https://github.com/jehan199/Planes-For-Trains/releases
+The original 2016 US Primary Roads Source Data files aretoo large for the normal
+GitHub repository and are therefore preserved as assets in the
+`2019 BTS DB1BCoupon Source Data release.
+
+See the ` v.1.0-primary-roads-2016` release for the original files. The URL for this is posted below.
+
+https://github.com/jehan199/Planes-For-Trains/releases/tag/v.1.0-primary-roads-2016
+
+
+
+
+
