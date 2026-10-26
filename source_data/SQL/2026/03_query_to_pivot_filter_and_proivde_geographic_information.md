@@ -4,7 +4,7 @@ It also applies filters to the data to limit the records pivoted to only flights
 
 Lastly the query filters to only the top 5 `Destination_Ranks` for each origin and it sorts the data first by `Origin_Rank` and then by `Destination_Rank`.
 
-The output of this query is labelled as `Cities_as_rail_hubs_2026.csv` and this is the basis for one of the data visualizations in R. It is saved in the the derived _data folder.
+The output of this query is labelled as `Cities_as_rail_hubs_2026.csv` and this is the basis for one of the data visualizations in R. It is saved in the the `derived _data` folder.
 
 
 ```sql
