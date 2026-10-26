@@ -1,4 +1,4 @@
-The 2026 version of this project sources the same 2019 BTS DB1BCoupon files as the 2022 version
+The 2026 version of this project sources the same 2019 BTS DB1BCoupon files as the 2022 version.
 
 The original U.S. Department of Transportation 2019 BTS DB1BCoupon Source Data files aretoo large for the normal GitHub repository and are therefore preserved as assets in the `2019 BTS DB1BCoupon Source Data release.
 
