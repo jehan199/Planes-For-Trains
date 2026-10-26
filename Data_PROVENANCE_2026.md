@@ -368,26 +368,9 @@ The revised 2026 visualization workflow updates the original 2022 implementation
 
 The original 2022 maps and associated workflow are retained as historical project materials and documented separately from the revised 2026 outputs.
 
-# 9. 2026 Visualization Outputs
-
-The original project produced six interactive HTML outputs:
-
-1. Cities-with-Most-Short-Haul-Flights-2026.html
-2. Atlanta-as-a-Rail-Hub-2026.html
-3. Los-Angles-as-a-Rail-Hub-2026.html
-4. Washington-DC-as-a-Rail-Hub-2026.html
-5. San-Francisco-as-a-Rail-Hub-2026.html
-6. Charlotte-as-a-Rail-Hub-2026.html
-
-The HTML files preserve the coordinates, passenger values, rankings, map configuration, and visualization design used in the original project.
-
-The hub maps represent selected high-volume origin city-markets and their short-haul flight destinations.
-
-All visualizations were uploaded to Github via the 2026 Analysis Outputs release: https://github.com/jehan199/Planes-For-Trains/releases#release-v1.0-2026-outputs
-
 ---
 
-# 10. Roads Data
+# 9. Roads Data
 
 The R visualization workflow also loaded a 2016 U.S. primary roads shapefile:
 
@@ -410,6 +393,25 @@ It was not used to:
 The 2016 U.S. primary-roads shapefile is loaded as a separate spatial layer and transformed to WGS 84 to match the city-market coordinates. The road network provides geographic context for interpreting the spatial relationships between origin and destination markets.
 
 The complete dataset was uploaded to Github via the 2016 US Primary Roads Data release: https://github.com/jehan199/Planes-For-Trains/releases#release-v.1.0-primary-roads-2016
+
+---
+
+# 10. 2026 Visualization Outputs
+
+The original project produced six interactive HTML outputs:
+
+1. Cities-with-Most-Short-Haul-Flights-2026.html
+2. Atlanta-as-a-Rail-Hub-2026.html
+3. Los-Angles-as-a-Rail-Hub-2026.html
+4. Washington-DC-as-a-Rail-Hub-2026.html
+5. San-Francisco-as-a-Rail-Hub-2026.html
+6. Charlotte-as-a-Rail-Hub-2026.html
+
+The HTML files preserve the coordinates, passenger values, rankings, map configuration, and visualization design used in the original project.
+
+The hub maps represent selected high-volume origin city-markets and their short-haul flight destinations.
+
+All visualizations were uploaded to Github via the 2026 Analysis Outputs release: https://github.com/jehan199/Planes-For-Trains/releases#release-v1.0-2026-outputs
 
 ---
 
