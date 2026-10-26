@@ -1,6 +1,7 @@
 *This query pivots the U.S. DoT 2019 dataset and sums the number of passengers from each origin and destination. 
 It also applies filters to the data to limit the records pivoted to only flights with a distance between 75 and 500 miles. It also excluded flights that have an origin or a destination in Hawaii*
 
+```sql
 WITH temp_table as (SELECT
     OriginCityMarketID, DestCityMarketID, Sum(Passengers) as Sum_of_Passengers, AVG(Distance) AS Distance
   FROM `rail-as-alt-travel-362219.us_air_passenger.unioned_and_filtered_table3`
@@ -17,3 +18,4 @@ LEFT JOIN `rail-as-alt-travel-362219.us_air_passenger.Metro_Area_Data` as e
 ON a.DestCityMarketID = e.DestCityMarketID
 WHERE b.Metro_Area_Name_Origin_ is not null AND a.Distance BETWEEN 75 AND 500
 ORDER BY b.Metro_Area_Name_Origin_, a.Sum_of_Passengers DESC
+```
