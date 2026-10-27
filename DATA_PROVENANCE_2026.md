@@ -117,11 +117,6 @@ While there is some debate on what exactly constitutes the "sweet spot" for high
 
 When a trip is below a certain distance, it is generally quicker to drive considering that you wouldn't have to go to a central train station to catch a train to go from one city to another. When the a trip exceeds a certain distance, it is generally quicker to fly when you consider the faster transportation speed. When a trip is between these two distances, high speed rail is generally considered to be more time competitive.  
 
-<img width="768" height="462" alt="image" src="https://github.com/user-attachments/assets/c0cbce78-5dfc-4940-839b-a0a31e81d376" />
-
-Source: Adapted from Commission for Integrated Transport, London (2004) High-speed rails: international comparisons, Steer Davies Gleave.
-https://transportgeography.org/contents/applications/high-speed-rail-systems/breakeven-distances-rail-air-transport/
-
 For the purpose of this project, the lower limit was set to be 75 miles while the upper limit was selected to be 500 miles. 
 
 Note that the distance filter is applied to the `Distance` field recorded in the BTS Origin and Destination Survey DB1B Coupon unioned table. It should not be interpreted as a determination that a direct flight exists between every pair of city markets or that a high-speed rail service would follow the same distance.
@@ -195,7 +190,7 @@ The US Census Gazetteer Place File (2026_Gaz_place_national) fields are:
 - `US_Census_Bureau_LAT`
 - `US_Census_Bureau_LON`
 
-The connection between these two datasets was established by manually connecting the `Origin_City_Market` field with a representative city in the `2026_Gaz_place_national dataset`. Representative cities in the `2026_Gaz_place_national` dataset were chosen on the basis of which city is the most populous within a given metro area. For example, if `Origin_City_Market` for a given record reads "Minneapolis/St. Paul, MN", the representative city that is chosen to represent that city-market will be "Minneapolis city, MN". This allows us to bring in geospatial data from the `2026_Gaz_place_national` dataset which then allows us to plot a point in our visualization that will represent the city-market. Note that this geospatial data is not directly involved in the analysis and is only used for visualization purposes.
+The connection between BTS city markets and Census geographic data was established by manually matching each selected `Origin_City_Market` to a representative place in the `2026_Gaz_place_national` dataset. Where appropriate, a prominent city within the corresponding metropolitan area was selected as the geographic proxy. For example, the BTS market “Minneapolis/St. Paul, MN” is represented by “Minneapolis city, MN.” These representative points allow the markets to be plotted on the maps; they do not redefine the BTS market boundaries or affect the passenger-volume analysis.
 
 User Derived Field(s):
 
