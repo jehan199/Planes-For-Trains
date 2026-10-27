@@ -1,0 +1,21 @@
+Origin_City_Market,State,Sum_of_Passengers,Latitude,Longitude
+"Atlanta, GA (Metropolitan Area)",GA,"1,550,916",33.762909,-84.422675
+"Los Angeles, CA (Metropolitan Area)",CA,"1,307,190",34.019394,-118.410825
+"San Francisco, CA (Metropolitan Area)",CA,"1,072,246",37.775,-122.419
+"Washington, DC (Metropolitan Area)",DC,"1,028,675",38.904243,-77.016524
+"Charlotte, NC",NC,"988,508",35.209045,-80.83099
+"Chicago, IL",IL,"970,452",41.837045,-87.684939
+"Dallas/Fort Worth, TX",TX,"855,011",32.793333,-96.766513
+"Las Vegas, NV",NV,"736,505",36.233499,-115.264037
+"New York City, NY (Metropolitan Area)",NY,"661,379",40.662712,-73.938677
+"Detroit, MI",MI,"537,118",42.383037,-83.102237
+"Boston, MA (Metropolitan Area)",MA,"510,783",42.332735,-71.013513
+"Phoenix, AZ",AZ,"490,399",33.572154,-112.090132
+"Houston, TX",TX,"484,598",29.785743,-95.388806
+"San Diego, CA",CA,"431,918",32.830391,-117.120923
+"Philadelphia, PA",PA,"371,253",40.009297,-75.133271
+"Minneapolis/St. Paul, MN",MN,"356,497",44.963324,-93.26832
+"Sacramento, CA",CA,"303,467",38.567694,-121.468161
+"Nashville, TN",TN,"294,947",36.172178,-86.784602
+"Denver, CO",CO,"293,731",39.76185,-104.881105
+"Raleigh/Durham, NC",NC,"274,633",35.831456,-78.639558
