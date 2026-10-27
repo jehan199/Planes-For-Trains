@@ -129,9 +129,9 @@ Note that the distance filter is applied to the `Distance` field recorded in the
 
 ### Why exclude Hawaii?
 
-Hawaii was excluded because the project's research question concerns potential substitution of short-haul flights with rail. Hawaii cannot be connected to the continental U.S. passenger rail network.
+Hawaii was excluded because the project's research question concerns potential substitution of short-haul flights with rail. Hawaii cannot be connected to the continental U.S. passenger rail network. The Hawaii exclusion is therefore a methodological choice specific to this project rather than a property of the underlying BTS data.
 
-The Hawaii exclusion is therefore a methodological choice specific to this project rather than a property of the underlying BTS data.
+
 ---
 
 # 4. Geographic Data for the 50 Origin Markets
