@@ -8,9 +8,7 @@ The original analysis used 2019 U.S. Department of Transportation Bureau of Tran
 
 The original project was developed using BigQuery, Excel, R, and interactive HTML visualizations.
 
-This document describes the provenance of the original 2022 analysis, including the source datasets, transformations, intermediate tables, manually created fields, and visualization workflow. The purpose is to make the original analysis as reproducible as possible while preserving the original methodology and outputs.
-
-A separate 2026 revision of the project may subsequently update selected data sources or methodology. 
+This document describes the provenance of the updated 2026 analysis, including the source datasets, transformations, intermediate tables, manually created fields, and visualization workflow. The purpose is to make the original analysis as reproducible as possible while preserving the original methodology and outputs.
 
 ---
 
@@ -18,7 +16,9 @@ A separate 2026 revision of the project may subsequently update selected data so
 
 ## BTS DB1B Coupon Data and Lookup Table
 
-The primary analytical dataset was the U.S. Department of Transportation Bureau of Transportation Statistics (BTS) Origin and Destination Survey DB1B Coupon dataset. A secondary Lookup Table Dataset was also sourced from BTS to provide a Metro Area Name to each OriginCityMarketID and DestCityMarketID. 
+The primary analytical dataset was the U.S. Department of Transportation Bureau of Transportation Statistics (BTS) Origin and Destination Survey DB1B Coupon dataset.
+
+A secondary Lookup Table Dataset was also sourced from BTS to provide a Metro Area Name to each OriginCityMarketID and DestCityMarketID. 
 
 The analysis used the four quarterly DB1B Coupon files from **2019**:
 
@@ -28,8 +28,6 @@ The analysis used the four quarterly DB1B Coupon files from **2019**:
 - 2019 Q4
 
 The original files were downloaded from the BTS TranStats system and subsequently loaded into Google BigQuery.
-
-The original BTS source files have been preserved unchanged as part of the project's historical data archive.
 
 ### Original source
 
@@ -46,6 +44,10 @@ The BTS Lookup Table can be downloaded here:
 <https://transtats.bts.gov/Download_Lookup.asp?Y11x72=Y_PVgl_ZNeXRg_VQ>
 
 The U.S. Department of Transportation Bureau of Transportation Statistics (BTS) Origin and Destination Survey DB1B Coupon dataset needs to be downloaded from the sources above in order to recreate this project. Source data for these files is not hosted on this platform due to concerns about breaching rules relating to the distribtuion of the underlying datasets.
+
+## Data Notes for BTS Origin and Destination Survey DB1B Coupon
+
+- **Note that BTS describes DB1B as a 10% sample of airline tickets. As a result, the output of this project is only meant to reflect a 10% sample of the total airline passenger volume for 2019**
 
 ---
 
@@ -113,12 +115,16 @@ The analysis retained the top 50 markets.
 
 While there is some debate on what exactly constitutes the "sweet spot" for high speed rail distance, the general idea is that there exists a distance range where the door to door travel time from one city to another is lowest when high speed rail is used as the method of transit. 
 
-When a trip is below 100 miles, it is generally quicker to drive considering that you wouldn't have to go to a central train station to catch a train to go from one city to another. When the a trip exceeds 500 miles, it is generally quicker to fly when you consider the faster transportation speed. When a trip is between these two distances, high speed rail is generally considered to be more time competitive.  
+When a trip is below a certain distance, it is generally quicker to drive considering that you wouldn't have to go to a central train station to catch a train to go from one city to another. When the a trip exceeds a certain distance, it is generally quicker to fly when you consider the faster transportation speed. When a trip is between these two distances, high speed rail is generally considered to be more time competitive.  
 
 <img width="768" height="462" alt="image" src="https://github.com/user-attachments/assets/c0cbce78-5dfc-4940-839b-a0a31e81d376" />
 
 Source: Adapted from Commission for Integrated Transport, London (2004) High-speed rails: international comparisons, Steer Davies Gleave.
 https://transportgeography.org/contents/applications/high-speed-rail-systems/breakeven-distances-rail-air-transport/
+
+For the purpose of this project, the lower limits was selected to be 75 miles while the upper limit was selected to be 500 miles. 
+
+Note that the distance filter is applied to the `Distance` field recorded in the BTS Origin and Destination Survey DB1B Coupon unioned table. It should not be interpreted as a determination that a direct flight exists between every pair of city markets or that a high-speed rail service would follow the same distance.
 
 
 ### Why exclude Hawaii?
@@ -143,8 +149,7 @@ https://www2.census.gov/geo/docs/maps-data/data/gazetteer/2026_Gazetteer/2026_Ga
 
 Note that the source file is in a pipe delimited text format and the file formatting was changed to csv. 
 
-Fields `INTPTLAT` and `INTPTLONG` also needed to be manually changed from 37.727239 and	-123.032229 to 37.775 and -122.419 respectively for `NAME` San Francisco City. This needed to be done because it was determine once the visualization was created that coordinate point 37.727239,-123.032229 was not a point that actually represented the geographic location of San Francisco. 
-
+Fields `INTPTLAT` and `INTPTLONG` also needed to be manually changed from 37.727239 and	-123.032229 to 37.775 and -122.419 respectively for `NAME` San Francisco City. This needed to be done because it was determine once the visualization was created that coordinate point 37.727239,-123.032229 was not a point that actually represented the geographic location of San Francisco. Census places are being used as geographic proxies for BTS city-markets. They are not necessarily identical to the metropolitan markets represented by BTS identifiers.
 
 ---
 
@@ -152,7 +157,7 @@ Fields `INTPTLAT` and `INTPTLONG` also needed to be manually changed from 37.727
 
 The 50 selected city markets were combined with geographic information to create the BigQuery table:
 
-`BTS_Simple_Maps_Metro_Area_Translation_Table`
+`BTS_US_Census_Place_City-Market_Translation_Table`
 
 The table contains:
 
@@ -375,7 +380,7 @@ The R visualization workflow also loaded a 2016 U.S. primary roads shapefile:
 tl_2016_us_primaryroads.shp
 ```
 
-The original R script loaded this file from a local project directory and transformed it into a Lambert Conformal Conic projection for visualization.
+The original R script loaded this file from a local project directory and transformed it into a WGS 84 projection for visualization.
 
 The roads layer was used as **visual context only**.
 
@@ -395,7 +400,7 @@ The complete dataset was uploaded to Github via the 2016 US Primary Roads Data r
 
 # 10. 2026 Visualization Outputs
 
-The original project produced six interactive HTML outputs:
+The revised 2026 project produced six interactive HTML outputs:
 
 1. Cities-with-Most-Short-Haul-Flights-2026.html
 2. Atlanta-as-a-Rail-Hub-2026.html
@@ -447,7 +452,7 @@ The 2026 version made the following changes:
 
 # 12. Reproducibility Philosophy
 
-All relevant source files and project steps are documented in the `DATA_PROVENANCE_2026.md` file and this project is fully replicable by any interested party. 
+All relevant source files and project steps are documented in the `DATA_PROVENANCE_2026.md` file and this project is designed to be reproducible by any interested party
 
 The original project was developed in 2026 using a combination of:
 
