@@ -427,7 +427,7 @@ The 2026 version made the following changes:
 
 - removed the airport code reference data and any joins to the 2019 BTS DB1B data
 - used a lookup table published by BTS to introduce a City-Market name for each City-Market-ID
-- created a translation table to bridge the gap between BTS and SimpleMaps geographic data featuring the top 50 city markets by origin. This eliminated the need to manually input geographic data into the eventual `Cities_as_rail_hubs_2026.csv` document
+- created a translation table to bridge the gap between BTS and U.S. Census geographic data featuring the top 50 city markets by origin. This eliminated the need to manually input geographic data into the eventual `Cities_as_rail_hubs_2026.csv` document
 - rewrote "query_to_pivot_filter_and_proivde_geographic_information.sql" to eliminate the need for any manual data transformations before `Cities_as_rail_hubs_2026.csv` could be produced
 - R `mapview` visualization for `Cities-with-Most-Short-Haul-Flights-2026.html` was changed in the following ways:
     - Underlying basemap was changed from OpenStreetMap to Esri Basemap due to issues with OpenStreetMap functionality and licensing
