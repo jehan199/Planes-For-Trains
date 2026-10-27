@@ -143,6 +143,9 @@ https://www2.census.gov/geo/docs/maps-data/data/gazetteer/2026_Gazetteer/2026_Ga
 
 Note that the source file is in a pipe delimited text format and the file formatting was changed to csv. 
 
+Fields `INTPTLAT` and `INTPTLONG` also needed to be manually changed from 37.727239 and	-123.032229 to 37.775 and -122.419 respectively for `NAME` San Francisco City. This needed to be done because it was determine once the visualization was created that coordinate point 37.727239,-123.032229 was not a point that actually represented the geographic location of San Francisco. 
+
+
 ---
 
 # 5. `BTS_US_Census_Place_City-Market_Translation_Table.csv`
