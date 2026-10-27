@@ -4,7 +4,7 @@ It also pulls in the same geographic data from the `BTS_US_Census_Place_City_Mar
 
 ```sql
 SELECT  
-  b.Origin_City_Market,b.US_Census_Bureau_USPS as US_Census_Bureau_State ,a.Sum_of_Passengers,b.US_Census_Bureau_LAT,b.US_Census_Bureau_LON
+  b.Origin_City_Market, b.US_Census_Bureau_USPS as State, a.Sum_of_Passengers, b.US_Census_Bureau_LAT as Latitude, b.US_Census_Bureau_LON as Longitude 
 FROM 
   (WITH temp_table AS
     (SELECT 
