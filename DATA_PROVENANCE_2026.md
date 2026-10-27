@@ -47,7 +47,7 @@ The U.S. Department of Transportation Bureau of Transportation Statistics (BTS) 
 
 ## Data Notes for BTS Origin and Destination Survey DB1B Coupon
 
-- **Note that BTS describes DB1B as a 10% sample of airline tickets. As a result, the output of this project is only meant to reflect a 10% sample of the total airline passenger volume for 2019**
+- **BTS describes DB1B as a 10% sample of airline tickets. Passenger totals calculated in this project are derived from the sampled records and should not be interpreted as complete counts of all airline passengers without further validation. The analysis uses these totals to compare city-market passenger volumes within the defined study scope**
 
 ---
 
@@ -122,7 +122,7 @@ When a trip is below a certain distance, it is generally quicker to drive consid
 Source: Adapted from Commission for Integrated Transport, London (2004) High-speed rails: international comparisons, Steer Davies Gleave.
 https://transportgeography.org/contents/applications/high-speed-rail-systems/breakeven-distances-rail-air-transport/
 
-For the purpose of this project, the lower limits was selected to be 75 miles while the upper limit was selected to be 500 miles. 
+For the purpose of this project, the lower limit was set to be 75 miles while the upper limit was selected to be 500 miles. 
 
 Note that the distance filter is applied to the `Distance` field recorded in the BTS Origin and Destination Survey DB1B Coupon unioned table. It should not be interpreted as a determination that a direct flight exists between every pair of city markets or that a high-speed rail service would follow the same distance.
 
@@ -147,7 +147,7 @@ These columns are named `INTPTLAT` and `INTPTLONG` in the dataset. They are refe
 US Census Gazetteer Place File Download Link:
 https://www2.census.gov/geo/docs/maps-data/data/gazetteer/2026_Gazetteer/2026_Gaz_place_national.zip
 
-This file was update to the file prior to downloading it was on September 4th 2026 and the file was downloaded on 10/20/2026.
+The U.S. Census Bureau’s Gazetteer webpage indicated that the dataset was last updated on September 4, 2026. The dataset was downloaded on October 20, 2026.
 
 Note that the source file is in a pipe delimited text format and the file formatting was changed to csv. 
 
@@ -157,7 +157,9 @@ Fields `INTPTLAT` and `INTPTLONG` also needed to be manually changed from 37.727
 
 # 5. `BTS_US_Census_Place_City-Market_Translation_Table.csv`
 
-The 50 selected city markets were combined with geographic information to create the BigQuery table:
+The 50 selected city markets were combined with geographic information from the US Census to create `BTS_US_Census_Place_City-Market_Translation_Table.csv`
+
+This was then uploaded into BigQuery to create the table:
 
 `BTS_US_Census_Place_City-Market_Translation_Table`
 
@@ -199,7 +201,7 @@ User Derived Field(s):
 
 - `Top_20`
 
-This field was used to provide a filter criteria for subsequent queries. The 2022 iteration of this project had a similar derived file titled "Metro_Area_Table" and it contained 20 records that represented the geographic data for the top 20 metro areas where short-haul flights originated. Although my final visualization for Cities with the Most short-haul Flights only visualizes 20 City Markets, this project also generated visualization where the 5 biggest markets where give their own interactive map that shows where these flights ended up going. Creating a translation table with 50 metro areas meant that I could ensure that my destination metros for the 5 largest hubs all had geospatial information in the source data that was uploaded into R to create the visualizations, even if these cities weren't a top 20 origin metro. 
+This field was used to provide a filter criteria for subsequent queries. The 2022 iteration of this project had a similar derived file titled "Metro_Area_Table" and it contained 20 records that represented the geographic data for the top 20 metro areas where short-haul flights originated. Although the final visualization for Cities with the Most short-haul Flights only visualizes 20 City Markets, this project also generated visualization where the 5 biggest markets were give their own interactive map that shows where these flights ended up going. Creating a translation table with 50 metro areas meant that I could ensure that the destination metros for the 5 largest hubs all had geospatial information in the source data that was uploaded into R to create the visualizations, even if these cities weren't a top 20 origin metro. 
 
 ---
 
@@ -212,8 +214,8 @@ This query performs the following functions:
 - Sources data from the `BTS_Destination_Survey_DB1B_Coupon_unioned` table
 - Filters out results with origins in Hawaii and filters records to only flights between 75 and 500 miles
 - Groups records by `Origin_City_Market` and sums the number of passengers
-- Joins on `Origin_City_Market` to the `BTS_Simple_Maps_Metro_Area_Translation_Table` to pull in geographic data
-- Sorts output by `Sum_of_Passengers` and limits output to 20 records to create a top 20. 
+- Joins on `Origin_City_Market` to the `BTS_US_Census_Place_City-Market_Translation_Table` to pull in geographic data
+- Sorts output by `Sum_of_Passengers` and limits output to 20 records to create a top 20
 
 The resulting CSV contains:
 
@@ -229,7 +231,7 @@ This file is a direct export of the corresponding BigQuery query. It is later us
 
 This file was generated by a query saved in the following location:
 
-source_data/SQL/2026/03_query_to_pivot_filter_and_proivde_geographic_information.md
+source_data/SQL/2026/03_query_to_pivot_filter_and_proivide_geographic_information.md
 
 Note that the `DestLat` and `DestLon` values for `Dest_City_Market` = "Palm Springs, CA" were manually added because this city was not included in the top translation table by virtue of it not being a top 50 Origin_City_Market. These values, like all other geographic data, came from the US Census Gazetteer Place File.
 
@@ -292,8 +294,8 @@ The final visualization stage of the revised 2026 workflow was performed in R us
 
 The visualization workflow uses two SQL-derived CSV files:
 
-- `Cities_with_most_short_flights_geo_data_2026.csv` — source data for the national overview map.
-- `Cities_as_rail_hubs_2026.csv` — source data for the five city-market-specific maps.
+- `Cities_with_most_short_flights_geo_data_2026.csv` — source data for the national overview map
+- `Cities_as_rail_hubs_2026.csv` — source data for the five city-market-specific maps
 
 All six maps use the 2016 U.S. primary-roads shapefile, `tl_2016_us_primaryroads.shp`, from the U.S. Census Bureau's TIGER/Line program, as a geographic reference layer.
 
@@ -350,19 +352,19 @@ These attributes provide the destination market's passenger volume, passenger-vo
 
 ### Esri Basemap Notes
 
-- The Esri basemap requires an internet connection when viewing the HTML file. The interactive maps use the Esri World Gray Canvas basemap, accessed online through `mapview`.
-- Esri's Web Site and Service Terms of Use permit certain noncommercial uses of Esri services, subject to applicable terms and restrictions.
-- The maps retain the basemap attribution displayed by the service. This project does not redistribute a separate copy of the basemap tile data.
+- The Esri basemap requires an internet connection when viewing the HTML file. The interactive maps use the Esri World Gray Canvas basemap, accessed online through `mapview`
+- Esri's Web Site and Service Terms of Use permit certain noncommercial uses of Esri services, subject to applicable terms and restrictions
+- The maps retain the basemap attribution displayed by the service. This project does not redistribute a separate copy of the basemap tile data
 - Terms reviewed:
     - [Esri Web Site and Service Terms of Use](https://www.esri.com/en-us/legal/terms/web-site-service)
     - [Esri Master Agreement](https://www.esri.com/content/dam/esrisites/en-us/media/legal/ma-full/ma-full.pdf)
-- This note documents the terms reviewed for the project; it is not a legal determination that every method of publication or redistribution is authorized.
+- This note documents the terms reviewed for the project; it is not a legal determination that every method of publication or redistribution is authorized
 
 ### 2016 U.S. Primary Roads Notes
 
-- The maps use the 2016 U.S. Primary Roads National Shapefile from the U.S. Census Bureau's TIGER/Line program. The dataset represents primary roads, generally limited-access highways, and is used as a visual reference layer rather than as a complete road network.
+- The maps use the 2016 U.S. Primary Roads National Shapefile from the U.S. Census Bureau's TIGER/Line program. The dataset represents primary roads, generally limited-access highways, and is used as a visual reference layer rather than as a complete road network
 
-- The dataset is listed under the CC0 1.0 public-domain dedication. It has been cropped to the map area for visualization.
+- The dataset is listed under the CC0 1.0 public-domain dedication. It has been cropped to the map area for visualization
 
 - Source: U.S. Census Bureau, 2016 TIGER/Line Primary Roads. https://catalog.data.gov/dataset/tiger-line-shapefile-2016-nation-u-s-primary-roads-national-shapefile
 
@@ -425,7 +427,7 @@ An important goal of the reproducibility work is to distinguish the original 202
 
 The historical analysis preserves:
 
-- 2019 BTS DB1B data
+- 2019 BTS DB1B data source references and original analytical workflow
 - the original SQL logic
 - the original 20-market selection
 - SimpleMaps v1.75 geographic data
@@ -442,14 +444,16 @@ The 2026 version made the following changes:
 - created a translation table to bridge the gap between BTS and U.S. Census geographic data featuring the top 50 city markets by origin. This eliminated the need to manually input geographic data into the eventual `Cities_as_rail_hubs_2026.csv` document
 - rewrote "query_to_pivot_filter_and_proivde_geographic_information.sql" to eliminate the need for any manual data transformations before `Cities_as_rail_hubs_2026.csv` could be produced (with the exception of the manual addition of the geospatial information for Palm Springs)
 - R `mapview` visualization for `Cities-with-Most-Short-Haul-Flights-2026.html` was changed in the following ways:
+    - The `SimpleMaps v1.75` geographic dataset was replaced with the U.S. Census Bureau’s `2026_Gaz_place_national` dataset due to uncertainty about the licensing terms governing the use and redistribution of the original data
     - The basemap was changed to Esri after reviewing the functionality and attribution considerations for this project's publication format
     - Hover values for origin city markets changed from Sum of Passengers to Origin Rank
     - Popup fields changed to the fields outlined in Data_Provenance_2026 section 8.1
     - Esri Basemap and U.S. Primary Roads notes added to HTML output (see section 8.3 of Data_Provenance_2026 for more details)
 - R `mapview` visualizations for `Atlanta-as-a-Rail-Hub-2026.html`, `Los-Angeles-as-a-Rail-Hub-2026.html`, `Washington-DC-as-a-Rail-Hub-2026.html`, `San-Francisco-as-a-Rail-Hub-2026.html` and `Charlotte-as-a-Rail-Hub-2026.html` were changed in the following ways:
+    - The `SimpleMaps v1.75` geographic dataset was replaced with the U.S. Census Bureau’s `2026_Gaz_place_national` dataset due to uncertainty about the licensing terms governing the use and redistribution of the original data
     - The basemap was changed to Esri after reviewing the functionality and attribution considerations for this project's publication format
     - Hover values and popup fields change to the values and fields outlined in Data_Provenance_2026 section 8.2
-    - Passenger_Band field established for each Origin-City-Market visualiziation. This was then used to generate a color-coded legend unique to each of the five visualizations. 
+    - Passenger_Band field established for each Origin-City-Market visualiziation. This was then used to generate a color-coded legend unique to each of the five visualizations
 ---
 
 # 12. Reproducibility Philosophy
