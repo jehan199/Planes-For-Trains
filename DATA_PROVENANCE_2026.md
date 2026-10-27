@@ -201,7 +201,7 @@ User Derived Field(s):
 
 - `Top_20`
 
-This field was used to provide a filter criteria for subsequent queries. The 2022 iteration of this project had a similar derived file titled "Metro_Area_Table" and it contained 20 records that represented the geographic data for the top 20 metro areas where short-haul flights originated. Although the final visualization for Cities with the Most short-haul Flights only visualizes 20 City Markets, this project also generated visualization where the 5 biggest markets were give their own interactive map that shows where these flights ended up going. Creating a translation table with 50 metro areas meant that I could ensure that the destination metros for the 5 largest hubs all had geospatial information in the source data that was uploaded into R to create the visualizations, even if these cities weren't a top 20 origin metro. 
+This field was used to provide a filter criteria for subsequent queries. The 2022 iteration of this project had a similar derived file titled "Metro_Area_Table" and it contained 20 records that represented the geographic data for the top 20 metro areas where short-haul flights originated. Although the final visualization for Cities with the Most short-haul Flights only visualizes 20 City Markets, this project also generated visualization where the 5 biggest markets were given their own interactive map that shows where these flights ended up going. Creating a translation table with 50 metro areas meant that I could ensure that the destination metros for the 5 largest hubs all had geospatial information in the source data that was uploaded into R to create the visualizations, even if these cities weren't a top 20 origin metro. 
 
 ---
 
@@ -447,7 +447,7 @@ The 2026 version made the following changes:
     - The `SimpleMaps v1.75` geographic dataset was replaced with the U.S. Census Bureau’s `2026_Gaz_place_national` dataset due to uncertainty about the licensing terms governing the use and redistribution of the original data
     - The basemap was changed to Esri after reviewing the functionality and attribution considerations for this project's publication format
     - Hover values for origin city markets changed from Sum of Passengers to Origin Rank
-    - Popup fields changed to the fields outlined in Data_Provenance_2026 section 8.1
+    - Popup fields were updated to include the fields outlined in Data_Provenance_2026 section 8.1
     - Esri Basemap and U.S. Primary Roads notes added to HTML output (see section 8.3 of Data_Provenance_2026 for more details)
 - R `mapview` visualizations for `Atlanta-as-a-Rail-Hub-2026.html`, `Los-Angeles-as-a-Rail-Hub-2026.html`, `Washington-DC-as-a-Rail-Hub-2026.html`, `San-Francisco-as-a-Rail-Hub-2026.html` and `Charlotte-as-a-Rail-Hub-2026.html` were changed in the following ways:
     - The `SimpleMaps v1.75` geographic dataset was replaced with the U.S. Census Bureau’s `2026_Gaz_place_national` dataset due to uncertainty about the licensing terms governing the use and redistribution of the original data
@@ -458,15 +458,4 @@ The 2026 version made the following changes:
 
 # 12. Reproducibility Philosophy
 
-All relevant source files and project steps are documented in the `DATA_PROVENANCE_2026.md` file and this project is designed to be reproducible by any interested party
-
-The original project was developed in 2026 using a combination of:
-
-- public government data
-- BigQuery
-- Excel
-- manually defined analytical classifications
-- R
-- interactive HTML visualization
-
-The current reconstruction documents those steps explicitly.
+The project documents its analytical steps, source references, data transformations, and visualization workflow to support reproducibility. Recreating the analysis requires obtaining the source data, configuring the necessary BigQuery tables and queries, and running the relevant R workflows. The documentation is intended to help interested users reproduce the analysis while making its assumptions and limitations transparent.
