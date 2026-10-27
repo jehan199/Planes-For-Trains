@@ -224,6 +224,8 @@ This file was generate by a query saved in the following location:
 
 source_data/SQL/2026/03_query_to_pivot_filter_and_proivde_geographic_information.md
 
+Note that the `DestLat` and `DestLon` values for `Dest_City_Market` = "Palm Springs, CA" were manually added because this city was not included in the top translation table by virtue of it not being a top 50 Origin_City_Market. These values, like all other geographic data, came from the US Census Gazetteer Place File.
+
 `Cities_as_rail_hubs_2026.csv` contains the final origin-destination data used for the 2026 visualizations.
 
 Important fields include:
@@ -231,7 +233,7 @@ Important fields include:
 - `OriginCityMarketID`
 - `Origin_City_Market`
 - `DestCityMarketID`
-- `Dest_City-Market`
+- `Dest_City_Market`
 - `Sum_of_Passengers`
 - `Distance`
 - `OriginLat`
