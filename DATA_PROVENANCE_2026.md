@@ -433,7 +433,7 @@ The 2026 version made the following changes:
 - removed the airport code reference data and any joins to the 2019 BTS DB1B data
 - used a lookup table published by BTS to introduce a City-Market name for each City-Market-ID
 - created a translation table to bridge the gap between BTS and U.S. Census geographic data featuring the top 50 city markets by origin. This eliminated the need to manually input geographic data into the eventual `Cities_as_rail_hubs_2026.csv` document
-- rewrote "query_to_pivot_filter_and_proivde_geographic_information.sql" to eliminate the need for any manual data transformations before `Cities_as_rail_hubs_2026.csv` could be produced
+- rewrote "query_to_pivot_filter_and_proivde_geographic_information.sql" to eliminate the need for any manual data transformations before `Cities_as_rail_hubs_2026.csv` could be produced (with the exception of the manual addition of the geospatial information for Palm Springs)
 - R `mapview` visualization for `Cities-with-Most-Short-Haul-Flights-2026.html` was changed in the following ways:
     - Underlying basemap was changed from OpenStreetMap to Esri Basemap due to issues with OpenStreetMap functionality and licensing
     - Hover values for origin city markets changed from Sum of Passengers to Origin Rank.
@@ -443,50 +443,9 @@ The 2026 version made the following changes:
     - Underlying basemap was changed from OpenStreetMap to Esri Basemap due to issues with OpenStreetMap functionality and licensing
     - Hover values and popup fields change to the values and fields outlined in Data_Provenance_2026 section 8.2
     - Passenger_Band field established for each Origin-City-Makret visualiziation. This was then used to generate a color coded legend unique to each of the five visualizations. 
-
 ---
 
-# 12. Current Provenance Status
-
-As of the current reproducibility review, the major stages of the original project have been reconstructed.
-
-## Fully established
-
-- 2019 BTS DB1B Coupon source data
-- Quarterly Q1–Q4 data
-- BigQuery union of quarterly files
-- 75–500 mile selection for the top-20 market analysis
-- Hawaii exclusion
-- Selection of the 20 highest-volume origin markets
-- SimpleMaps v1.75 geographic source
-- `Metro_Data_Table`
-- `Cities_with_most_short_flights_geo_data.csv`
-- `Metro_Area_Data`
-- 871 → 203 → 144 origin-destination reduction
-- `Cities_as_rail_hubs.csv`
-- R spatial-data preparation
-- R map-generation workflow
-- Five city-specific hub maps
-- National top-20 visualization
-- Historical HTML outputs
-
-## Established, but documentation can be improved
-
-- Manual creation of `Metro_Area_Name`
-- Excel restructuring used to create `Metro_Area_Data`
-- Exact organization of some intermediate BigQuery tables
-- Historical airport-code source and its relationship to the original workflow
-- Exact source/download provenance for the 2016 primary-roads shapefile
-
-## Remaining minor provenance item
-
-The exact original download source for the 2016 primary-roads shapefile has not yet been reconstructed.
-
-Because this dataset was used only as a visualization layer, this does not affect the provenance of the passenger-volume analysis or the selection of the candidate markets.
-
----
-
-# 13. Reproducibility Philosophy
+# 12. Reproducibility Philosophy
 
 All relevant source files and project steps are documented in the `DATA_PROVENANCE_2026.md` file and this project is fully replicable by any interested party. 
 
