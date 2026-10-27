@@ -1,0 +1,51 @@
+OriginCityMarketID,Origin_City_Market,DestCityMarketID,Dest_City_Market,Sum_of_Passengers,US_Census_Bureau_NAME,US_Census_Bureau_USPS,US_Census_Bureau_NAME_and_USPS,US_Census_Bureau_LAT,US_Census_Bureau_LON,Top_20
+30397,"Atlanta, GA (Metropolitan Area)",30397,"Atlanta, GA (Metropolitan Area)",1550916,Atlanta city,GA,"Atlanta city, GA",33.762909,-84.422675,TRUE
+32575,"Los Angeles, CA (Metropolitan Area)",32575,"Los Angeles, CA (Metropolitan Area)",1307190,Los Angeles city,CA,"Los Angeles city, CA",34.019394,-118.410825,TRUE
+32457,"San Francisco, CA (Metropolitan Area)",32457,"San Francisco, CA (Metropolitan Area)",1072246,San Francisco city,CA,"San Francisco city, CA",37.775,-122.419,TRUE
+30852,"Washington, DC (Metropolitan Area)",30852,"Washington, DC (Metropolitan Area)",1028675,Washington city,DC,"Washington city, DC",38.904243,-77.016524,TRUE
+31057,"Charlotte, NC",31057,"Charlotte, NC",988508,Charlotte city,NC,"Charlotte city, NC",35.209045,-80.83099,TRUE
+30977,"Chicago, IL",30977,"Chicago, IL",970452,Chicago city,IL,"Chicago city, IL",41.837045,-87.684939,TRUE
+30194,"Dallas/Fort Worth, TX",30194,"Dallas/Fort Worth, TX",855011,Dallas city,TX,"Dallas city, TX",32.793333,-96.766513,TRUE
+32211,"Las Vegas, NV",32211,"Las Vegas, NV",736505,Las Vegas city,NV,"Las Vegas city, NV",36.233499,-115.264037,TRUE
+31703,"New York City, NY (Metropolitan Area)",31703,"New York City, NY (Metropolitan Area)",661379,New York city,NY,"New York city, NY",40.662712,-73.938677,TRUE
+31295,"Detroit, MI",31295,"Detroit, MI",537118,Detroit city,MI,"Detroit city, MI",42.383037,-83.102237,TRUE
+30721,"Boston, MA (Metropolitan Area)",30721,"Boston, MA (Metropolitan Area)",510783,Boston city,MA,"Boston city, MA",42.332735,-71.013513,TRUE
+30466,"Phoenix, AZ",30466,"Phoenix, AZ",490399,Phoenix city,AZ,"Phoenix city, AZ",33.572154,-112.090132,TRUE
+31453,"Houston, TX",31453,"Houston, TX",484598,Houston city,TX,"Houston city, TX",29.785743,-95.388806,TRUE
+33570,"San Diego, CA",33570,"San Diego, CA",431918,San Diego city,CA,"San Diego city, CA",32.830391,-117.120923,TRUE
+34100,"Philadelphia, PA",34100,"Philadelphia, PA",371253,Philadelphia city,PA,"Philadelphia city, PA",40.009297,-75.133271,TRUE
+31650,"Minneapolis/St. Paul, MN",31650,"Minneapolis/St. Paul, MN",356497,Minneapolis city,MN,"Minneapolis city, MN",44.963324,-93.26832,TRUE
+33192,"Sacramento, CA",33192,"Sacramento, CA",303467,Sacramento city,CA,"Sacramento city, CA",38.567694,-121.468161,TRUE
+30693,"Nashville, TN",30693,"Nashville, TN",294947,Nashville-Davidson metropolitan government (balance),TN,"Nashville-Davidson metropolitan government (balance), TN",36.172178,-86.784602,TRUE
+30325,"Denver, CO",30325,"Denver, CO",293731,Denver city,CO,"Denver city, CO",39.76185,-104.881105,TRUE
+34492,"Raleigh/Durham, NC",34492,"Raleigh/Durham, NC",274633,Raleigh city,NC,"Raleigh city, NC",35.831456,-78.639558,TRUE
+30559,"Seattle, WA",30559,"Seattle, WA",267049,Seattle city,WA,"Seattle city, WA",47.619335,-122.351538,FALSE
+34614,"Salt Lake City, UT",34614,"Salt Lake City, UT",260550,Salt Lake City city,UT,"Salt Lake City city, UT",40.775366,-111.927266,FALSE
+31454,"Orlando, FL",31454,"Orlando, FL",254658,Orlando city,FL,"Orlando city, FL",28.472265,-81.322452,FALSE
+33495,"New Orleans, LA",33495,"New Orleans, LA",236911,New Orleans city,LA,"New Orleans city, LA",30.052877,-89.934502,FALSE
+31123,"St. Louis, MO",31123,"St. Louis, MO",234997,St. Louis city,MO,"St. Louis city, MO",38.635699,-90.244582,FALSE
+31066,"Columbus, OH",31066,"Columbus, OH",204847,Columbus city,MO,"Columbus city, MO",39.987367,-82.98518,FALSE
+30647,"Cleveland, OH (Metropolitan Area)",30647,"Cleveland, OH (Metropolitan Area)",196326,Cleveland city,OH,"Cleveland city, OH",41.478462,-81.679435,FALSE
+30198,"Pittsburgh, PA",30198,"Pittsburgh, PA",188643,Pittsburgh city,PA,"Pittsburgh city, PA",40.439892,-79.975472,FALSE
+33195,"Tampa, FL (Metropolitan Area)",33195,"Tampa, FL (Metropolitan Area)",161670,Tampa city,FL,"Tampa city, FL",27.967876,-82.474586,FALSE
+34057,"Portland, OR",34057,"Portland, OR",155120,Portland city,OR,"Portland city, OR",45.536951,-122.649971,FALSE
+33198,"Kansas City, MO",33198,"Kansas City, MO",154871,Kansas City city,MO,"Kansas City city, MO",39.125155,-94.550313,FALSE
+30423,"Austin, TX",30423,"Austin, TX",141993,Austin city,TX,"Austin city, TX",30.298622,-97.754134,FALSE
+33214,"San Antonio, TX",33214,"San Antonio, TX",137105,San Antonio city,TX,"San Antonio city, TX",29.459775,-98.524263,FALSE
+32337,"Indianapolis, IN",32337,"Indianapolis, IN",134324,Indianapolis city (balance),IN,"Indianapolis city (balance), IN",39.776664,-86.145935,FALSE
+33105,"Cincinnati, OH",33105,"Cincinnati, OH",133408,Cincinnati city,OH,"Cincinnati city, OH",39.140183,-84.505829,FALSE
+31136,"Jacksonville, FL",31136,"Jacksonville, FL",131494,Jacksonville city,FL,"Jacksonville city, FL",30.335914,-81.661762,FALSE
+34524,"Richmond, VA",34524,"Richmond, VA",130310,Richmond city,VA,"Richmond city, VA",37.531399,-77.476009,FALSE
+30792,"Buffalo, NY",30792,"Buffalo, NY",128432,Buffalo city,NY,"Buffalo city, NY",42.892492,-78.859686,FALSE
+34570,"Reno, NV",34570,"Reno, NV",122670,Reno city,NV,"Reno city, NV",39.549097,-119.849907,FALSE
+32467,"Miami, FL (Metropolitan Area)",32467,"Miami, FL (Metropolitan Area)",121944,Miami city,FL,"Miami city, FL",25.775163,-80.208615,FALSE
+30994,"Charleston, SC",30994,"Charleston, SC",113128,Charleston city,SC,"Charleston city, SC",32.828017,-79.972896,FALSE
+33244,"Memphis, TN",33244,"Memphis, TN",107193,Memphis city,TN,"Memphis city, TN",35.109164,-89.968511,FALSE
+33851,"Oklahoma City, OK",33851,"Oklahoma City, OK",97113,Oklahoma City city,OK,"Oklahoma City city, OK",35.467079,-97.513657,FALSE
+33044,"Louisville, KY",33044,"Louisville, KY",95447,Louisville/Jefferson County metro government (balance),KY,"Louisville/Jefferson County metro government (balance), KY",38.165376,-85.647377,FALSE
+33667,"Norfolk, VA (Metropolitan Area)",33667,"Norfolk, VA (Metropolitan Area)",93849,Norfolk city,VA,"Norfolk city, VA",36.923015,-76.244641,FALSE
+33316,"Omaha, NE",33316,"Omaha, NE",86208,Omaha city,NE,"Omaha city, NE",41.264013,-96.056496,FALSE
+30713,"Boise, ID",30713,"Boise, ID",84957,Boise City city,ID,"Boise City city, ID",43.59805,-116.231596,FALSE
+31884,"Spokane, WA",31884,"Spokane, WA",84555,Spokane city,WA,"Spokane city, WA",47.666935,-117.433322,FALSE
+30140,"Albuquerque, NM",30140,"Albuquerque, NM",78639,Albuquerque city,NM,"Albuquerque city, NM",35.10478,-106.646809,FALSE
+31995,"Greensboro/High Point, NC",31995,"Greensboro/High Point, NC",74148,Greensboro city,NC,"Greensboro city, NC",36.09485,-79.823624,FALSE
