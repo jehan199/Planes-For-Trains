@@ -199,7 +199,7 @@ User Derived Field(s):
 
 - `Top_20`
 
-This field was used to provide a filter criteria for subsequent queries. The 2022 iteration of this project had a similar derived file titled "Metro_Area_Table" and it contained 20 records that represented the geographic data for the top 20 metro areas where short haul flights originated. Although my final visualization for Cities with the Most Short Haul Flights only visualizes 20 City Markets, this project also generated visualization where the 5 biggest markets where give their own interactive map that shows where these flights ended up going. Creating a translation table with 50 metro areas meant that I could ensure that my destination metros for the 5 largest hubs all had geospatial information in the source data that was uploaded into R to create the visualizations, even if these cities weren't a top 20 origin metro. 
+This field was used to provide a filter criteria for subsequent queries. The 2022 iteration of this project had a similar derived file titled "Metro_Area_Table" and it contained 20 records that represented the geographic data for the top 20 metro areas where short-haul flights originated. Although my final visualization for Cities with the Most short-haul Flights only visualizes 20 City Markets, this project also generated visualization where the 5 biggest markets where give their own interactive map that shows where these flights ended up going. Creating a translation table with 50 metro areas meant that I could ensure that my destination metros for the 5 largest hubs all had geospatial information in the source data that was uploaded into R to create the visualizations, even if these cities weren't a top 20 origin metro. 
 
 ---
 
@@ -350,7 +350,7 @@ These attributes provide the destination market's passenger volume, passenger-vo
 
 ### Esri Basemap Notes
 
-- The Esri basemap requires an internet connection when viewing the HTML file.The interactive maps use the Esri World Gray Canvas basemap, accessed online through `mapview`.
+- The Esri basemap requires an internet connection when viewing the HTML file. The interactive maps use the Esri World Gray Canvas basemap, accessed online through `mapview`.
 - Esri's Web Site and Service Terms of Use permit certain noncommercial uses of Esri services, subject to applicable terms and restrictions.
 - The maps retain the basemap attribution displayed by the service. This project does not redistribute a separate copy of the basemap tile data.
 - Terms reviewed:
@@ -396,7 +396,7 @@ It was not used to:
 
 The 2016 U.S. primary-roads shapefile is loaded as a separate spatial layer and transformed to WGS 84 to match the city-market coordinates. The road network provides geographic context for interpreting the spatial relationships between origin and destination markets.
 
-The complete dataset was uploaded to Github via the 2016 US Primary Roads Data release: https://github.com/jehan199/Planes-For-Trains/releases#release-v.1.0-primary-roads-2016
+The complete dataset was uploaded to GitHub via the 2016 US Primary Roads Data release: https://github.com/jehan199/Planes-For-Trains/releases#release-v.1.0-primary-roads-2016
 
 ---
 
@@ -406,7 +406,7 @@ The revised 2026 project produced six interactive HTML outputs:
 
 1. Cities-with-Most-Short-Haul-Flights-2026.html
 2. Atlanta-as-a-Rail-Hub-2026.html
-3. Los-Angles-as-a-Rail-Hub-2026.html
+3. Los-Angeles-as-a-Rail-Hub-2026.html
 4. Washington-DC-as-a-Rail-Hub-2026.html
 5. San-Francisco-as-a-Rail-Hub-2026.html
 6. Charlotte-as-a-Rail-Hub-2026.html
@@ -415,7 +415,7 @@ The HTML files preserve the coordinates, passenger values, rankings, map configu
 
 The hub maps represent selected high-volume origin city-markets and their short-haul flight destinations.
 
-All visualizations were uploaded to Github via the 2026 Analysis Outputs release: https://github.com/jehan199/Planes-For-Trains/releases#release-v1.0-2026-outputs
+All visualizations were uploaded to GitHub via the 2026 Analysis Outputs release: https://github.com/jehan199/Planes-For-Trains/releases#release-v1.0-2026-outputs
 
 ---
 
@@ -449,7 +449,7 @@ The 2026 version made the following changes:
 - R `mapview` visualizations for `Atlanta-as-a-Rail-Hub-2026.html`, `Los-Angeles-as-a-Rail-Hub-2026.html`, `Washington-DC-as-a-Rail-Hub-2026.html`, `San-Francisco-as-a-Rail-Hub-2026.html` and `Charlotte-as-a-Rail-Hub-2026.html` were changed in the following ways:
     - The basemap was changed to Esri after reviewing the functionality and attribution considerations for this project's publication format
     - Hover values and popup fields change to the values and fields outlined in Data_Provenance_2026 section 8.2
-    - Passenger_Band field established for each Origin-City-Makret visualiziation. This was then used to generate a color coded legend unique to each of the five visualizations. 
+    - Passenger_Band field established for each Origin-City-Market visualiziation. This was then used to generate a color-coded legend unique to each of the five visualizations. 
 ---
 
 # 12. Reproducibility Philosophy
