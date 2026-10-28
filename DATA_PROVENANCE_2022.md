@@ -444,8 +444,6 @@ source_data/outputs/2022/html_map_files.md
 
 The maps help identify high-volume flight markets, but they do not establish that a rail corridor is feasible. 
 
-*Please note that the five city-specific maps aren't presently working due to data access issues with the OpenStreetMap basemap. The National Top 20 map (Short-Haul-Flight-Cities.html) has several basemaps that you can toggle between, but only Esri.WorldImagery and OpenTopoMap are currently functional.* 
-
 ---
 
 # 12. Historical 2022 Visualization Outputs
@@ -459,7 +457,7 @@ The original project produced six interactive HTML outputs:
 5. `Bay-Area-as-a-Hub.html`
 6. `Charlotte-as-a-Hub.html`
 
-These files are preserved as historical 2022 outputs.
+These files are preserved as historical 2022 outputs and can be viewed here: source_data/outputs/2022/html_map_files.md
 
 They should be considered **outputs of the original analysis**, rather than independently reproducible source data.
 
