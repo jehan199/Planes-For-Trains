@@ -8,7 +8,7 @@ The original analysis used 2019 U.S. Department of Transportation Bureau of Tran
 
 The original project was developed using BigQuery, Excel, R, and interactive HTML visualizations.
 
-This document describes the provenance of the updated 2026 analysis, including the source datasets, transformations, intermediate tables, manually created fields, and visualization workflow. The purpose is to make the original analysis as reproducible as possible while preserving the original methodology and outputs.
+This document describes the provenance of the original 2022 analysis, including the source datasets, transformations, intermediate tables, manually created fields, and visualization workflow. The purpose is to make the original analysis as reproducible as possible while preserving the original methodology and outputs.
 
 ---
 
@@ -113,7 +113,7 @@ The Hawaii exclusion is therefore a methodological choice specific to this proje
 
 While there is some debate on what exactly constitutes the "sweet spot" for high speed rail distance, the general idea is that there exists a distance range where the door to door travel time from one city to another is lowest when high speed rail is used as the method of transit. 
 
-When a trip is below a certain distance, it is generally quicker to drive considering that you wouldn't have to go to a central train station to catch a train to go from one city to another. When the a trip exceeds a certain distance, it is generally quicker to fly when you consider the faster transportation speed. When a trip is between these two distances, high speed rail is generally considered to be more time competitive.  
+When a trip is below a certain distance, it is generally quicker to drive considering that you wouldn't have to go to a central train station to catch a train to go from one city to another. When the a trip exceeds a certain distance, it can be quicker when you consider the faster transportation speed. When a trip is between these two distances, high speed rail is generally considered to be more time competitive.  
 
 For the purpose of this project, the lower limit was set to be 75 miles while the upper limit was selected to be 500 miles. 
 
@@ -456,7 +456,7 @@ The original project produced six interactive HTML outputs:
 3. `LA-Inland-Empire-as-a-Hub.html`
 4. `Washington-D.C.-as-a-Hub.html`
 5. `Bay-Area-as-a-Hub.html`
-6. `Charlotte-as-a-Hub..html`
+6. `Charlotte-as-a-Hub.html`
 
 These files are preserved as historical 2022 outputs.
 
@@ -506,53 +506,13 @@ The historical airport-code file was reconstructed from an older airport-code re
 
 Because that reference contains outdated airport codes and is not considered an appropriate authoritative source for a modern reproduction, it is being treated as a **legacy 2022 dependency**.
 
-The original airport-code information will be preserved for historical reproducibility, but the 2026 revision should consider replacing it with an authoritative BTS/FAA airport reference dataset.
+The original airport-code information will be preserved for historical reproducibility, 
 
 This change should be documented as a deliberate methodological revision rather than silently replacing the original source.
-
 ---
 
-# 15. Historical vs. Revised Analysis
-
-An important goal of the reproducibility work is to distinguish the original 2022 analysis from any subsequent revisions.
-
-The historical analysis preserves:
-
-- 2019 BTS DB1B data
-- the original SQL logic
-- the original 20-market selection
-- SimpleMaps v1.75 geographic data
-- the original manually defined metro-area names
-- the original Excel transformations
-- the original R workflow
-- the original interactive HTML outputs
-
-Any future revisions should be documented separately.
-
-For example, a revised analysis may update:
-
-- airport reference data
-- geographic data
-- distance thresholds
-- route-selection methodology
-- data-processing code
-- visualization methods
-
-These changes should not overwrite the historical workflow.
-
-Instead, the project should maintain separate documentation and code for the original 2022 analysis and the revised analysis.
-
----
-
-# 16. Reproducibility Philosophy
+# 15. Reproducibility Philosophy
 
 This documentation records the original workflow and its known dependencies. Reproducing the historical outputs may require access to the original source data, the documented SQL and BigQuery tables, the Excel-based transformation, the R script and required packages, geographic reference data, and external basemap services. The repository preserves selected outputs and documents the processing steps, but does not necessarily provide every dependency required to recreate the analysis from scratch.
 
 Future improvements will be treated as revisions to the analysis rather than retroactive corrections to the historical project.
-
-
-
-
-
-
-
