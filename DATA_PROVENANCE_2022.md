@@ -8,17 +8,17 @@ The original analysis used 2019 U.S. Department of Transportation Bureau of Tran
 
 The original project was developed using BigQuery, Excel, R, and interactive HTML visualizations.
 
-This document describes the provenance of the original 2022 analysis, including the source datasets, transformations, intermediate tables, manually created fields, and visualization workflow. The purpose is to make the original analysis as reproducible as possible while preserving the original methodology and outputs.
-
-A separate 2026 revision of the project may subsequently update selected data sources or methodology. 
+This document describes the provenance of the updated 2026 analysis, including the source datasets, transformations, intermediate tables, manually created fields, and visualization workflow. The purpose is to make the original analysis as reproducible as possible while preserving the original methodology and outputs.
 
 ---
 
 # 1. Primary Source Data
 
-## 1.1 BTS DB1B Coupon Data
+## BTS DB1B Coupon Data and Lookup Table
 
 The primary analytical dataset was the U.S. Department of Transportation Bureau of Transportation Statistics (BTS) Origin and Destination Survey DB1B Coupon dataset.
+
+A secondary Lookup Table Dataset was also sourced from BTS to provide a Metro Area Name to each OriginCityMarketID and DestCityMarketID. 
 
 The analysis used the four quarterly DB1B Coupon files from **2019**:
 
@@ -28,8 +28,6 @@ The analysis used the four quarterly DB1B Coupon files from **2019**:
 - 2019 Q4
 
 The original files were downloaded from the BTS TranStats system and subsequently loaded into Google BigQuery.
-
-The original BTS source files have been preserved unchanged as part of the project's historical data archive.
 
 ### Original source
 
@@ -41,15 +39,11 @@ The DB1B Coupon field-selection page used during the project was:
 
 <https://www.transtats.bts.gov/DL_SelectFields.aspx?gnoyr_VQ=FLM&QO_fu146_anzr=b4vtv0%20n0q%20Qr56v0n6v10%20f748rB>
 
-### Archived source files
+The BTS Lookup Table can be downloaded here:
 
-The four original 2019 quarterly ZIP files are preserved in the project's GitHub release:
+<https://transtats.bts.gov/Download_Lookup.asp?Y11x72=Y_PVgl_ZNeXRg_VQ>
 
-**Release:** `v1.0-data-2019`  
-**Title:** `2019 BTS DB1BCoupon Source Data`
-
-The files are retained in their original form rather than being modified during the reproducibility work.
-
+The U.S. Department of Transportation Bureau of Transportation Statistics (BTS) Origin and Destination Survey DB1B Coupon dataset needs to be downloaded from the sources above in order to recreate this project. Source data for these files is not hosted on this platform due to concerns about breaching rules relating to the distribution of the underlying datasets.
 ---
 
 # 2. Loading and Combining the Quarterly BTS Data
@@ -88,7 +82,9 @@ The resulting dataset contains, among other fields:
 - distance
 - airport names
 
-The original SQL used to create this table has been recovered and should be preserved in the project's SQL archive.
+The original SQL used to create this table has been recovered and is saved here:
+
+source_data/SQL/2022/01_union_quarterly_data_sql.md
 
 ---
 
@@ -532,47 +528,7 @@ Instead, the project should maintain separate documentation and code for the ori
 
 ---
 
-# 16. Current Provenance Status
-
-As of the current reproducibility review, the major stages of the original project have been reconstructed.
-
-## Fully established
-
-- 2019 BTS DB1B Coupon source data
-- Quarterly Q1–Q4 data
-- BigQuery union of quarterly files
-- 75–500 mile selection for the top-20 market analysis
-- Hawaii exclusion
-- Selection of the 20 highest-volume origin markets
-- SimpleMaps v1.75 geographic source
-- `Metro_Data_Table`
-- `Cities_with_most_short_flights_geo_data.csv`
-- `Metro_Area_Data`
-- 871 → 203 → 144 origin-destination reduction
-- `Cities_as_rail_hubs.csv`
-- R spatial-data preparation
-- R map-generation workflow
-- Five city-specific hub maps
-- National top-20 visualization
-- Historical HTML outputs
-
-## Established, but documentation can be improved
-
-- Manual creation of `Metro_Area_Name`
-- Excel restructuring used to create `Metro_Area_Data`
-- Exact organization of some intermediate BigQuery tables
-- Historical airport-code source and its relationship to the original workflow
-- Exact source/download provenance for the 2016 primary-roads shapefile
-
-## Remaining minor provenance item
-
-The exact original download source for the 2016 primary-roads shapefile has not yet been reconstructed.
-
-Because this dataset was used only as a visualization layer, this does not affect the provenance of the passenger-volume analysis or the selection of the candidate markets.
-
----
-
-# 17. Reproducibility Philosophy
+# 16. Reproducibility Philosophy
 
 The purpose of this documentation is not to rewrite the original project as though it had been created using a modern reproducible workflow.
 
