@@ -493,9 +493,11 @@ It was not used to:
 - determine potential rail routes; or
 - otherwise affect the analytical results.
 
-The exact original source/download provenance for this roads dataset has not yet been independently reconstructed.
+The maps use the 2016 U.S. Primary Roads National Shapefile from the U.S. Census Bureau's TIGER/Line program. The dataset represents primary roads, generally limited-access highways, and is used as a visual reference layer rather than as a complete road network
 
-This is therefore classified as a **minor remaining provenance item**, rather than a dependency of the analytical results.
+The dataset is listed under the CC0 1.0 public-domain dedication. It has been cropped to the map area for visualization
+
+Source: U.S. Census Bureau, 2016 TIGER/Line Primary Roads. https://catalog.data.gov/dataset/tiger-line-shapefile-2016-nation-u-s-primary-roads-national-shapefile
 
 ---
 
