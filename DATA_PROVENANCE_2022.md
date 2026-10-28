@@ -438,12 +438,13 @@ The same general workflow was used for:
 - Bay Area
 - Charlotte
 
-The five city-specific maps, as well as the National Top-20 Map were generated using the commands preserved in the project's original R code markdown files:
+The five city-specific maps, as well as the National Top-20 Map were generated using the commands preserved in the project's original R code markdown files. The maps are saved here:
 
-source_data/r_code_for_data_vis/2022
+source_data/outputs/2022/html_map_files.md
 
+The maps help identify high-volume flight markets, but they do not establish that a rail corridor is feasible. 
 
-The maps help identify high-volume flight markets, but they do not establish that a rail corridor is feasible.
+* Please note that the five city-specific maps aren't presently working due to data access issues with the OpenStreetMap basemap. The National Top 20 map (Short-Haul-Flight-Cities.html) has several basemaps that you can toggle between, but only Esri.WorldImagery and OpenTopoMap are currently functional.* 
 
 ---
 
