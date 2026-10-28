@@ -61,7 +61,7 @@ The resulting table was named:
 
 `unioned_and_filtered_table3`
 
-Despite the table name, the original query that created this table **does not itself perform the later 75–500 mile distance filter or the Hawaii exclusion**.
+The table name `unioned_and_filtered_table3` is retained from the original 2022 workflow. Despite its name, the query that creates this table does not apply the later 75–500 mile distance filter or Hawaii exclusion; those criteria are applied in subsequent analysis steps.
 
 Instead, the query:
 
@@ -108,6 +108,17 @@ The analysis retained the top 20 markets.
 Hawaii was excluded because the project's research question concerns potential substitution of short-haul flights with rail. Hawaii cannot be connected to the continental U.S. passenger rail network.
 
 The Hawaii exclusion is therefore a methodological choice specific to this project rather than a property of the underlying BTS data.
+
+### Why Filter Flights to Between 75 and 500 Miles?
+
+While there is some debate on what exactly constitutes the "sweet spot" for high speed rail distance, the general idea is that there exists a distance range where the door to door travel time from one city to another is lowest when high speed rail is used as the method of transit. 
+
+When a trip is below a certain distance, it is generally quicker to drive considering that you wouldn't have to go to a central train station to catch a train to go from one city to another. When the a trip exceeds a certain distance, it is generally quicker to fly when you consider the faster transportation speed. When a trip is between these two distances, high speed rail is generally considered to be more time competitive.  
+
+For the purpose of this project, the lower limit was set to be 75 miles while the upper limit was selected to be 500 miles. 
+
+Note that the distance filter is applied to the `Distance` field recorded in the BTS Origin and Destination Survey DB1B Coupon unioned table. It should not be interpreted as a determination that a direct flight exists between every pair of city markets or that a high-speed rail service would follow the same distance.
+
 
 ### Top-20 selection
 
@@ -530,20 +541,7 @@ Instead, the project should maintain separate documentation and code for the ori
 
 # 16. Reproducibility Philosophy
 
-The purpose of this documentation is not to rewrite the original project as though it had been created using a modern reproducible workflow.
-
-Instead, the goal is to preserve the original analytical history while making the sequence of sources, transformations, and outputs understandable and reproducible wherever possible.
-
-The original project was developed in 2022 using a combination of:
-
-- public government data
-- BigQuery
-- Excel
-- manually defined analytical classifications
-- R
-- interactive HTML visualization
-
-The current reconstruction documents those steps explicitly.
+This documentation records the original workflow and its known dependencies. Reproducing the historical outputs may require access to the original source data, the documented SQL and BigQuery tables, the Excel-based transformation, the R script and required packages, geographic reference data, and external basemap services. The repository preserves selected outputs and documents the processing steps, but does not necessarily provide every dependency required to recreate the analysis from scratch.
 
 Future improvements will be treated as revisions to the analysis rather than retroactive corrections to the historical project.
 
