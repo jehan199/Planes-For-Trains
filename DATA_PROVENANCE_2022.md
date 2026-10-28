@@ -444,7 +444,7 @@ source_data/outputs/2022/html_map_files.md
 
 The maps help identify high-volume flight markets, but they do not establish that a rail corridor is feasible. 
 
-* Please note that the five city-specific maps aren't presently working due to data access issues with the OpenStreetMap basemap. The National Top 20 map (Short-Haul-Flight-Cities.html) has several basemaps that you can toggle between, but only Esri.WorldImagery and OpenTopoMap are currently functional.* 
+*Please note that the five city-specific maps aren't presently working due to data access issues with the OpenStreetMap basemap. The National Top 20 map (Short-Haul-Flight-Cities.html) has several basemaps that you can toggle between, but only Esri.WorldImagery and OpenTopoMap are currently functional.* 
 
 ---
 
