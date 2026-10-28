@@ -14,11 +14,10 @@ This document describes the provenance of the updated 2026 analysis, including t
 
 # 1. Primary Source Data
 
-## BTS DB1B Coupon Data and Lookup Table
+## BTS DB1B Coupon Data
 
 The primary analytical dataset was the U.S. Department of Transportation Bureau of Transportation Statistics (BTS) Origin and Destination Survey DB1B Coupon dataset.
 
-A secondary Lookup Table Dataset was also sourced from BTS to provide a Metro Area Name to each OriginCityMarketID and DestCityMarketID. 
 
 The analysis used the four quarterly DB1B Coupon files from **2019**:
 
@@ -39,11 +38,12 @@ The DB1B Coupon field-selection page used during the project was:
 
 <https://www.transtats.bts.gov/DL_SelectFields.aspx?gnoyr_VQ=FLM&QO_fu146_anzr=b4vtv0%20n0q%20Qr56v0n6v10%20f748rB>
 
-The BTS Lookup Table can be downloaded here:
-
-<https://transtats.bts.gov/Download_Lookup.asp?Y11x72=Y_PVgl_ZNeXRg_VQ>
-
 The U.S. Department of Transportation Bureau of Transportation Statistics (BTS) Origin and Destination Survey DB1B Coupon dataset needs to be downloaded from the sources above in order to recreate this project. Source data for these files is not hosted on this platform due to concerns about breaching rules relating to the distribution of the underlying datasets.
+
+## Data Notes for BTS Origin and Destination Survey DB1B Coupon
+
+- **BTS describes DB1B as a 10% sample of airline tickets. Passenger totals calculated in this project are derived from the sampled records and should not be interpreted as complete counts of all airline passengers without further validation. The analysis uses these totals to compare city-market passenger volumes within the defined study scope**
+
 ---
 
 # 2. Loading and Combining the Quarterly BTS Data
@@ -438,7 +438,12 @@ The same general workflow was used for:
 - Bay Area
 - Charlotte
 
-The five city-specific maps were generated using the commands preserved in the project's original Markdown documentation.
+The five city-specific maps, as well as the National Top-20 Map were generated using the commands preserved in the project's original R code markdown files:
+
+source_data/r_code_for_data_vis/2022
+
+
+The maps help identify high-volume flight markets, but they do not establish that a rail corridor is feasible.
 
 ---
 
