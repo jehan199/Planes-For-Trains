@@ -470,7 +470,7 @@ The 2026 version made the following changes:
     - The `SimpleMaps v1.75` geographic dataset was replaced with the U.S. Census Bureau’s `2026_Gaz_place_national` dataset due to uncertainty about the licensing terms governing the use and redistribution of the original data
     - The basemap was changed to Esri after reviewing the functionality and attribution considerations for this project's publication format
     - Hover values and popup fields change to the values and fields outlined in Data_Provenance_2026 section 8.2
-    - Passenger_Band field established for each Origin-City-Market visualiziation. This was then used to generate a color-coded legend unique to each of the five visualizations
+    - `Passenger_Band` field established for each Origin-City-Market visualiziation. This was then used to generate a color-coded legend unique to each of the five visualizations
 ---
 
 # 12. Reproducibility Philosophy
