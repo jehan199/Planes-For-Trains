@@ -84,7 +84,7 @@ The resulting dataset contains, among other fields:
 
 The original SQL used to create this table has been recovered and is saved here:
 
-source_data/SQL/2022/01_union_quarterly_data_sql.md
+https://github.com/jehan199/Planes-For-Trains/blob/main/source_data/SQL/2022/01_union_quarterly_data_sql.md
 
 Note that when the 2026 version of the analysis was conducted, it was discovered that the Airport Codes document contained duplicate values that inflated passenger totals for some origin/destinations. This is a known limitation of the historical workflow, and that the original results should not be assumed to match the corrected 2026 analysis.
 
@@ -215,6 +215,14 @@ This distinction is important because the metro-area terminology used throughout
 
 # 6. `Cities_with_most_short_flights_geo_data.csv`
 
+This file is saved in the following location: 
+
+https://github.com/jehan199/Planes-For-Trains/blob/main/source_data/derived_data/2022/Cities_with_most_short_flights_geo_data.csv
+
+The query that was used to generate this file is saved here:
+
+https://github.com/jehan199/Planes-For-Trains/blob/main/source_data/SQL/2022/03_query_to_select_top_20_markets.md
+
 The BigQuery top-20 market results were joined to `Metro_Data_Table` to produce the geographic dataset used by the visualization workflow.
 
 The resulting CSV contains:
@@ -249,6 +257,10 @@ Cities_with_most_short_flights_geo_data.csv
 
 # 7. `Metro_Area_Data`
 
+This file is saved in the following location:
+
+https://github.com/jehan199/Planes-For-Trains/blob/main/source_data/derived_data/2022/Metro_Area_Data.csv
+
 A second intermediate dataset, `Metro_Area_Data`, was created from `Metro_Data_Table`.
 
 This table contains the same underlying market and geographic information but restructures the metro-area name into separate origin and destination fields:
@@ -278,6 +290,10 @@ The purpose was to make it possible to join the selected markets to both the ori
 # 8. Origin-Destination Analysis
 
 After identifying the 20 highest-volume origin markets, the project examined where passengers from those markets were traveling.
+
+The query that was used as the starting point point for the subsequent manual transformations in Excel is saved in the following location:
+
+https://github.com/jehan199/Planes-For-Trains/blob/main/source_data/SQL/2022/02_query_to_pivot_filter_and_proivde_geographic_information.md
 
 The initial origin-destination aggregation produced **871 origin-destination records**.
 
@@ -320,6 +336,10 @@ Because some origin markets had fewer than ten destinations exceeding the 15,000
 ---
 
 # 9. `Cities_as_rail_hubs.csv`
+
+This file is saved in the following location:
+
+https://github.com/jehan199/Planes-For-Trains/blob/main/source_data/derived_data/2022/Cities_as_rail_hubs.csv
 
 `Cities_as_rail_hubs.csv` contains the final origin-destination data used for the 2022 visualizations.
 
@@ -376,6 +396,10 @@ Cities_as_rail_hubs.csv
 # 10. R Visualization Workflow
 
 The final visualization stage was performed in R.
+
+These R scripts are saved in the following location:
+
+https://github.com/jehan199/Planes-For-Trains/tree/main/source_data/r_code_for_data_vis/2022
 
 The recovered scripts load:
 
@@ -442,7 +466,7 @@ The same general workflow was used for:
 
 The five city-specific maps, as well as the National Top-20 Map were generated using the commands preserved in the project's original R code markdown files. The maps are saved here:
 
-source_data/outputs/2022/html_map_files.md
+https://github.com/jehan199/Planes-For-Trains/tree/main/source_data/r_code_for_data_vis/2022
 
 The maps help identify high-volume flight markets, but they do not establish that a rail corridor is feasible. 
 
@@ -474,6 +498,10 @@ This does not affect the underlying analytical data embedded in the historical o
 ---
 
 # 13. Roads Data
+
+This file is saved in the following location: 
+
+https://github.com/jehan199/Planes-For-Trains/blob/main/source_data/sourced_data/2022/2016-US-Primary-Roads.md
 
 The R visualization workflow also loaded a 2016 U.S. primary roads shapefile:
 
