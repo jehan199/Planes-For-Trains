@@ -38,15 +38,15 @@ The DB1B Coupon field-selection page used during the project was:
 
 <https://www.transtats.bts.gov/DL_SelectFields.aspx?gnoyr_VQ=FLM&QO_fu146_anzr=b4vtv0%20n0q%20Qr56v0n6v10%20f748rB>
 
-The U.S. Department of Transportation Bureau of Transportation Statistics (BTS) Origin and Destination Survey DB1B Coupon dataset needs to be downloaded from the sources above in order to recreate this project. Source data for these files is not hosted on this platform due to concerns about breaching rules relating to the distribution of the underlying datasets.
+The U.S. Department of Transportation Bureau of Transportation Statistics (BTS) Origin and Destination Survey DB1B Coupon dataset needs to be downloaded from the sources above in order to recreate this project. Source data for these files is not hosted on this platform due to concerns about potentially breaching rules relating to the distribution of the underlying datasets.
 
 ## Data Notes for BTS Origin and Destination Survey DB1B Coupon
 
-- **BTS describes DB1B as a 10% sample of airline tickets. Passenger totals calculated in this project are derived from the sampled records and should not be interpreted as complete counts of all airline passengers without further validation. The analysis uses these totals to compare city-market passenger volumes within the defined study scope**
+- **BTS describes DB1B as a 10% sample of airline tickets. Passenger totals calculated in this project are derived from the sampled records and should not be interpreted as complete counts of all airline passengers without further validation. The analysis uses these totals to compare city-market passenger volumes within the defined study scope.**
 
 ---
 
-# 2. Loading and Combining the Quarterly BTS Data
+# 2. Loading/Combining the Quarterly BTS Data and Joining on Airport Codes
 
 Each quarterly DB1B Coupon file was loaded into BigQuery as a separate table:
 
@@ -85,6 +85,8 @@ The resulting dataset contains, among other fields:
 The original SQL used to create this table has been recovered and is saved here:
 
 source_data/SQL/2022/01_union_quarterly_data_sql.md
+
+Note that when the 2026 version of the analysis was conducted, it was discovered that the Airport Codes document contained duplicate values that inflated passenger totals for some origin/destinations. 
 
 ---
 
@@ -375,7 +377,7 @@ Cities_as_rail_hubs.csv
 
 The final visualization stage was performed in R.
 
-The recovered `Mapview.R` script loads:
+The recovered scripts load:
 
 - `Cities_with_most_short_flights_geo_data.csv`
 - `Cities_as_rail_hubs.csv`
@@ -507,9 +509,6 @@ The historical airport-code file was reconstructed from an older airport-code re
 
 Because that reference contains outdated airport codes and is not considered an appropriate authoritative source for a modern reproduction, it is being treated as a **legacy 2022 dependency**.
 
-The original airport-code information will be preserved for historical reproducibility, 
-
-This change should be documented as a deliberate methodological revision rather than silently replacing the original source.
 ---
 
 # 15. Reproducibility Philosophy
