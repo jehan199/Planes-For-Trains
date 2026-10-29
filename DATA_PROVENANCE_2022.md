@@ -213,7 +213,7 @@ This distinction is important because the metro-area terminology used throughout
 
 ---
 
-# 6. `Cities_with_most_short_flights_geo_data.csv`
+# 6. `Cities_with_most_short_flights_geo_data`
 
 This file is saved in the following location: 
 
@@ -335,7 +335,7 @@ Because some origin markets had fewer than ten destinations exceeding the 15,000
 
 ---
 
-# 9. `Cities_as_rail_hubs.csv`
+# 9. `Cities_as_rail_hubs`
 
 This file is saved in the following location:
 
