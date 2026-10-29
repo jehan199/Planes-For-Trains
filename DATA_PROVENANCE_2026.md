@@ -415,7 +415,9 @@ It was not used to:
 
 The 2016 U.S. primary-roads shapefile is loaded as a separate spatial layer and transformed to WGS 84 to match the city-market coordinates. The road network provides geographic context for interpreting the spatial relationships between origin and destination markets.
 
-The complete dataset was uploaded to GitHub via the 2016 US Primary Roads Data release: https://github.com/jehan199/Planes-For-Trains/releases#release-v.1.0-primary-roads-2016
+The complete dataset was uploaded to GitHub via the 2016 US Primary Roads Data release:
+
+https://github.com/jehan199/Planes-For-Trains/releases#release-v.1.0-primary-roads-2016
 
 ---
 
@@ -434,7 +436,9 @@ The HTML files preserve the coordinates, passenger values, rankings, map configu
 
 The hub maps represent selected high-volume origin city-markets and their short-haul flight destinations.
 
-All visualizations were uploaded to GitHub via the 2026 Analysis Outputs release: https://github.com/jehan199/Planes-For-Trains/releases#release-v1.0-2026-outputs
+All visualizations were uploaded to GitHub via the 2026 Analysis Outputs release:
+
+https://github.com/jehan199/Planes-For-Trains/releases#release-v1.0-2026-outputs
 
 ---
 
