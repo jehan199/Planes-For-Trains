@@ -86,7 +86,7 @@ The original SQL used to create this table has been recovered and is saved here:
 
 source_data/SQL/2022/01_union_quarterly_data_sql.md
 
-Note that when the 2026 version of the analysis was conducted, it was discovered that the Airport Codes document contained duplicate values that inflated passenger totals for some origin/destinations. This is a known limitation of the historical workflow and that the original results should not be assumed to match the corrected 2026 analysis.
+Note that when the 2026 version of the analysis was conducted, it was discovered that the Airport Codes document contained duplicate values that inflated passenger totals for some origin/destinations. This is a known limitation of the historical workflow, and that the original results should not be assumed to match the corrected 2026 analysis.
 
 ---
 
