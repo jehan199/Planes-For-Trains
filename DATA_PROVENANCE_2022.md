@@ -86,7 +86,7 @@ The original SQL used to create this table has been recovered and is saved here:
 
 source_data/SQL/2022/01_union_quarterly_data_sql.md
 
-Note that when the 2026 version of the analysis was conducted, it was discovered that the Airport Codes document contained duplicate values that inflated passenger totals for some origin/destinations. 
+Note that when the 2026 version of the analysis was conducted, it was discovered that the Airport Codes document contained duplicate values that inflated passenger totals for some origin/destinations. This is a known limitation of the historical workflow and that the original results should not be assumed to match the corrected 2026 analysis.
 
 ---
 
@@ -493,9 +493,9 @@ It was not used to:
 - determine potential rail routes; or
 - otherwise affect the analytical results.
 
-The maps use the 2016 U.S. Primary Roads National Shapefile from the U.S. Census Bureau's TIGER/Line program. The dataset represents primary roads, generally limited-access highways, and is used as a visual reference layer rather than as a complete road network
+The maps use the 2016 U.S. Primary Roads National Shapefile from the U.S. Census Bureau's TIGER/Line program. The dataset represents primary roads, generally limited-access highways, and is used as a visual reference layer rather than as a complete road network.
 
-The dataset is listed under the CC0 1.0 public-domain dedication. It has been cropped to the map area for visualization
+The dataset is listed under the CC0 1.0 public-domain dedication. It has been cropped to the map area for visualization.
 
 Source: U.S. Census Bureau, 2016 TIGER/Line Primary Roads. https://catalog.data.gov/dataset/tiger-line-shapefile-2016-nation-u-s-primary-roads-national-shapefile
 
