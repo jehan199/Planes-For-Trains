@@ -8,7 +8,7 @@ The project was originally conceptualized and drafted in 2022 and has been subst
 
 The project combines SQL-based data analysis, geographic reference data, R-based visualization, and interactive maps to create a visual representation of the markets with potential for high-speed rail. 
 
-The goal is to identify potentially relevant markets for further investigation—not to determine which rail corridors should be built purely based solely on the passenger-volume analysis in this project.
+The goal is to identify potentially relevant markets for further investigation, not to determine which rail corridors should be built based solely on the passenger-volume analysis in this project.
 
 ## Research Question
 
