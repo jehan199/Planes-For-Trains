@@ -1,5 +1,5 @@
-*This query pivots the U.S. DoT 2019 dataset and sums the number of passengers from each origin and destination. 
-It also applies filters to the data to limit the records pivoted to only flights with a distance between 75 and 500 miles. It also excluded flights that have an origin or a destination in Hawaii*
+This query pivots the U.S. DoT 2019 dataset and sums the number of passengers from each origin and destination. 
+It also applies filters to the data to limit the records pivoted to only flights with a distance between 75 and 500 miles. It also excluded flights that have an origin or a destination in Hawaii. 
 
 ```sql
 WITH temp_table as (SELECT
