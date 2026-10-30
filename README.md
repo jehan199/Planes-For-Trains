@@ -124,8 +124,8 @@ The maps are intended to help readers explore the geographic distribution of pas
 
 ## Tools and data sources
 
-| Tool | Purpose |
-|:----|:----|
+| Tool       | Purpose |
+|:---|:---|
 | Google BigQuery and SQL | Combining quarterly datasets, filtering records, aggregating passenger values, and ranking markets |
 | Microsoft Excel | Supporting intermediate data restructuring in the original workflow |
 | R | Spatial data processing and interactive visualization |
