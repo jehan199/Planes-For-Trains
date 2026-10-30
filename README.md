@@ -4,7 +4,7 @@
 
 *Trains for Planes* is a data analysis project that seeks to use 2019 demand for domestic short-haul flights in the United States to determine which cities in the U.S. are best positioned to potentially pivot towards high speed rail as an alternative to air transportation. 
 
-The project was originally conceptualized and drafted in 2022 and has been substantially revised in 2026. The primary dataset that was used for this project comes from the U.S. Bureau of Transportation Statistics (BTS) Origin and Destination Survey : DB1BCoupon. This report contains a 10% sample of domestic flight itinerates in the U.S. and it was used to identify city markets with significant short-haul passenger volumes and examine the destinations associated with those markets.
+The project was originally conceptualized and drafted in 2022 and has been substantially revised in 2026. The primary dataset that was used for this project comes from the U.S. Bureau of Transportation Statistics (BTS) Origin and Destination Survey : DB1BCoupon.The BTS Origin and Destination Survey DB1B Coupon dataset contains a 10% sample of airline tickets for domestic U.S. air travel. The project uses this sample to identify city markets with significant short-haul passenger volumes and examine the destinations associated with those markets.
 
 The project combines SQL-based data analysis, geographic reference data, R-based visualization, and interactive maps to create a visual representation of the markets with potential for high speed rail. 
 
@@ -137,3 +137,66 @@ The maps are intended to help readers explore the geographic distribution of pas
 | SimpleMaps U.S. Cities Basic v1.75 | Geographic reference data used in the 2022 analysis |
 | U.S. Census Bureau Gazetteer Places, 2026 | Geographic reference data used in the revised analysis |
 | U.S. Census Bureau TIGER/Line Primary Roads, 2016 | Visual context both the 2022 and 2026 maps |
+
+Visual context in the historical maps
+
+# Limitations and Scope
+
+This project is an exploratory market-screening analysis. Its results should be interpreted with the following limitations in mind.
+
+Sampled passenger data: 
+
+BTS describes DB1B as a 10% sample of airline tickets. Passenger values calculated in this project come from the sampled records and are not complete counts of all airline passengers itineraries for 2019. 
+
+Project-defined distance range: 
+
+The 75–500 mile range is used to narrow the analysis. It is not necessarily the case that high speed rail is always the most time effective transportation option in distance range. This depends on a number of factors including car traffic, whether or not a rail route is non-stop or has intermediate stops, the distance from the airport to the city center amongst other factors.
+
+Air travel distance versus rail distance:
+
+The distance field comes from the BTS airline data. It does not establish the distance, alignment, or travel time of a potential rail corridor. For example, rail lines on the ground would potentially have to navigate topographical features such as lakes, rivers, mountains and canyons. Such features could potentially force a rail alignment into a longer route than what a plane would have to fly to connect the same locations. 
+
+Additionally, the distance for these airline passenger itineraries is calculated from where the origin airport is physically located relative to the destination airport. It is generally the case that central urban rail terminals are positioned closer to the city center than airports. As a result, the distance between the airports of an origin and destination city may not be the same as the distance between two hypothetical central rail terminals.  
+
+Geographic representation:
+
+City-market identifiers and geographic reference points serve different purposes. The coordinates used to visualize a market are geographic proxies and do not necessarily represent the boundaries or center of the corresponding metropolitan area.
+
+No rail feasibility assessment:
+
+The project does not model rail construction costs, infrastructure requirements, operating costs, service frequency, door-to-door travel times, projected ridership, or economic feasibility. High passenger volume alone does not establish that a potential rail route would be viable.
+
+Historical data and methodology:
+
+The 2022 analysis contains a documented data-quality issue involving duplicate airport-code reference entries. The revised 2026 analysis addresses this issue and its results should be understood as outputs of a revised workflow. 
+
+# Potential for Expanded Scope and Future Research
+
+The project could potentially be used as a part of a more sophisticated multivariable model to determine with greater accuracy which cities in the United States are best positioned to become hubs for high speed rail infrastructure.
+
+Other relevant variables that could be added to the analysis in the future incldude:
+
+- Data on passenger volumes for car based transit (buses and personal vehicles)
+- Data analysis concerning the potential costs of a purposed rail alignment
+- A survey of the topographical conditions that exist between perspective rail routes
+- Forecasting of future demand for travel between U.S. cities and the associated revenue that this would generate
+
+# Repository Documentation
+
+The repository contains the main project overview and separate documentation for the two analytical workflows.
+
+- README.md — project overview, research question, methodology, interactive visualization links, limitations, and repository navigation.
+
+- DATA_PROVENANCE_2022.md — detailed sources, transformations, intermediate datasets, and visualization workflow for the original analysis.
+
+- DATA_PROVENANCE_2026.md — detailed sources, transformations, methodological revisions, and outputs for the updated analysis.
+
+- Supporting SQL, derived datasets, source data, R code, and generated outputs are organized under source_data/, with separate subfolders for 2022 and 2026 where applicable.
+
+# Conclusion
+
+Trains for Planes explores how publicly available transportation data can help identify potential high-speed rail routes by examining existing short-haul air travel demand.
+
+Beyond the initial analysis, the project documents the process of revisiting an existing workflow, identifying a data-quality problem, updating geographic reference data, and preserving the historical outputs alongside a revised analysis.
+
+The resulting maps provide a starting point for investigating potential alternatives to short-haul air travel. Determining whether any particular route could support high-speed rail would require additional analysis of infrastructure, travel times, costs, demand, and operational feasibility.
