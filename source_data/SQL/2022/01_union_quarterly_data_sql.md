@@ -1,4 +1,4 @@
-*This is the query I originally used to create a consolidated table containing the U.S. DoT data for 2019*
+This is the query originally used to create a consolidated table containing the U.S. DoT data for 2019
 
 ```sql
 CREATE TABLE us_air_passenger.unioned_and_filtered_table3 AS
