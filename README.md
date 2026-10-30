@@ -1,12 +1,12 @@
-# Trains for Planes: Exploring Potential High Speed Rail Routes as Alternatives to Short-Haul Flights in the United States
+# Trains for Planes: Exploring Potential high-sped Rail Routes as Alternatives to Short-Haul Flights in the United States
 
 ## Project Overview
 
-*Trains for Planes* is a data analysis project that seeks to use 2019 demand for domestic short-haul flights in the United States to determine which cities in the U.S. are best positioned to potentially pivot towards high speed rail as an alternative to air transportation. 
+*Trains for Planes* is a data analysis project that uses 2019 domestic short-haul air travel demand in the United States to identify city markets and origin-destination pairs that could represent potential opportunities for future high-speed rail service.
 
 The project was originally conceptualized and drafted in 2022 and has been substantially revised in 2026. The primary dataset that was used for this project comes from the U.S. Bureau of Transportation Statistics (BTS) Origin and Destination Survey : DB1BCoupon.The BTS Origin and Destination Survey DB1B Coupon dataset contains a 10% sample of airline tickets for domestic U.S. air travel. The project uses this sample to identify city markets with significant short-haul passenger volumes and examine the destinations associated with those markets.
 
-The project combines SQL-based data analysis, geographic reference data, R-based visualization, and interactive maps to create a visual representation of the markets with potential for high speed rail. 
+The project combines SQL-based data analysis, geographic reference data, R-based visualization, and interactive maps to create a visual representation of the markets with potential for high-sped rail. 
 
 The goal is to identify potentially relevant markets for further investigation—not to determine which rail corridors should be built purely based on the object of this project's analysis. 
 
@@ -36,13 +36,13 @@ At a high level, the workflow consists of the following steps:
 
 - Add geographic information. Associate city markets with geographic coordinates to support spatial analysis and visualization.
 
-- Create visualizations. Use R and interactive HTML maps to compare the selected origin markets and explore the destinations associated with the highest-volume markets.
+- Create visualizations. Used R and interactive HTML maps to compare the selected origin markets and explore the destinations associated with the highest-volume markets.
 
 The project uses passenger values derived from the DB1B sample. These values are useful for comparisons within the defined analytical scope but should not be interpreted as complete counts of all airline passengers considering that the DB1B sample is only a 10% sample of passenger flight tickets. 
 
 ## Evolution of the Project: 2022–2026
 
-While the 2019 BTS Origin and Destination Survey : DB1BCoupon remains the foundational source data for the project and the research question remained the same, several other source data files, along with their downstream SQL queries and R code, were changed in the 2026 revision.
+While the 2019 BTS Origin and Destination Survey DB1BCoupon remains the foundational source data for the project and the research question remained the same, several other source data files, along with their downstream SQL queries and R code, were changed in the 2026 revision.
 
 ### Original analysis — 2022
 
@@ -66,7 +66,7 @@ The resulting maps provided a geographic view of short-haul air passenger volume
 
 The 2026 revision revisited the original workflow, its data sources, and its geographic methodology.
 
-During this review, it was discovered that duplicate airport-code entries in the legacy reference data had inflated passenger totals for some origin-destination combinations. The revised SQL workflow removed the problematic airport-code joins and use BTS city-market identifiers and market-name reference data instead.
+During this review, it was discovered that duplicate airport-code entries in the legacy reference data had inflated passenger totals for some origin-destination combinations. The revised SQL workflow removed the problematic airport-code joins and used BTS city-market identifiers and market-name reference data instead.
 
 The revised workflow also uses the U.S. Census Bureau's 2026 Gazetteer Places dataset for geographic reference information, replacing the SimpleMaps coordinates used in the original analysis. This was done because it became clear upon review that the SimpleMaps dataset could not be redistributed without confirming the applicable licensing permissions.  
 
@@ -86,37 +86,37 @@ The visualizations include:
 
 - Historical 2022 maps preserved for comparison with the revised 2026 outputs.
 
-The maps are intended to help readers explore the geographic distribution of passenger volumes and identify markets for potential high speed rail routes.
+The maps are intended to help readers explore the geographic distribution of passenger volumes and identify markets for potential high-sped rail routes.
 
 ### 2026 Revised Analysis
 
-- National map: Cities with the Most Short-Haul Flights — 2026
+- [National map: Cities with the Most Short-Haul Flights — 2026](https://github.com/jehan199/Planes-For-Trains/releases/download/v1.0-2026-outputs/Cities-with-Most-Short-Haul-Flights-2026.html)
 
-- Atlanta as a Rail Hub — 2026
+- [Atlanta as a Rail Hub — 2026](https://github.com/jehan199/Planes-For-Trains/releases/download/v1.0-2026-outputs/Atlanta-as-a-Rail-Hub-2026.html)
 
-- Los Angeles as a Rail Hub — 2026
+- [Los Angeles as a Rail Hub — 2026](https://github.com/jehan199/Planes-For-Trains/releases/download/v1.0-2026-outputs/Los-Angles-as-a-Rail-Hub-2026.html)
 
-- Washington, D.C. as a Rail Hub — 2026
+- [Washington, D.C. as a Rail Hub — 2026](https://github.com/jehan199/Planes-For-Trains/releases/download/v1.0-2026-outputs/Washington-DC-as-a-Rail-Hub-2026.html)
 
-- San Francisco as a Rail Hub — 2026
+- [San Francisco as a Rail Hub — 2026](https://github.com/jehan199/Planes-For-Trains/releases/download/v1.0-2026-outputs/San-Francisco-as-a-Rail-Hub-2026.html)
 
-- Charlotte as a Rail Hub — 2026
+- [Charlotte as a Rail Hub — 2026](https://github.com/jehan199/Planes-For-Trains/releases/download/v1.0-2026-outputs/Charlotte-as-a-Rail-Hub-2026.html)
 
 [View the 2026 outputs on GitHub](https://github.com/jehan199/Planes-For-Trains/releases#release-v1.0-2026-outputs)
 
 ### 2022 Original Analysis 
 
-- Short-Haul Flight Cities
+- [Short-Haul Flight Cities](https://github.com/jehan199/Planes-For-Trains/releases/download/v1.0-2022-outputs/Short-Haul-Flight-Cities.html)
 
-- Atlanta as a Rail Hub
+- [Atlanta as a Rail Hub](https://github.com/jehan199/Planes-For-Trains/releases/download/v1.0-2022-outputs/Atlanta-Visual.html)
 
-- LA/Inland Empire as a Rail Hub
+- [LA/Inland Empire as a Rail Hub](https://github.com/jehan199/Planes-For-Trains/releases/download/v1.0-2022-outputs/LA_Inland-Empire-as-a-Hub.html)
 
-- Washington, D.C. as a Rail Hub
+- [Washington, D.C. as a Rail Hub](https://github.com/jehan199/Planes-For-Trains/releases/download/v1.0-2022-outputs/Washington-D.C.-as-a-Hub.html)
 
-- Bay Area as a Rail Hub
+- [Bay Area as a Rail Hub](https://github.com/jehan199/Planes-For-Trains/releases/download/v1.0-2022-outputs/Bay-Area-as-a-Hub.html)
 
-- Charlotte as a Rail Hub
+- [Charlotte as a Rail Hub](https://github.com/jehan199/Planes-For-Trains/releases/download/v1.0-2022-outputs/Charlotte-as-a-Hub.html)
 
 [View the 2022 outputs on Github](https://github.com/jehan199/Planes-For-Trains/releases#release-v1.0-2022-outputs)
 
@@ -133,10 +133,10 @@ The maps are intended to help readers explore the geographic distribution of pas
 | Data Source | Purpose |
 |:---|:---|
 | BTS DB1B Coupon data | Source of sampled airline ticket and passenger information |
-| BTS Lookup Table | Source of city-market names to link to each city-market-id in the BTS DB1B Coupon data 
+| BTS Lookup Table | Source of city-market names to link to each city-market-id in the BTS DB1B Coupon data |
 | SimpleMaps U.S. Cities Basic v1.75 | Geographic reference data used in the 2022 analysis |
 | U.S. Census Bureau Gazetteer Places, 2026 | Geographic reference data used in the revised analysis |
-| U.S. Census Bureau TIGER/Line Primary Roads, 2016 | Visual context both the 2022 and 2026 maps |
+| U.S. Census Bureau TIGER/Line Primary Roads, 2016 | Visual context in both the 2022 and 2026 maps |
 
 ## Limitations and Scope
 
@@ -148,11 +148,11 @@ BTS describes DB1B as a 10% sample of airline tickets. Passenger values calculat
 
 **Project-defined distance range:** 
 
-The 75–500 mile range is used to narrow the analysis. It is not necessarily the case that high speed rail is always the most time effective transportation option in distance range. This depends on a number of factors including car traffic, whether or not a rail route is non-stop or has intermediate stops, the distance from the airport to the city center amongst other factors.
+The 75–500 mile range is used to narrow the analysis. It does not establish that high-speed rail would be the most time-competitive transportation option for every market within this range. Actual competitiveness depends on factors such as airport and station access, traffic conditions, intermediate stops, service frequency, and rail alignment.
 
 **Air travel distance versus rail distance:**
 
-The distance field comes from the BTS airline data. It does not establish the distance, alignment, or travel time of a potential rail corridor. For example, rail lines on the ground would potentially have to navigate topographical features such as lakes, rivers, mountains and canyons. Such features could potentially force a rail alignment into a longer route than what a plane would have to fly to connect the same locations. 
+The distance field comes from the BTS airline data. It does not establish the distance, alignment, or travel time of a potential rail corridor. For example, rail lines on the ground would potentially have to navigate topographical features such as lakes, rivers, mountains and canyons. Such features could could require a longer rail alignment than what a plane would have to fly to connect the same locations. 
 
 Additionally, the distance for these airline passenger tickets is calculated from where the origin airport is physically located relative to the destination airport. It is generally the case that central urban rail terminals are positioned closer to the city center than airports. As a result, the distance between the airports of an origin and destination city may not be the same as the distance between two hypothetical central rail terminals.  
 
@@ -170,9 +170,9 @@ The 2022 analysis contains a documented data-quality issue involving duplicate a
 
 ## Potential for Expanded Scope and Future Research
 
-The project could potentially be used as a part of a more sophisticated multivariable model to determine with greater accuracy which cities in the United States are best positioned to become hubs for high speed rail infrastructure.
+The project could potentially be used as a part of a more sophisticated multivariable model to determine with greater accuracy which cities in the United States are best positioned to become hubs for high-sped rail infrastructure.
 
-Other relevant variables that could be added to the analysis in the future incldude:
+Other relevant variables that could be added to the analysis in the future include:
 
 - Passenger volumes for competing surface transportation modes, including buses and personal vehicles
 - Population density and the geographic distribution of potential passengers
