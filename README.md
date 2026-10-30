@@ -2,7 +2,7 @@
 
 ## Project Overivew
 
-*Trains for Planes* is a data analysis project that seeks to use 2019 demand for domestic short-haul flights in the United States to determine which cities in the U.S. are best positioned to pivot towards high speed rail as an alternative to air transportation. 
+*Trains for Planes* is a data analysis project that seeks to use 2019 demand for domestic short-haul flights in the United States to determine which cities in the U.S. are best positioned to potentially pivot towards high speed rail as an alternative to air transportation. 
 
 The project was originally conceptualized and drafted in 2022 and has been substantially revised in 2026. The primary dataset that was used for this project comes from the U.S. Bureau of Transportation Statistics (BTS) Origin and Destination Survey : DB1BCoupon. This report contains a 10% sample of domestic flight itinerates in the U.S. and it was used to identify city markets with significant short-haul passenger volumes and examine the destinations associated with those markets.
 
@@ -12,7 +12,7 @@ The goal is to identify potentially relevant markets for further investigation�
 
 ## Research Question
 
-Which U.S. city markets have the highest short-haul air passenger volumes, and which destinations associated with those markets could warrant further investigation as potential high-speed rail markets?
+Which U.S. city markets have substantial short-haul air passenger volumes, and which origin-destination pairs could represent potential high-speed rail routes based on existing air travel demand?
 
 The analysis uses a project-defined distance range of 75–500 miles to screen for short-haul air travel. This range is an analytical choice for narrowing the scope of the project, not a universal threshold for high-speed rail competitiveness. 
 
@@ -88,4 +88,55 @@ The visualizations include:
 
 The maps are intended to help readers explore the geographic distribution of passenger volumes and identify markets for potential high speed rail routes.
 
+# 2026 Revised Analysis
 
+- National map: Cities with the Most Short-Haul Flights — 2026
+
+- Atlanta as a Rail Hub — 2026
+
+- Los Angeles as a Rail Hub — 2026
+
+- Washington, D.C. as a Rail Hub — 2026
+
+- San Francisco as a Rail Hub — 2026
+
+- Charlotte as a Rail Hub — 2026
+
+[View the 2026 outputs on GitHub](https://github.com/jehan199/Planes-For-Trains/releases#release-v1.0-2026-outputs)
+
+# 2022 Original Analysis 
+
+- Short-Haul Flight Cities
+
+- Atlanta as a Rail Hub
+
+- LA/Inland Empire as a Rail Hub
+
+- Washington, D.C. as a Rail Hub
+
+- Bay Area as a Rail Hub
+
+- Charlotte as a Rail Hub
+
+[View the 2022 outputs on Github](https://github.com/jehan199/Planes-For-Trains/releases#release-v1.0-2022-outputs)
+
+* Note that some external basemap providers used by the original interactive maps have changed their access policies since 2022. Consequently, certain basemaps may no longer function exactly as they did when the HTML files were originally created. *
+
+Tools and Technologies
+
+Tools and data sources | Purpose
+
+Google BigQuery and SQL | Combining quarterly datasets, filtering records, aggregating passenger values, and ranking markets
+
+Microsoft Excel | 
+Supporting intermediate data restructuring in the original workflow
+
+R | Spatial data processing and interactive visualization
+
+BTS DB1B Coupon data | Source of sampled airline ticket and passenger information
+
+SimpleMaps U.S. Cities Basic v1.75 | Geographic reference data used in the 2022 analysis
+
+U.S. Census Bureau Gazetteer Places, 2026 | Geographic reference data used in the revised analysis
+
+U.S. Census Bureau TIGER/Line Primary Roads, 2016 | Visual context both the 2022 and 2026 maps
