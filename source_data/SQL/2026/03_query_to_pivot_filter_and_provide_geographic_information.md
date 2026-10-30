@@ -1,10 +1,10 @@
-This query pivots the BTS 2019 dataset and sums the number of passengers from each origin and destination. 
+This query pivots the BTS 2019 dataset and sums the number of `Passengers` from each `OriginCityMarketID` and `DestCityMarketID`. 
 
-It also applies filters to the data to limit the records pivoted to only flights with a distance between 75 and 500 miles, it excluded flights that have an origin or a destination in Hawaii, it assigns an `Origin_Rank` value based on the volume of passengers leaving from a city-market on short haul flights and creates an `Destination_Rank` value that ranks the volume of passengers leaving from each origin to the top destination metros areas.
+It also applies filters to the data to limit the records pivoted to only flights with a `Distance` between 75 and 500 miles, it excluded flights that have an origin or a destination in Hawaii, it assigns an `Origin_Rank` value based on the volume of passengers leaving from a city-market on short haul flights and creates an `Destination_Rank` value that ranks the volume of passengers leaving from each origin to the top destination metros areas.
 
 Lastly the query filters to only the top 5 `Destination_Ranks` for each origin and it sorts the data first by `Origin_Rank` and then by `Destination_Rank`.
 
-The output of this query is labelled as `Cities_as_rail_hubs_2026.csv` and this is the basis for one of the data visualizations in R. It is saved in the the `derived _data` folder.
+The output of this query is labelled as `Cities_as_rail_hubs_2026.csv` and this is the basis for one of the data visualizations in R. It is saved in the the `derived_data` folder.
 
 
 ```sql
