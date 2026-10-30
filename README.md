@@ -124,19 +124,18 @@ The maps are intended to help readers explore the geographic distribution of pas
 
 Tools and Technologies
 
-Tools and data sources | Purpose
+| Tools and data sources | Purpose |
 
-Google BigQuery and SQL | Combining quarterly datasets, filtering records, aggregating passenger values, and ranking markets
+| Google BigQuery and SQL | Combining quarterly datasets, filtering records, aggregating passenger values, and ranking markets |
 
-Microsoft Excel | 
-Supporting intermediate data restructuring in the original workflow
+| Microsoft Excel | Supporting intermediate data restructuring in the original workflow |
 
-R | Spatial data processing and interactive visualization
+| R | Spatial data processing and interactive visualization |
 
-BTS DB1B Coupon data | Source of sampled airline ticket and passenger information
+| BTS DB1B Coupon data | Source of sampled airline ticket and passenger information |
 
-SimpleMaps U.S. Cities Basic v1.75 | Geographic reference data used in the 2022 analysis
+| SimpleMaps U.S. Cities Basic v1.75 | Geographic reference data used in the 2022 analysis |
 
-U.S. Census Bureau Gazetteer Places, 2026 | Geographic reference data used in the revised analysis
+| U.S. Census Bureau Gazetteer Places, 2026 | Geographic reference data used in the revised analysis |
 
-U.S. Census Bureau TIGER/Line Primary Roads, 2016 | Visual context both the 2022 and 2026 maps
+| U.S. Census Bureau TIGER/Line Primary Roads, 2016 | Visual context both the 2022 and 2026 maps |
