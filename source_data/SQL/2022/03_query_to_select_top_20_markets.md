@@ -1,5 +1,5 @@
-This query pivots the same consolidated 2019 DoT data and orders the sum of passengers on short haul flights between 75 and 500 miles (excluding Hawaii) by the largest sum to the smallest.
-It also pulls in the same gegraphic data from the Metro_Data_Table. The output of this query is labelled as Cities_with_most_short_flights_geo_data.csv and this is the basis for one of the data visualizations in R.
+This query pivots the same consolidated 2019 U.S. BTS data and orders the `Sum of Passengers` on short haul flights between 75 and 500 miles (excluding Hawaii) by the largest sum to the smallest.
+It also pulls in the same gegraphic data from the `Metro_Data_Table`. The output of this query is labelled as `Cities_with_most_short_flights_geo_data.csv` and this is the basis for one of the data visualizations in R.
 
 ```sql
 SELECT  
