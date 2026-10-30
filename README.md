@@ -1,4 +1,4 @@
-# Trains for Planes: Exploring Potential High Speed Rail Routes Alternatives to Short-Haul Flights in the United States
+# Trains for Planes: Exploring Potential High Speed Rail Routes as Alternatives to Short-Haul Flights in the United States
 
 ## Project Overview
 
