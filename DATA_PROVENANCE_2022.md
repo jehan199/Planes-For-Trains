@@ -38,7 +38,7 @@ The DB1B Coupon field-selection page used during the project was:
 
 <https://www.transtats.bts.gov/DL_SelectFields.aspx?gnoyr_VQ=FLM&QO_fu146_anzr=b4vtv0%20n0q%20Qr56v0n6v10%20f748rB>
 
-The U.S. Department of Transportation Bureau of Transportation Statistics (BTS) Origin and Destination Survey DB1B Coupon dataset needs to be downloaded from the sources above in order to recreate this project. Source data for these files is not hosted on this platform due to concerns about potentially breaching rules relating to the distribution of the underlying datasets.
+The U.S. Department of Transportation Bureau of Transportation Statistics (BTS) Origin and Destination Survey DB1B Coupon dataset must be downloaded from the sources above in order to recreate this project. Source data for these files is not hosted on this platform due to concerns about potentially breaching rules relating to the distribution of the underlying datasets.
 
 ## Data Notes for BTS Origin and Destination Survey DB1B Coupon
 
@@ -86,7 +86,7 @@ The original SQL used to create this table has been recovered and is saved here:
 
 https://github.com/jehan199/Planes-For-Trains/blob/main/source_data/SQL/2022/01_union_quarterly_data_sql.md
 
-Note that when the 2026 version of the analysis was conducted, it was discovered that the Airport Codes document contained duplicate values that inflated passenger totals for some origin/destinations. This is a known limitation of the historical workflow, and that the original results should not be assumed to match the corrected 2026 analysis.
+Note that when the 2026 version of the analysis was conducted, it was discovered that the Airport Codes document contained duplicate values that inflated passenger totals for some origin/destinations. This is a known limitation of the historical workflow, and the original results should not be assumed to match the corrected 2026 analysis.
 
 ---
 
@@ -115,7 +115,7 @@ The Hawaii exclusion is therefore a methodological choice specific to this proje
 
 While there is some debate on what exactly constitutes the "sweet spot" for high speed rail distance, the general idea is that there exists a distance range where the door to door travel time from one city to another is lowest when high speed rail is used as the method of transit. 
 
-When a trip is below a certain distance, it is generally quicker to drive considering that you wouldn't have to go to a central train station to catch a train to go from one city to another. When the a trip exceeds a certain distance, it can be quicker when you consider the faster transportation speed. When a trip is between these two distances, high speed rail is generally considered to be more time competitive.  
+When a trip is below a certain distance, it is generally quicker to drive considering that you wouldn't have to go to a central train station to catch a train to go from one city to another. When a trip exceeds a certain distance, it can be quicker when you consider the higher speed of air travel can make flying faster. When a trip is between these two distances, high speed rail is generally considered to be more time competitive.  
 
 For the purpose of this project, the lower limit was set to be 75 miles while the upper limit was selected to be 500 miles. 
 
@@ -291,9 +291,9 @@ The purpose was to make it possible to join the selected markets to both the ori
 
 After identifying the 20 highest-volume origin markets, the project examined where passengers from those markets were traveling.
 
-The query that was used as the starting point point for the subsequent manual transformations in Excel is saved in the following location:
+The query that was used as the starting point for the subsequent manual transformations in Excel is saved in the following location:
 
-https://github.com/jehan199/Planes-For-Trains/blob/main/source_data/SQL/2022/02_query_to_pivot_filter_and_proivde_geographic_information.md
+https://github.com/jehan199/Planes-For-Trains/blob/main/source_data/SQL/2022/02_query_to_pivot_filter_and_provide_geographic_information.md
 
 The initial origin-destination aggregation produced **871 origin-destination records**.
 
