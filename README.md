@@ -122,14 +122,18 @@ The maps are intended to help readers explore the geographic distribution of pas
 
 * Note that some external basemap providers used by the original interactive maps have changed their access policies since 2022. Consequently, certain basemaps may no longer function exactly as they did when the HTML files were originally created. *
 
-# Tools and Technologies
+# Tools and data sources
 
-| Tools and data sources | Purpose |
+| Tool | Purpose |
 |:---|:---|
 | Google BigQuery and SQL | Combining quarterly datasets, filtering records, aggregating passenger values, and ranking markets |
 | Microsoft Excel | Supporting intermediate data restructuring in the original workflow |
 | R | Spatial data processing and interactive visualization |
+
+| Data Source | Purpose |
+|:---|:---|
 | BTS DB1B Coupon data | Source of sampled airline ticket and passenger information |
+| BTS Lookup Table | Source of city-market names to link to each city-market-id in the BTS DB1B Coupon data 
 | SimpleMaps U.S. Cities Basic v1.75 | Geographic reference data used in the 2022 analysis |
 | U.S. Census Bureau Gazetteer Places, 2026 | Geographic reference data used in the revised analysis |
 | U.S. Census Bureau TIGER/Line Primary Roads, 2016 | Visual context both the 2022 and 2026 maps |
