@@ -18,7 +18,7 @@ This document describes the provenance of the updated 2026 analysis, including t
 
 The primary analytical dataset was the U.S. Department of Transportation Bureau of Transportation Statistics (BTS) Origin and Destination Survey DB1B Coupon dataset.
 
-A secondary Lookup Table Dataset was also sourced from BTS to provide a Metro Area Name to each OriginCityMarketID and DestCityMarketID. 
+A secondary Lookup Table Dataset was also sourced from BTS to provide a metro-area name for each to each OriginCityMarketID and DestCityMarketID. 
 
 The analysis used the four quarterly DB1B Coupon files from **2019**:
 
@@ -60,7 +60,7 @@ Each quarterly DB1B Coupon file was loaded into BigQuery as a separate table:
 - `2019_Q3`
 - `2019_Q4`
 
-The original workflow then combined the four quarterly tables using `UNION ALL` and left joined to the BTS Lookup table on fields `OriginCityMarketID` and `DestCityMarketID` in columns labelled as `Origin_City_Market` and `Dest_City_Market`.
+The original workflow then combined the four quarterly tables using `UNION ALL` and then left-joined to the BTS Lookup table on fields `OriginCityMarketID` and `DestCityMarketID` in columns labelled as `Origin_City_Market` and `Dest_City_Market`.
 
 The resulting table was named:
 
@@ -116,7 +116,7 @@ The analysis retained the top 50 markets.
 
 While there is some debate on what exactly constitutes the "sweet spot" for high speed rail distance, the general idea is that there exists a distance range where the door to door travel time from one city to another is lowest when high speed rail is used as the method of transit. 
 
-When a trip is below a certain distance, it is generally quicker to drive considering that you wouldn't have to go to a central train station to catch a train to go from one city to another. When the a trip exceeds a certain distance, it is generally quicker to fly when you consider the faster transportation speed. When a trip is between these two distances, high speed rail is generally considered to be more time competitive.  
+When a trip is below a certain distance, it is generally quicker to drive considering that you wouldn't have to go to a central train station to catch a train to go from one city to another. When a trip exceeds a certain distance, it is generally quicker to fly when you consider the faster transportation speed. When a trip is between these two distances, high speed rail is generally considered to be more time competitive.  
 
 For the purpose of this project, the lower limit was set to be 75 miles while the upper limit was selected to be 500 miles. 
 
@@ -146,7 +146,7 @@ The U.S. Census Bureau’s Gazetteer webpage indicated that the dataset was last
 
 Note that the source file is in a pipe delimited text format and the file formatting was changed to csv. 
 
-Fields `INTPTLAT` and `INTPTLONG` also needed to be manually changed from 37.727239 and	-123.032229 to 37.775 and -122.419 respectively for `NAME` San Francisco City. This needed to be done because it was determine once the visualization was created that coordinate point 37.727239,-123.032229 was not a point that actually represented the geographic location of San Francisco. Census places are being used as geographic proxies for BTS city-markets. They are not necessarily identical to the metropolitan markets represented by BTS identifiers.
+Fields `INTPTLAT` and `INTPTLONG` also needed to be manually changed from 37.727239 and	-123.032229 to 37.775 and -122.419 respectively for `NAME` San Francisco City. This needed to be done because it was determined once the visualization was created that coordinate point 37.727239,-123.032229 was not a point that actually represented the geographic location of San Francisco. Census places are being used as geographic proxies for BTS city-markets. They are not necessarily identical to the metropolitan markets represented by BTS identifiers.
 
 ---
 
@@ -301,7 +301,7 @@ The final visualization stage of the revised 2026 workflow was performed in R us
 
 The R code that was used to create these visualizations is saved in the following location:
 
-https://github.com/jehan199/Planes-For-Trains/blob/main/source_data/derived_data/2026/Cities_as_rail_hubs_2026.csv
+https://github.com/jehan199/Planes-For-Trains/tree/main/source_data/r_code_for_data_vis/2026
 
 ### Source Data
 
@@ -460,10 +460,10 @@ The historical analysis preserves:
 
 The 2026 version made the following changes:
 
-- removed the airport code reference data and any joins to the 2019 BTS DB1B data
+- removed the airport-code reference data and the associated joins that caused duplicate records and inflated passenger totals in the original analysis
 - used a lookup table published by BTS to introduce a City-Market name for each City-Market-ID
 - created a translation table to bridge the gap between BTS and U.S. Census geographic data featuring the top 50 city markets by origin. This eliminated the need to manually input geographic data into the eventual `Cities_as_rail_hubs_2026.csv` document 
-- rewrote "query_to_pivot_filter_and_proivde_geographic_information.sql" to eliminate the need for any manual data transformations before `Cities_as_rail_hubs_2026.csv` could be produced (with the exception of the manual addition of the geospatial information for Palm Springs)
+- rewrote "query_to_pivot_filter_and_provide_geographic_information.sql" to eliminate the need for any manual data transformations before `Cities_as_rail_hubs_2026.csv` could be produced (with the exception of the manual addition of the geospatial information for Palm Springs)
 - R `mapview` visualization for `Cities-with-Most-Short-Haul-Flights-2026.html` was changed in the following ways:
     - The `SimpleMaps v1.75` geographic dataset was replaced with the U.S. Census Bureau’s `2026_Gaz_place_national` dataset due to uncertainty about the licensing terms governing the use and redistribution of the original data
     - The basemap was changed to Esri after reviewing the functionality and attribution considerations for this project's publication format
@@ -474,7 +474,7 @@ The 2026 version made the following changes:
     - The `SimpleMaps v1.75` geographic dataset was replaced with the U.S. Census Bureau’s `2026_Gaz_place_national` dataset due to uncertainty about the licensing terms governing the use and redistribution of the original data
     - The basemap was changed to Esri after reviewing the functionality and attribution considerations for this project's publication format
     - Hover values and popup fields change to the values and fields outlined in Data_Provenance_2026 section 8.2
-    - `Passenger_Band` field established for each Origin-City-Market visualiziation. This was then used to generate a color-coded legend unique to each of the five visualizations
+    - `Passenger_Band` field established for each Origin-City-Market visualization. This was then used to generate a color-coded legend unique to each of the five visualizations
 ---
 
 # 12. Reproducibility Philosophy
