@@ -1,4 +1,4 @@
-# Trains for Planes: Exploring Potential High Speed Rail Routes to Replace Short-Haul Flights in the United States
+# Trains for Planes: Exploring Potential High Speed Rail Routes Alternatives to Short-Haul Flights in the United States
 
 ## Project Overview
 
@@ -38,11 +38,11 @@ At a high level, the workflow consists of the following steps:
 
 - Create visualizations. Use R and interactive HTML maps to compare the selected origin markets and explore the destinations associated with the highest-volume markets.
 
-The project uses passenger values derived from the DB1B sample. These values are useful for comparisons within the defined analytical scope but should not be interpreted as complete counts of all airline passengers considering that the DB1B sample is only a 10% sample of passenger flight itineraries. 
+The project uses passenger values derived from the DB1B sample. These values are useful for comparisons within the defined analytical scope but should not be interpreted as complete counts of all airline passengers considering that the DB1B sample is only a 10% sample of passenger flight tickets. 
 
 ## Evolution of the Project: 2022–2026
 
-While the 2019 BTW Origin and Destination Survey : DB1BCoupon remains the foundational source data for the project and the research question remained the same, several other source data files, along with their downstream SQL queries and R code, were changed in the 2026 revision.
+While the 2019 BTS Origin and Destination Survey : DB1BCoupon remains the foundational source data for the project and the research question remained the same, several other source data files, along with their downstream SQL queries and R code, were changed in the 2026 revision.
 
 ### Original analysis — 2022
 
@@ -68,7 +68,7 @@ The 2026 revision revisited the original workflow, its data sources, and its geo
 
 During this review, it was discovered that duplicate airport-code entries in the legacy reference data had inflated passenger totals for some origin-destination combinations. The revised SQL workflow removed the problematic airport-code joins and use BTS city-market identifiers and market-name reference data instead.
 
-The revised workflow also uses the U.S. Census Bureau's 2026 Gazetteer Places dataset for geographic reference information, replacing the SimpleMaps coordinates used in the original analysis. This was done because it became clear upon review that the SimpleMaps dataset wasn't allowed to be distributed without explicit permission. 
+The revised workflow also uses the U.S. Census Bureau's 2026 Gazetteer Places dataset for geographic reference information, replacing the SimpleMaps coordinates used in the original analysis. This was done because it became clear upon review that the SimpleMaps dataset could not be redistributed without confirming the applicable licensing permissions.  
 
 The 2026 outputs provide an updated view of the selected markets using the revised methodology. The historical 2022 workflow and its outputs are retained separately to document the project's development and preserve the distinction between the two analyses.
 
@@ -142,29 +142,29 @@ The maps are intended to help readers explore the geographic distribution of pas
 
 This project is an exploratory market-screening analysis. Its results should be interpreted with the following limitations in mind.
 
-Sampled passenger data: 
+**Sampled passenger data:** 
 
-BTS describes DB1B as a 10% sample of airline tickets. Passenger values calculated in this project come from the sampled records and are not complete counts of all airline passengers itineraries for 2019. 
+BTS describes DB1B as a 10% sample of airline tickets. Passenger values calculated in this project come from the sampled records and are not complete counts of all airline passengers tickets for 2019. 
 
-Project-defined distance range: 
+**Project-defined distance range:** 
 
 The 75–500 mile range is used to narrow the analysis. It is not necessarily the case that high speed rail is always the most time effective transportation option in distance range. This depends on a number of factors including car traffic, whether or not a rail route is non-stop or has intermediate stops, the distance from the airport to the city center amongst other factors.
 
-Air travel distance versus rail distance:
+**Air travel distance versus rail distance:**
 
 The distance field comes from the BTS airline data. It does not establish the distance, alignment, or travel time of a potential rail corridor. For example, rail lines on the ground would potentially have to navigate topographical features such as lakes, rivers, mountains and canyons. Such features could potentially force a rail alignment into a longer route than what a plane would have to fly to connect the same locations. 
 
-Additionally, the distance for these airline passenger itineraries is calculated from where the origin airport is physically located relative to the destination airport. It is generally the case that central urban rail terminals are positioned closer to the city center than airports. As a result, the distance between the airports of an origin and destination city may not be the same as the distance between two hypothetical central rail terminals.  
+Additionally, the distance for these airline passenger tickets is calculated from where the origin airport is physically located relative to the destination airport. It is generally the case that central urban rail terminals are positioned closer to the city center than airports. As a result, the distance between the airports of an origin and destination city may not be the same as the distance between two hypothetical central rail terminals.  
 
-Geographic representation:
+**Geographic representation:**
 
 City-market identifiers and geographic reference points serve different purposes. The coordinates used to visualize a market are geographic proxies and do not necessarily represent the boundaries or center of the corresponding metropolitan area.
 
-* No rail feasibility assessment: *
+**No rail feasibility assessment:**
 
 The project does not model rail construction costs, infrastructure requirements, operating costs, service frequency, door-to-door travel times, projected ridership, or economic feasibility. High passenger volume alone does not establish that a potential rail route would be viable.
 
-* Historical data and methodology: *
+**Historical data and methodology:**
 
 The 2022 analysis contains a documented data-quality issue involving duplicate airport-code reference entries. The revised 2026 analysis addresses this issue and its results should be understood as outputs of a revised workflow. 
 
@@ -174,10 +174,11 @@ The project could potentially be used as a part of a more sophisticated multivar
 
 Other relevant variables that could be added to the analysis in the future incldude:
 
-- Data on passenger volumes for car based transit (buses and personal vehicles)
-- Data analysis concerning the potential costs of a purposed rail alignment
-- A survey of the topographical conditions that exist between perspective rail routes
-- Forecasting of future demand for travel between U.S. cities and the associated revenue that this would generate
+- Passenger volumes for competing surface transportation modes, including buses and personal vehicles
+- Population density and the geographic distribution of potential passengers
+- Existing rail infrastructure and opportunities to connect with established transportation networks
+- Estimated construction and operating costs for proposed rail alignments
+- Forecasting future intercity travel demand and potential revenue
 
 ## Repository Documentation
 
@@ -193,7 +194,7 @@ The repository contains the main project overview and separate documentation for
 
 ## Conclusion
 
-Trains for Planes explores how publicly available transportation data can help identify potential high-speed rail routes by examining existing short-haul air travel demand.
+*Trains for Planes* explores how publicly available transportation data can help identify potential high-speed rail routes by examining existing short-haul air travel demand.
 
 Beyond the initial analysis, the project documents the process of revisiting an existing workflow, identifying a data-quality problem, updating geographic reference data, and preserving the historical outputs alongside a revised analysis.
 
