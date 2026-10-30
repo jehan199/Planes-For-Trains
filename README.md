@@ -1,6 +1,6 @@
 # Trains for Planes: Exploring Potential High Speed Rail Routes to Replace Short-Haul Flights in the United States
 
-## Project Overivew
+## Project Overview
 
 *Trains for Planes* is a data analysis project that seeks to use 2019 demand for domestic short-haul flights in the United States to determine which cities in the U.S. are best positioned to potentially pivot towards high speed rail as an alternative to air transportation. 
 
@@ -44,7 +44,7 @@ The project uses passenger values derived from the DB1B sample. These values are
 
 While the 2019 BTW Origin and Destination Survey : DB1BCoupon remains the foundational source data for the project and the research question remained the same, several other source data files, along with their downstream SQL queries and R code, were changed in the 2026 revision.
 
-# Original analysis — 2022
+### Original analysis — 2022
 
 The original workflow used BigQuery, Excel, geographic data from SimpleMaps U.S. Cities Basic v1.75, and R-based interactive visualizations.
 
@@ -62,7 +62,7 @@ The analysis identified 20 high-volume origin markets and examined the destinati
 
 The resulting maps provided a geographic view of short-haul air passenger volumes and the destinations connected to these markets.
 
-# Revised analysis — 2026
+### Revised analysis — 2026
 
 The 2026 revision revisited the original workflow, its data sources, and its geographic methodology.
 
@@ -74,7 +74,7 @@ The 2026 outputs provide an updated view of the selected markets using the revis
 
 The revisions demonstrate the importance of checking reference data, validating analytical assumptions, checking the rules that govern the redistribution of source data, and documenting methodological changes when revisiting an existing data project.
 
-# Interactive Visualizations
+## Interactive Visualizations
 
 The repository includes interactive HTML maps from both the original and revised analyses.
 
@@ -88,7 +88,7 @@ The visualizations include:
 
 The maps are intended to help readers explore the geographic distribution of passenger volumes and identify markets for potential high speed rail routes.
 
-# 2026 Revised Analysis
+### 2026 Revised Analysis
 
 - National map: Cities with the Most Short-Haul Flights — 2026
 
@@ -104,7 +104,7 @@ The maps are intended to help readers explore the geographic distribution of pas
 
 [View the 2026 outputs on GitHub](https://github.com/jehan199/Planes-For-Trains/releases#release-v1.0-2026-outputs)
 
-# 2022 Original Analysis 
+### 2022 Original Analysis 
 
 - Short-Haul Flight Cities
 
@@ -122,7 +122,7 @@ The maps are intended to help readers explore the geographic distribution of pas
 
 * Note that some external basemap providers used by the original interactive maps have changed their access policies since 2022. Consequently, certain basemaps may no longer function exactly as they did when the HTML files were originally created. *
 
-# Tools and data sources
+## Tools and data sources
 
 | Tool | Purpose |
 |:---|:---|
@@ -138,9 +138,7 @@ The maps are intended to help readers explore the geographic distribution of pas
 | U.S. Census Bureau Gazetteer Places, 2026 | Geographic reference data used in the revised analysis |
 | U.S. Census Bureau TIGER/Line Primary Roads, 2016 | Visual context both the 2022 and 2026 maps |
 
-Visual context in the historical maps
-
-# Limitations and Scope
+## Limitations and Scope
 
 This project is an exploratory market-screening analysis. Its results should be interpreted with the following limitations in mind.
 
@@ -162,15 +160,15 @@ Geographic representation:
 
 City-market identifiers and geographic reference points serve different purposes. The coordinates used to visualize a market are geographic proxies and do not necessarily represent the boundaries or center of the corresponding metropolitan area.
 
-No rail feasibility assessment:
+* No rail feasibility assessment: *
 
 The project does not model rail construction costs, infrastructure requirements, operating costs, service frequency, door-to-door travel times, projected ridership, or economic feasibility. High passenger volume alone does not establish that a potential rail route would be viable.
 
-Historical data and methodology:
+* Historical data and methodology: *
 
 The 2022 analysis contains a documented data-quality issue involving duplicate airport-code reference entries. The revised 2026 analysis addresses this issue and its results should be understood as outputs of a revised workflow. 
 
-# Potential for Expanded Scope and Future Research
+## Potential for Expanded Scope and Future Research
 
 The project could potentially be used as a part of a more sophisticated multivariable model to determine with greater accuracy which cities in the United States are best positioned to become hubs for high speed rail infrastructure.
 
@@ -181,7 +179,7 @@ Other relevant variables that could be added to the analysis in the future incld
 - A survey of the topographical conditions that exist between perspective rail routes
 - Forecasting of future demand for travel between U.S. cities and the associated revenue that this would generate
 
-# Repository Documentation
+## Repository Documentation
 
 The repository contains the main project overview and separate documentation for the two analytical workflows.
 
@@ -193,7 +191,7 @@ The repository contains the main project overview and separate documentation for
 
 - Supporting SQL, derived datasets, source data, R code, and generated outputs are organized under source_data/, with separate subfolders for 2022 and 2026 where applicable.
 
-# Conclusion
+## Conclusion
 
 Trains for Planes explores how publicly available transportation data can help identify potential high-speed rail routes by examining existing short-haul air travel demand.
 
